@@ -34,6 +34,13 @@
     "IDEVersion": "2023.1100.0.441",
   },
   "resources": [
+    {"id":{"name":"sFish","path":"sprites/sFish/sFish.yy",},},
+    {"id":{"name":"Debug","path":"scripts/Debug/Debug.yy",},},
+    {"id":{"name":"oTest","path":"objects/oTest/oTest.yy",},},
+    {"id":{"name":"Script2","path":"scripts/Script2/Script2.yy",},},
+    {"id":{"name":"oAnimationManager","path":"objects/oAnimationManager/oAnimationManager.yy",},},
+    {"id":{"name":"scrAnimationCore","path":"scripts/scrAnimationCore/scrAnimationCore.yy",},},
+    {"id":{"name":"sFishCharge","path":"sprites/sFishCharge/sFishCharge.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
   ],
   "RoomOrderNodes": [

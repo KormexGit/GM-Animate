@@ -16,5 +16,10 @@
     {"name":"Extensions","order":14,"path":"folders/Extensions.yy",},
     {"name":"Particle Systems","order":15,"path":"folders/Particle Systems.yy",},
   ],
-  "ResourceOrderSettings": [],
+  "ResourceOrderSettings": [
+    {"name":"sFish","order":1,"path":"sprites/sFish/sFish.yy",},
+    {"name":"Debug","order":2,"path":"scripts/Debug/Debug.yy",},
+    {"name":"Script2","order":1,"path":"scripts/Script2/Script2.yy",},
+    {"name":"oAnimationManager","order":1,"path":"objects/oAnimationManager/oAnimationManager.yy",},
+  ],
 }
