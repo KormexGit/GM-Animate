@@ -1,11 +1,11 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "scrAnimationCore",
+  "name": "Script5",
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
-    "name": "Animation",
-    "path": "folders/Animation.yy",
+    "name": "Scripts",
+    "path": "folders/Scripts.yy",
   },
 }

@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "scrAnimationCore",
+  "name": "scrAnimationMacros",
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
