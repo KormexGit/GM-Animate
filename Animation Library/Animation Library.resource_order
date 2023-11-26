@@ -1,6 +1,8 @@
 {
   "FolderOrderSettings": [
     {"name":"Animation Curves","order":11,"path":"folders/Animation Curves.yy",},
+    {"name":"Animation","order":15,"path":"folders/Animation.yy",},
+    {"name":"Configuration (Edit me!)","order":3,"path":"folders/Animation/Configuration (Edit me!).yy",},
     {"name":"Extensions","order":13,"path":"folders/Extensions.yy",},
     {"name":"Fonts","order":6,"path":"folders/Fonts.yy",},
     {"name":"Notes","order":12,"path":"folders/Notes.yy",},
@@ -14,8 +16,6 @@
     {"name":"Sounds","order":2,"path":"folders/Sounds.yy",},
     {"name":"Tile Sets","order":1,"path":"folders/Tile Sets.yy",},
     {"name":"Timelines","order":7,"path":"folders/Timelines.yy",},
-    {"name":"Animation","order":15,"path":"folders/Animation.yy",},
-    {"name":"Configuration (Edit me!)","order":3,"path":"folders/Animation/Configuration (Edit me!).yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"sFish","order":1,"path":"sprites/sFish/sFish.yy",},
@@ -24,6 +24,7 @@
     {"name":"sFishCharge3","order":2,"path":"sprites/sFishCharge3/sFishCharge3.yy",},
     {"name":"oAnimationManager","order":1,"path":"objects/oAnimationManager/oAnimationManager.yy",},
     {"name":"Script5","order":4,"path":"scripts/Script5/Script5.yy",},
+    {"name":"scrAnimationSetters","order":4,"path":"scripts/scrAnimationSetters/scrAnimationSetters.yy",},
     {"name":"scrAnimationMacros","order":1,"path":"scripts/scrAnimationMacros/scrAnimationMacros.yy",},
     {"name":"Sprite4","order":3,"path":"sprites/Sprite4/Sprite4.yy",},
     {"name":"scrAnimationGeneral","order":2,"path":"scripts/scrAnimationGeneral/scrAnimationGeneral.yy",},

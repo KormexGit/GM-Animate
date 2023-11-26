@@ -90,7 +90,3 @@ function animation_delete(_track) {
 	_animationsArray[_track] = 0;
 }
 
-
-function animation_set_frame(_frame, _track = 0) {
-	_animationsArray[_track].image_index = _frame;	
-}
