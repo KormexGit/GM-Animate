@@ -58,8 +58,8 @@ function animation(_sprite, _loop = true, _image_speed = 1) : animation_base() c
 
 function animation_play(_sprite, _loop = true, _track = 0) {
 	_animation_array_setup
-	_animationsArray[_track] = new animation(_sprite, _loop);
-	return _animationsArray[_track];
+	animations[_track] = new animation(_sprite, _loop);
+	return animations[_track];
 }
 
 function animation_draw(_x = x, _y = y, _track = 0) {
@@ -67,26 +67,26 @@ function animation_draw(_x = x, _y = y, _track = 0) {
 	if _animation_track_error(_track) {
 		return;	
 	}
-	_animationsArray[_track].draw(_x, _y);
-	return _animationsArray[_track];
+	animations[_track].draw(_x, _y);
+	return animations[_track];
 }
 
-function animation_get_struct(_track) {
+function animation_get(_track) {
 	_animation_array_error
 	if _animation_track_error(_track) {
 		return;	
 	}
-	return _animationsArray[_track];	
+	return animations[_track];	
 }
 
 function _animation_track_error(_track) {
-	if _track > array_length(_animationsArray) - 1 or _animationsArray[_track] == 0 {
+	if _track > array_length(animations) - 1 or animations[_track] == 0 {
 		show_debug_message("Warning! Tried to access a track that does not exist on " + object_get_name(object_index) + ", track number " + string(_track)); 
 		return true;
 	}
 }
 
 function animation_delete(_track) { 
-	_animationsArray[_track] = 0;
+	animations[_track] = 0;
 }
 
