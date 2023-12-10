@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "scrAttackPoint",
+  "name": "scrAttachPoint",
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
