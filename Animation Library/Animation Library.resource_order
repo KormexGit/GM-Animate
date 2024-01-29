@@ -2,6 +2,7 @@
   "FolderOrderSettings": [
     {"name":"Animation Curves","order":11,"path":"folders/Animation Curves.yy",},
     {"name":"Animation","order":15,"path":"folders/Animation.yy",},
+    {"name":"Animation Curves","order":9,"path":"folders/Animation/Animation Curves.yy",},
     {"name":"Attach Point Setter","order":8,"path":"folders/Animation/Attach Point Setter.yy",},
     {"name":"Configuration (Edit me!)","order":3,"path":"folders/Animation/Configuration (Edit me!).yy",},
     {"name":"Extensions","order":13,"path":"folders/Extensions.yy",},

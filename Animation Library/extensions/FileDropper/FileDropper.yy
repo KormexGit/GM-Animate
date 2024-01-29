@@ -1,7 +1,6 @@
 {
-  "resourceType": "GMExtension",
-  "resourceVersion": "1.2",
-  "name": "FileDropper",
+  "$GMExtension": "",
+  "%Name": "FileDropper",
   "androidactivityinject": "",
   "androidclassname": "",
   "androidcodeinjection": "",
@@ -13,21 +12,16 @@
   "author": "",
   "classname": "",
   "copyToTargets": -1,
-  "date": "2022-01-05T14:12:29.9051566-08:00",
   "description": "",
   "exportToGame": true,
   "extensionVersion": "0.0.1",
   "files": [
-    {"resourceType":"GMExtensionFile","resourceVersion":"1.0","name":"FileDropper.dll","constants":[],"copyToTargets":-1,"filename":"FileDropper.dll","final":"","functions":[
-        {"resourceType":"GMExtensionFunction","resourceVersion":"1.0","name":"file_dropper_init","argCount":0,"args":[
-            1,
-          ],"documentation":"","externalName":"file_drop_init","help":"file_dropper_init(window)","hidden":false,"kind":1,"returnType":2,},
-        {"resourceType":"GMExtensionFunction","resourceVersion":"1.0","name":"__file_dropper_count","argCount":0,"args":[],"documentation":"","externalName":"file_drop_count","help":"__file_dropper_count()","hidden":false,"kind":1,"returnType":2,},
-        {"resourceType":"GMExtensionFunction","resourceVersion":"1.0","name":"__file_dropper_get","argCount":0,"args":[
-            2,
-          ],"documentation":"","externalName":"file_drop_get","help":"__file_dropper_get(index)","hidden":false,"kind":1,"returnType":1,},
-        {"resourceType":"GMExtensionFunction","resourceVersion":"1.0","name":"file_dropper_flush","argCount":0,"args":[],"documentation":"","externalName":"file_drop_flush","help":"file_dropper_flush()","hidden":false,"kind":1,"returnType":2,},
-        {"resourceType":"GMExtensionFunction","resourceVersion":"1.0","name":"__file_dropper_version","argCount":0,"args":[],"documentation":"","externalName":"file_dropper_version","help":"__file_dropper_version()","hidden":false,"kind":1,"returnType":1,},
+    {"$GMExtensionFile":"","%Name":"FileDropper.dll","constants":[],"copyToTargets":-1,"filename":"FileDropper.dll","final":"","functions":[
+        {"$GMExtensionFunction":"","%Name":"file_dropper_init","argCount":0,"args":[1,],"documentation":"","externalName":"file_drop_init","help":"file_dropper_init(window)","hidden":false,"kind":1,"returnType":2,},
+        {"$GMExtensionFunction":"","%Name":"__file_dropper_count","argCount":0,"args":[],"documentation":"","externalName":"file_drop_count","help":"__file_dropper_count()","hidden":false,"kind":1,"returnType":2,},
+        {"$GMExtensionFunction":"","%Name":"__file_dropper_get","argCount":0,"args":[2,],"documentation":"","externalName":"file_drop_get","help":"__file_dropper_get(index)","hidden":false,"kind":1,"returnType":1,},
+        {"$GMExtensionFunction":"","%Name":"file_dropper_flush","argCount":0,"args":[],"documentation":"","externalName":"file_drop_flush","help":"file_dropper_flush()","hidden":false,"kind":1,"returnType":2,},
+        {"$GMExtensionFunction":"","%Name":"__file_dropper_version","argCount":0,"args":[],"documentation":"","externalName":"file_dropper_version","help":"__file_dropper_version()","hidden":false,"kind":1,"returnType":1,},
       ],"init":"","kind":1,"order":[
         {"name":"file_dropper_init","path":"extensions/FileDropper/FileDropper.yy",},
         {"name":"file_dropper_flush","path":"extensions/FileDropper/FileDropper.yy",},
