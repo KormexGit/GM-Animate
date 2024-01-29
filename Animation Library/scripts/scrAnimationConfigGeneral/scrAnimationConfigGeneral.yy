@@ -4,7 +4,7 @@
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
-    "name": "Configuration (Edit me!)",
-    "path": "folders/Animation/Configuration (Edit me!).yy",
+    "name": "Configuration (Edit Me!)",
+    "path": "folders/Animation/Configuration (Edit Me!).yy",
   },
 }

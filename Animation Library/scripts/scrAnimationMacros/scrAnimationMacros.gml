@@ -1,0 +1,1 @@
+#macro __animation_error_checks if _animation_array_error() or _animation_track_error(_track) {return;}

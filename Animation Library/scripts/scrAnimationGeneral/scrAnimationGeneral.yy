@@ -4,7 +4,7 @@
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
-    "name": "Animation",
-    "path": "folders/Animation.yy",
+    "name": "Internal Scripts (No Touchy!)",
+    "path": "folders/Animation/Internal Scripts (No Touchy!).yy",
   },
 }
