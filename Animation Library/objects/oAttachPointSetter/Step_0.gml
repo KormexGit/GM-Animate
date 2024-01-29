@@ -10,11 +10,10 @@ if (array_length(array) > 0) {
 		var fileString = filePath + "\\*.png";
 		var file_name = file_find_first(fileString, fa_none);
 
-		var spriteToAdd;
 		while (file_name != "")
 		{
 			var spritePath = filePath + "\\" + file_name;
-		    spriteToAdd = sprite_add(spritePath, 1, false, false, 0, 0);
+		    var spriteToAdd = sprite_add(spritePath, 1, false, false, 0, 0);
 			array_push(images, new sprite_data(spriteToAdd));
 			
 		    file_name = file_find_next();

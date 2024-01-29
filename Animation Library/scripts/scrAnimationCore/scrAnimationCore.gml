@@ -54,10 +54,11 @@ function animation(_sprite, _loop = true, _image_speed = 1) : animation_base() c
 	}
 }
 
-
+function animation_init() {
+	animations = [];
+}
 
 function animation_play(_sprite, _loop = true, _track = 0) {
-	_animation_array_setup
 	animations[_track] = new animation(_sprite, _loop);
 	return animations[_track];
 }
@@ -86,7 +87,7 @@ function _animation_track_error(_track) {
 	}
 }
 
-function animation_delete(_track) { 
+function animation_track_delete(_track) { 
 	animations[_track] = 0;
 }
 
