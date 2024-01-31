@@ -6,10 +6,22 @@ if keyboard_check_pressed(vk_up) {
 	animation_squash_and_strech(30, 10)
 }
 
-if animation_finished() {
-	debug("finished!");	
+if keyboard_check_pressed(vk_down) {
+	animation_queue_add(sJump);
+	animation_queue_add(sWalk);
 }
 
-if animation_arrived_at_frame(1) {
-	debug("on frame 1!");	
+if keyboard_check_pressed(vk_down) {
+	animation_queue_add(sJump);
+	animation_queue_add(sWalk);
+	animation_queue_add(sDodge);
+		animation_queue_add(sDodge);
+			animation_queue_add(sDodge);
+				animation_queue_add(sDodge);
+					animation_queue_add(sDodge);
+	animation_queue_add(sIdle);
+}
+
+if keyboard_check_pressed(vk_left) {
+	animation_queue_remove_sprite(sDodge)
 }

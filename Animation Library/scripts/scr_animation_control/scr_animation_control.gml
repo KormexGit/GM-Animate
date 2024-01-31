@@ -7,6 +7,22 @@ function animation_play(_sprite, _loop = true, _track = 0) {
 	return animations[_track];
 }
 
+/// Function Change an animation track to a different sprite without resetting effects or the queue
+/// @param {any*} _sprite Description
+/// @param {bool} [_loop]=true Description
+/// @param {real} [_track]=0 Description
+///
+function animation_change(_sprite, _loop = true, _track = 0) {
+	__animation_error_checks
+	
+	/// feather ignore once GM1049
+	with animations[_track] {
+		sprite_index = _sprite;
+		loop = _loop;
+		__animation_variable_setup();
+	}
+}
+
 function animation_draw(_x = x, _y = y, _track = 0) {
 	__animation_error_checks
 	
@@ -54,4 +70,12 @@ function animation_arrived_at_frame(_frame, _track = 0) {
 	else if animations[_track].new_frame == _frame {
 		return true;	
 	}
+}
+
+function animation_set_looping(_loop, _track = 0) {
+	animations[_track].loop = _loop;
+}
+
+function animation_get_looping(_track = 0) {
+	return animations[_track].loop;
 }

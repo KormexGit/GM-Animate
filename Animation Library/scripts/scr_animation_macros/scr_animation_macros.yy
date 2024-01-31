@@ -1,6 +1,6 @@
 {
   "$GMScript": "",
-  "%Name": "scrAnimationGeneral",
+  "%Name": "scr_animation_macros",
   "isCompatibility": false,
   "isDnD": false,
   "parent": {

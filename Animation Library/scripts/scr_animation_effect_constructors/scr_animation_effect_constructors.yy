@@ -1,6 +1,6 @@
 {
   "$GMScript": "",
-  "%Name": "scrAnimationMacros",
+  "%Name": "scr_animation_effect_constructors",
   "isCompatibility": false,
   "isDnD": false,
   "parent": {

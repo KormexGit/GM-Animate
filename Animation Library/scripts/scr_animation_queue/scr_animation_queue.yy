@@ -1,6 +1,6 @@
 {
   "$GMScript": "",
-  "%Name": "scrAnimationEffects",
+  "%Name": "scr_animation_queue",
   "isCompatibility": false,
   "isDnD": false,
   "parent": {

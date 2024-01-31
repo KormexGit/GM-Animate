@@ -15,19 +15,16 @@ global._animation_timesource = time_source_create(time_source_game, 1, time_sour
 )
 time_source_start(global._animation_timesource);
 
-function _animation_base() constructor {
-	animate = function() {}
-	draw = function() {}
-	var ref = weak_ref_create(self);
-	array_push(global._animation_array, ref);
-}
-
-function _animation(_sprite, _loop = true, _image_speed = 1) : _animation_base() constructor {
+function _animation(_sprite, _loop = true) constructor {
+	
+	static __animation_variable_setup = function() {
+		image_number = sprite_get_number(sprite_index);
+		sprite_speed = image_get_speed(sprite_index);
+	}
 	sprite_index = _sprite;
+	__animation_variable_setup();
 	image_index = 0;
-	image_speed = _image_speed;
-	image_number = sprite_get_number(sprite_index);
-	sprite_speed = image_get_speed(sprite_index);
+	image_speed = 1;
 	image_xscale = 1;
 	image_yscale = 1;
 	image_angle = 0;
@@ -45,6 +42,7 @@ function _animation(_sprite, _loop = true, _image_speed = 1) : _animation_base()
 	angle_offset = 0;
 	
 	effects = [];
+	queue = [];
 	
 	static reset_offsets = function() {
 		x_offset = 0;
@@ -79,12 +77,21 @@ function _animation(_sprite, _loop = true, _image_speed = 1) : _animation_base()
 		for (var i = array_length(effects) - 1; i > -1; i--;) {
 		    effects[i].step();
 		}
+		if finished and array_length(queue) > 0 {
+			var queue_data = array_shift(queue);
+			sprite_index = queue_data.sprite_index;
+			loop = queue_data.loop;
+			__animation_variable_setup();
+		}
 	}
 	
 	draw = function(_x = other.x, _y = other.y) {
 		draw_sprite_ext(sprite_index, image_index, _x + x_offset, _y + y_offset, image_xscale + xscale_offset, image_yscale + yscale_offset, 
 		image_angle + angle_offset, image_blend, image_alpha);
 	}
+	
+	var ref = weak_ref_create(self);
+	array_push(global._animation_array, ref);
 }
 
 function _animation_track_error(_track) {

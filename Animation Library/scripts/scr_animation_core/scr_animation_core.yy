@@ -1,6 +1,6 @@
 {
   "$GMScript": "",
-  "%Name": "scrAnimationCore",
+  "%Name": "scr_animation_core",
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
