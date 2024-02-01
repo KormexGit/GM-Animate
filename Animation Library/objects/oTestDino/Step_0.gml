@@ -12,4 +12,5 @@ if keyboard_check_pressed(vk_down) {
 }
 
 if keyboard_check_pressed(vk_left) {
+	animation_get(50);
 }

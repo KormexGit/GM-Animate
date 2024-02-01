@@ -9,3 +9,6 @@ anim2.image_yscale = 10;
 anim3 = animation_play(sBite, true, 2);
 anim3.image_xscale = 10;
 anim3.image_yscale = 10;
+
+
+animation_play(sBite, true, 55);

@@ -22,7 +22,7 @@ function animation_draw(_x = x, _y = y, _track = 0) {
 	__animation_error_checks
 	
 	animations[_track].draw(_x, _y);
-	return animations[_track];
+	return animations[_track];	
 }
 
 function animation_mask_sync(_track) {
@@ -46,11 +46,14 @@ function animation_exists(_track = 0) {
 }
 
 function animation_remove(_track) {
-	if array_length(animations) - 1 == _track {
-		array_delete(animations, _track, 1);	
-	}
-	else {
-		animations[_track] = 0;
+	animations[_track] = 0;
+	for (var i = array_length(animations) - 1; i > -1; i--;) {
+	    if animations[i] == 0 {
+			array_delete(animations, i, 1);	
+		}
+		else {
+			break;	
+		}
 	}
 }
 

@@ -16,11 +16,23 @@ global._animation_timesource = time_source_create(time_source_game, 1, time_sour
 time_source_start(global._animation_timesource);
 
 function _animation(_sprite, _loop = true) constructor {
-	
+	static __animation_get_speed = function(_sprite = sprite_index) {
+		//TY Tabularelf for this function!
+		var sprite_speed;
+		if sprite_get_speed_type(_sprite) == spritespeed_framespergameframe {
+			sprite_speed = sprite_get_speed(_sprite);
+		}
+		else {
+			sprite_speed = sprite_get_speed(_sprite)/game_get_speed(gamespeed_fps);
+		}
+		return sprite_speed;
+	}
+
 	static __animation_variable_setup = function() {
 		image_number = sprite_get_number(sprite_index);
-		sprite_speed = image_get_speed(sprite_index);
+		sprite_speed = __animation_get_speed(sprite_index);
 	}
+	
 	sprite_index = _sprite;
 	__animation_variable_setup();
 	image_index = 0;
@@ -45,7 +57,7 @@ function _animation(_sprite, _loop = true) constructor {
 	effects = [];
 	queue = [];
 	
-	static reset_offsets = function() {
+	static __reset_offsets = function() {
 		x_offset = 0;
 		y_offset = 0;
 		xscale_offset = 0;
@@ -53,7 +65,7 @@ function _animation(_sprite, _loop = true) constructor {
 		angle_offset = 0;
 	}
 	
-	animate = function() {
+	static animate = function() {
 		finished = false;
 		new_frame = -1;
 		if paused == false and image_speed > 0 {		
@@ -74,7 +86,7 @@ function _animation(_sprite, _loop = true) constructor {
 				}
 			}
 		}
-		reset_offsets();
+		__reset_offsets();
 		for (var i = array_length(effects) - 1; i > -1; i--;) {
 		    effects[i].step();
 		}
@@ -86,7 +98,7 @@ function _animation(_sprite, _loop = true) constructor {
 		}
 	}
 	
-	draw = function(_x = other.x, _y = other.y) {
+	static draw = function(_x = other.x, _y = other.y) {
 		draw_sprite_ext(sprite_index, image_index, _x + x_offset, _y + y_offset, image_xscale + xscale_offset, image_yscale + yscale_offset, 
 		image_angle + angle_offset, image_blend, image_alpha);
 	}
@@ -97,7 +109,7 @@ function _animation(_sprite, _loop = true) constructor {
 
 function _animation_track_error(_track) {
 	if _track > array_length(animations) - 1 or animations[_track] == 0 {
-		show_debug_message("Warning! Tried to access a track that does not exist on " + object_get_name(object_index) + ", track number " + string(_track)); 
+		show_error("Tried to access a track that does not exist on object " + object_get_name(object_index) + ", track " + string(_track) + ". \nMake sure the track is created first with animation_play() before using other functions on it.", true); 
 		return true;
 	}
 	return false;
@@ -105,7 +117,7 @@ function _animation_track_error(_track) {
 
 function _animation_array_error() {
 	if !variable_instance_exists(id, "animations") { 
-		show_debug_message("Warning! Tried to use an animation function on an object that did not call animation_init: " + object_get_name(object_index));
+		show_error("Tried to use an animation function on an object that never called animation_play: " + object_get_name(object_index) + "\nCall animation_play() on the object before using other animation functions.", true);
 		return true;
 	} 
 	return false;

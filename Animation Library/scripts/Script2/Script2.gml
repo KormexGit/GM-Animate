@@ -2,4 +2,4 @@
   Credits: TabularElf
 */
 
-/// @function image_get_speed
+/// @function __animation_get_speed
