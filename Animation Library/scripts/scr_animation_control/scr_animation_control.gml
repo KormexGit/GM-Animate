@@ -1,7 +1,3 @@
-function animation_init() {
-	animations = [];
-}
-
 function animation_play(_sprite, _loop = true, _track = 0) {
 	animations[_track] = new _animation(_sprite, _loop);
 	return animations[_track];
@@ -11,7 +7,6 @@ function animation_play(_sprite, _loop = true, _track = 0) {
 /// @param {any*} _sprite Description
 /// @param {bool} [_loop]=true Description
 /// @param {real} [_track]=0 Description
-///
 function animation_change(_sprite, _loop = true, _track = 0) {
 	__animation_error_checks
 	
@@ -30,14 +25,33 @@ function animation_draw(_x = x, _y = y, _track = 0) {
 	return animations[_track];
 }
 
+function animation_mask_sync(_track) {
+	
+}
+
 function animation_get(_track = 0) {
 	__animation_error_checks
 	
 	return animations[_track];	
 }
 
-function animation_remove(_track) { 
-	animations[_track] = 0;
+function animation_exists(_track = 0) {
+	if array_length(animations) <= _track or animations[_track] == 0 {
+		return false;	
+	}
+	if instanceof(animations[_track]) == "_animation" {
+		return true;	
+	}
+	return false;
+}
+
+function animation_remove(_track) {
+	if array_length(animations) - 1 == _track {
+		array_delete(animations, _track, 1);	
+	}
+	else {
+		animations[_track] = 0;
+	}
 }
 
 function animation_finished(_track = 0) {
@@ -72,10 +86,44 @@ function animation_arrived_at_frame(_frame, _track = 0) {
 	}
 }
 
+
+function animation_set_pause_all(_pause) {
+	if _pause == true {
+		time_source_pause(global._animation_timesource);
+	}
+	else if _pause == false {
+		time_source_resume(global._animation_timesource);
+	}
+}
+
+function animation_get_pause_all() {
+	var _state = time_source_get_state(global._animation_timesource);
+	if _state == time_source_state_paused {
+		return true;	
+	}
+	return false;
+}
+
+function animation_set_pause(_pause, _track = 0) {
+	__animation_error_checks
+	
+	animations[_track].paused = _pause;
+}
+
+function animation_get_pause(_track = 0) {
+	__animation_error_checks
+	
+	return animations[_track].paused;
+}
+
 function animation_set_looping(_loop, _track = 0) {
+	__animation_error_checks
+	
 	animations[_track].loop = _loop;
 }
 
 function animation_get_looping(_track = 0) {
+	__animation_error_checks
+	
 	return animations[_track].loop;
 }

@@ -52,7 +52,6 @@
     {"id":{"name":"FileDropper","path":"extensions/FileDropper/FileDropper.yy",},},
     {"id":{"name":"anim_curve_bounce","path":"animcurves/anim_curve_bounce/anim_curve_bounce.yy",},},
     {"id":{"name":"sFishCharge3","path":"sprites/sFishCharge3/sFishCharge3.yy",},},
-    {"id":{"name":"oAnimationManager","path":"objects/oAnimationManager/oAnimationManager.yy",},},
     {"id":{"name":"sJump","path":"sprites/sJump/sJump.yy",},},
     {"id":{"name":"anim_curve_ease_in","path":"animcurves/anim_curve_ease_in/anim_curve_ease_in.yy",},},
     {"id":{"name":"scrAttachPoint","path":"scripts/scrAttachPoint/scrAttachPoint.yy",},},

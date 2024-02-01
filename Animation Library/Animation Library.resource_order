@@ -31,7 +31,6 @@
     {"name":"FileDropper","order":3,"path":"extensions/FileDropper/FileDropper.yy",},
     {"name":"anim_curve_bounce","order":1,"path":"animcurves/anim_curve_bounce/anim_curve_bounce.yy",},
     {"name":"sFishCharge3","order":2,"path":"sprites/sFishCharge3/sFishCharge3.yy",},
-    {"name":"oAnimationManager","order":1,"path":"objects/oAnimationManager/oAnimationManager.yy",},
     {"name":"sJump","order":6,"path":"sprites/sJump/sJump.yy",},
     {"name":"scrAttachPoint","order":3,"path":"scripts/scrAttachPoint/scrAttachPoint.yy",},
     {"name":"Script5","order":4,"path":"scripts/Script5/Script5.yy",},

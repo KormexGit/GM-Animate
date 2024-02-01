@@ -63,3 +63,19 @@ function _animation_effect_squash_and_stretch(_duration, _scale, _curve, _track 
 		owner.animations[track].yscale_offset += lerp(0, scale, y_prog);
 	}
 }
+
+function _animation_effect_hitstop(_duration, _track = 0) : _animation_effect() constructor {
+	duration = _duration;
+	track = _track;
+	
+	step = function() {
+		if duration <= 0 {
+			var index = _animation_effect_get_index();
+			owner.animations[track].paused = false;
+			array_delete(owner.animations[track].effects, index, 1);
+			return;	
+		}
+		duration -= 1;
+		owner.animations[track].paused = true;
+	}
+}

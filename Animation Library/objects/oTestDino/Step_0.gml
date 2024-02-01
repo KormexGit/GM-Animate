@@ -1,27 +1,15 @@
 if keyboard_check_pressed(vk_space) {
 	animation_shake(30, 20);
+	animation_hitstop(50);
 }
 
 if keyboard_check_pressed(vk_up) {
-	animation_squash_and_strech(30, 10)
+	animation_remove(1);
 }
 
 if keyboard_check_pressed(vk_down) {
-	animation_queue_add(sJump);
-	animation_queue_add(sWalk);
-}
-
-if keyboard_check_pressed(vk_down) {
-	animation_queue_add(sJump);
-	animation_queue_add(sWalk);
-	animation_queue_add(sDodge);
-		animation_queue_add(sDodge);
-			animation_queue_add(sDodge);
-				animation_queue_add(sDodge);
-					animation_queue_add(sDodge);
-	animation_queue_add(sIdle);
+	animation_set_pause_all(!animation_get_pause_all());
 }
 
 if keyboard_check_pressed(vk_left) {
-	animation_queue_remove_sprite(sDodge)
 }

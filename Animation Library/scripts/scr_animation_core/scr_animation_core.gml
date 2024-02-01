@@ -31,6 +31,7 @@ function _animation(_sprite, _loop = true) constructor {
 	image_blend = c_white;
 	image_alpha = 1;
 	loop = _loop;
+	paused = false;
 	
 	finished = false;
 	new_frame = -1;
@@ -55,7 +56,7 @@ function _animation(_sprite, _loop = true) constructor {
 	animate = function() {
 		finished = false;
 		new_frame = -1;
-		if image_speed > 0 {		
+		if paused == false and image_speed > 0 {		
 			var previous_frame = floor(image_index);
 			image_index += sprite_speed * image_speed;
 			var current_frame = floor(image_index);
