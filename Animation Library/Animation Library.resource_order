@@ -5,16 +5,8 @@
     {"name":"Attach Point Setter","order":1,"path":"folders/Animation/Attach Point Setter.yy",},
     {"name":"Internal Scripts (No Touchy!)","order":3,"path":"folders/Animation/Internal Scripts (No Touchy!).yy",},
     {"name":"Public Scripts (Use But Don't Edit!)","order":4,"path":"folders/Animation/Public Scripts (Use But Don't Edit!).yy",},
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
   ],
   "ResourceOrderSettings": [
-=======
-=======
->>>>>>> parent of 964a7eb (Merge branch 'main' into Dev-Testing)
-=======
->>>>>>> Dev-Testing
     {"name":"File Dropper","order":16,"path":"folders/File Dropper.yy",},
     {"name":"Objects","order":8,"path":"folders/Objects.yy",},
     {"name":"Rooms","order":9,"path":"folders/Rooms.yy",},
@@ -28,13 +20,6 @@
     {"name":"sIdle","order":5,"path":"sprites/sIdle/sIdle.yy",},
     {"name":"sAreaBox","order":1,"path":"sprites/sAreaBox/sAreaBox.yy",},
     {"name":"Debug","order":2,"path":"scripts/Debug/Debug.yy",},
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> parent of 964a7eb (Merge branch 'main' into Dev-Testing)
-=======
->>>>>>> parent of 964a7eb (Merge branch 'main' into Dev-Testing)
-=======
->>>>>>> Dev-Testing
     {"name":"scr_animation_effect_constructors","order":4,"path":"scripts/scr_animation_effect_constructors/scr_animation_effect_constructors.yy",},
     {"name":"Script2","order":1,"path":"scripts/Script2/Script2.yy",},
     {"name":"FileDropper","order":3,"path":"extensions/FileDropper/FileDropper.yy",},
@@ -49,26 +34,10 @@
     {"name":"scr_animation_effects","order":1,"path":"scripts/scr_animation_effects/scr_animation_effects.yy",},
     {"name":"sPoint","order":2,"path":"sprites/sPoint/sPoint.yy",},
     {"name":"scr_animation_macros","order":2,"path":"scripts/scr_animation_macros/scr_animation_macros.yy",},
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
     {"name":"scr_animation_general","order":1,"path":"scripts/scr_animation_general/scr_animation_general.yy",},
     {"name":"scr_animation_queue","order":2,"path":"scripts/scr_animation_queue/scr_animation_queue.yy",},
     {"name":"Room1","order":2,"path":"rooms/Room1/Room1.yy",},
-=======
     {"name":"file_dropper_get_files","order":1,"path":"scripts/file_dropper_get_files/file_dropper_get_files.yy",},
-    {"name":"scr_animation_queue","order":2,"path":"scripts/scr_animation_queue/scr_animation_queue.yy",},
     {"name":"file_dropper_version","order":2,"path":"scripts/file_dropper_version/file_dropper_version.yy",},
->>>>>>> parent of 964a7eb (Merge branch 'main' into Dev-Testing)
-=======
-    {"name":"file_dropper_get_files","order":1,"path":"scripts/file_dropper_get_files/file_dropper_get_files.yy",},
-    {"name":"scr_animation_queue","order":2,"path":"scripts/scr_animation_queue/scr_animation_queue.yy",},
-    {"name":"file_dropper_version","order":2,"path":"scripts/file_dropper_version/file_dropper_version.yy",},
->>>>>>> parent of 964a7eb (Merge branch 'main' into Dev-Testing)
-=======
-    {"name":"file_dropper_get_files","order":1,"path":"scripts/file_dropper_get_files/file_dropper_get_files.yy",},
-    {"name":"scr_animation_queue","order":2,"path":"scripts/scr_animation_queue/scr_animation_queue.yy",},
-    {"name":"file_dropper_version","order":2,"path":"scripts/file_dropper_version/file_dropper_version.yy",},
->>>>>>> Dev-Testing
   ],
 }

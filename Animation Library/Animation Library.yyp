@@ -12,16 +12,6 @@
   "Folders": [
     {"$GMFolder":"","%Name":"Animation","folderPath":"folders/Animation.yy",},
     {"$GMFolder":"","%Name":"Animation Curves","folderPath":"folders/Animation/Animation Curves.yy",},
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    {"$GMFolder":"","%Name":"Internal Scripts (No Touchy!)","folderPath":"folders/Animation/Internal Scripts (No Touchy!).yy",},
-    {"$GMFolder":"","%Name":"Public Scripts (Use But Don't Edit!)","folderPath":"folders/Animation/Public Scripts (Use But Don't Edit!).yy",},
-=======
-=======
->>>>>>> parent of 964a7eb (Merge branch 'main' into Dev-Testing)
-=======
->>>>>>> Dev-Testing
     {"$GMFolder":"","%Name":"Attach Point Setter","folderPath":"folders/Animation/Attach Point Setter.yy",},
     {"$GMFolder":"","%Name":"Internal Scripts (No Touchy!)","folderPath":"folders/Animation/Internal Scripts (No Touchy!).yy",},
     {"$GMFolder":"","%Name":"Public Scripts (Use But Don't Edit!)","folderPath":"folders/Animation/Public Scripts (Use But Don't Edit!).yy",},
@@ -30,13 +20,6 @@
     {"$GMFolder":"","%Name":"Rooms","folderPath":"folders/Rooms.yy",},
     {"$GMFolder":"","%Name":"Scripts","folderPath":"folders/Scripts.yy",},
     {"$GMFolder":"","%Name":"TestSprites","folderPath":"folders/TestSprites.yy",},
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> parent of 964a7eb (Merge branch 'main' into Dev-Testing)
-=======
->>>>>>> parent of 964a7eb (Merge branch 'main' into Dev-Testing)
-=======
->>>>>>> Dev-Testing
   ],
   "IncludedFiles": [],
   "isEcma": false,
@@ -71,22 +54,9 @@
     {"id":{"name":"scr_animation_control","path":"scripts/scr_animation_control/scr_animation_control.yy",},},
     {"id":{"name":"sPoint","path":"sprites/sPoint/sPoint.yy",},},
     {"id":{"name":"scr_animation_macros","path":"scripts/scr_animation_macros/scr_animation_macros.yy",},},
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
     {"id":{"name":"scr_animation_general","path":"scripts/scr_animation_general/scr_animation_general.yy",},},
-=======
     {"id":{"name":"file_dropper","path":"scripts/file_dropper/file_dropper.yy",},},
     {"id":{"name":"file_dropper_get_files","path":"scripts/file_dropper_get_files/file_dropper_get_files.yy",},},
->>>>>>> parent of 964a7eb (Merge branch 'main' into Dev-Testing)
-=======
-    {"id":{"name":"file_dropper","path":"scripts/file_dropper/file_dropper.yy",},},
-    {"id":{"name":"file_dropper_get_files","path":"scripts/file_dropper_get_files/file_dropper_get_files.yy",},},
->>>>>>> parent of 964a7eb (Merge branch 'main' into Dev-Testing)
-=======
-    {"id":{"name":"file_dropper","path":"scripts/file_dropper/file_dropper.yy",},},
-    {"id":{"name":"file_dropper_get_files","path":"scripts/file_dropper_get_files/file_dropper_get_files.yy",},},
->>>>>>> Dev-Testing
     {"id":{"name":"scr_animation_queue","path":"scripts/scr_animation_queue/scr_animation_queue.yy",},},
     {"id":{"name":"file_dropper_version","path":"scripts/file_dropper_version/file_dropper_version.yy",},},
     {"id":{"name":"sFishCharge","path":"sprites/sFishCharge/sFishCharge.yy",},},
