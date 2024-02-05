@@ -84,6 +84,8 @@ function animation_exists(_track = 0) {
 	return false;
 }
 
+/// @desc Removes an animation track, deleting it entirely.
+/// @param {Real} _track The track to delete.
 function animation_remove(_track) {
 	if _track == all {
 		animations = [];
