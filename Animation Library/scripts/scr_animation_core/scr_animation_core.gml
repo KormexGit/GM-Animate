@@ -15,6 +15,9 @@ global._animation_timesource = time_source_create(time_source_game, 1, time_sour
 )
 time_source_start(global._animation_timesource);
 
+/// @desc The core animation constructor.       
+/// @param {asset.GMSprite} _sprite Sprite asset to animate
+/// @param {Bool} _loop Whether the animation should loopr not upon completion 
 function _animation(_sprite, _loop = true) constructor {
 	static __animation_get_speed = function(_sprite = sprite_index) {
 		//TY Tabularelf for this function!
@@ -85,10 +88,10 @@ function _animation(_sprite, _loop = true) constructor {
 					image_speed = 0;	
 				}
 			}
-		}
-		__reset_offsets();
-		for (var i = array_length(effects) - 1; i > -1; i--;) {
-		    effects[i].step();
+			__reset_offsets();
+			for (var i = array_length(effects) - 1; i > -1; i--;) {
+			    effects[i].step();
+			}
 		}
 		if finished and array_length(queue) > 0 {
 			var queue_data = array_shift(queue);

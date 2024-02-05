@@ -1,12 +1,20 @@
+/// @desc Plays an animation. 
+/// Creates a new animation struct, so if the specified track already has an animation playing, 
+/// effects, the animation queue, and variable changes will be reset.
+/// Use animation_change instead to change the sprite without resetting things.
+/// @param {asset.GMSprite} _sprite The sprite asset to animate.
+/// @param {Bool} _loop Whether the animation should loop or not upon completion.
+/// @param {Real} _track The track to play the animation on.
 function animation_play(_sprite, _loop = true, _track = 0) {
 	animations[_track] = new _animation(_sprite, _loop);
 	return animations[_track];
 }
 
-/// Function Change an animation track to a different sprite without resetting effects or the queue
-/// @param {any*} _sprite Description
-/// @param {bool} [_loop]=true Description
-/// @param {real} [_track]=0 Description
+/// @desc Change an animation track to a different sprite without resetting effects, the animation queue, or variables.
+/// The equivalent of changing sprite_index when using GameMaker's built in animation.
+/// @param {asset.GMSprite} _sprite The sprite asset to animate.
+/// @param {Bool} _loop Whether the animation should loop or not upon completion.
+/// @param {Real} _track The track to play the animation on.
 function animation_change(_sprite, _loop = true, _track = 0) {
 	__animation_error_checks
 	
@@ -18,6 +26,10 @@ function animation_change(_sprite, _loop = true, _track = 0) {
 	}
 }
 
+/// @desc Draw an animation. Should always be called in a draw related event.
+/// @param {Real} _x x coordinate.
+/// @param {Real} _y y coordinate.
+/// @param {Real} _track The track to play the animation on.
 function animation_draw(_x = x, _y = y, _track = 0) {
 	__animation_error_checks
 	
@@ -25,8 +37,21 @@ function animation_draw(_x = x, _y = y, _track = 0) {
 	return animations[_track];	
 }
 
-function animation_mask_sync(_track) {
-	
+/// @desc Set the instance's collision mask to match the specified animation track.
+/// WARNING: _use_scale and _use_angle will change the calling instance's image_xscale, image_yscale, and/or image_angle if set to true. 
+/// @param {Bool} _use_scale Whether to match the instance's image_xscale and image_yscale to the animation's image_xscale and image_yscale. 
+/// @param {Bool} _use_angle Whether to match the instance's image_angle to the animation's image_angle. 
+/// @param {Real} _track The track to get the sprite from to use as the collision mask.
+function animation_set_instance_mask(_use_scale, _use_angle, _track = 0) {
+	var anim = animations[_track];
+	mask_index = anim.sprite_index;
+	if _use_scale == true {
+		image_xscale = anim.image_xscale;
+		image_yscale = anim.image_yscale;
+	}
+	if _use_angle == true {
+		image_angle = anim.image_angle;	
+	}
 }
 
 function animation_get(_track = 0) {
@@ -90,7 +115,7 @@ function animation_arrived_at_frame(_frame, _track = 0) {
 }
 
 
-function animation_set_pause_all(_pause) {
+function animation_set_global_pause(_pause) {
 	if _pause == true {
 		time_source_pause(global._animation_timesource);
 	}
@@ -99,12 +124,20 @@ function animation_set_pause_all(_pause) {
 	}
 }
 
-function animation_get_pause_all() {
+function animation_get_global_pause() {
 	var _state = time_source_get_state(global._animation_timesource);
 	if _state == time_source_state_paused {
 		return true;	
 	}
 	return false;
+}
+
+function animation_set_pause_all(_pause) {
+	for (var i = 0, len = array_length(global._animation_array); i < len; i++;){
+		if weak_ref_alive(global._animation_array[i]) {
+			global._animation_array[i].ref.paused = _pause;
+		}
+	}
 }
 
 function animation_set_pause(_pause, _track = 0) {

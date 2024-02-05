@@ -4,11 +4,11 @@ if keyboard_check_pressed(vk_space) {
 }
 
 if keyboard_check_pressed(vk_up) {
-	animation_remove(1);
+	animation_set_pause_all(true);
 }
 
 if keyboard_check_pressed(vk_down) {
-	animation_set_pause_all(!animation_get_pause_all());
+	animation_set_pause_all(false);
 }
 
 if keyboard_check_pressed(vk_left) {
