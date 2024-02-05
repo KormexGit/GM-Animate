@@ -12,6 +12,8 @@
   "Folders": [
     {"$GMFolder":"","%Name":"Animation","folderPath":"folders/Animation.yy",},
     {"$GMFolder":"","%Name":"Animation Curves","folderPath":"folders/Animation/Animation Curves.yy",},
+    {"$GMFolder":"","%Name":"Internal Scripts (No Touchy!)","folderPath":"folders/Animation/Internal Scripts (No Touchy!).yy",},
+    {"$GMFolder":"","%Name":"Public Scripts (Use But Don't Edit!)","folderPath":"folders/Animation/Public Scripts (Use But Don't Edit!).yy",},
   ],
   "IncludedFiles": [],
   "isEcma": false,
@@ -27,6 +29,7 @@
     {"id":{"name":"scr_animation_effects","path":"scripts/scr_animation_effects/scr_animation_effects.yy",},},
     {"id":{"name":"scr_animation_control","path":"scripts/scr_animation_control/scr_animation_control.yy",},},
     {"id":{"name":"scr_animation_macros","path":"scripts/scr_animation_macros/scr_animation_macros.yy",},},
+    {"id":{"name":"scr_animation_general","path":"scripts/scr_animation_general/scr_animation_general.yy",},},
     {"id":{"name":"scr_animation_queue","path":"scripts/scr_animation_queue/scr_animation_queue.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
   ],

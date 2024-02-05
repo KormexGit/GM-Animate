@@ -5,7 +5,6 @@
 /// @param {asset.GMSprite} _sprite The sprite asset to animate.
 /// @param {Bool} _loop Whether the animation should loop or not upon completion.
 /// @param {Real} _track The track to play the animation on.
-/// @return {Struct}
 function animation_play(_sprite, _loop = true, _track = 0) {
 	animations[_track] = new _animation(_sprite, _loop);
 	return animations[_track];
@@ -30,16 +29,12 @@ function animation_change(_sprite, _loop = true, _track = 0) {
 /// @desc Draw an animation. Should always be called in a draw related event.
 /// @param {Real} _x x coordinate.
 /// @param {Real} _y y coordinate.
-/// @param {Real} _track The track to draw. Accepts `all`
+/// @param {Real} _track The track to play the animation on.
 function animation_draw(_x = x, _y = y, _track = 0) {
 	__animation_error_checks
-	if _track == all {
-		for (var i = 0, len = array_length(animations); i < len; ++i) {
-		    animations[i].draw(_x, _y);
-		}
-		return;
-	}
+	
 	animations[_track].draw(_x, _y);
+	return animations[_track];	
 }
 
 /// @desc Set the instance's collision mask to match the specified animation track.
@@ -60,7 +55,7 @@ function animation_set_instance_mask(_use_scale, _use_angle, _track = 0) {
 }
 
 /// @desc Returns the animation struck on the specified track. If all is passed as the track, it will return the full animation array.
-/// @param {Real} _track The track to get. Accepts `all`
+/// @param {Real} _track The track to get the sprite from to use as the collision mask.
 function animation_get(_track = 0) {
 	__animation_error_checks
 	if _track == all {
@@ -69,8 +64,6 @@ function animation_get(_track = 0) {
 	return animations[_track];	
 }
 
-/// @desc Returns whether an animation exists on the specified track.
-/// @param {Real} _track The track to check.
 function animation_exists(_track = 0) {
 	if !variable_instance_exists(id, "animations") { 
 		return false;
