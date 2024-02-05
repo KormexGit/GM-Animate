@@ -115,6 +115,9 @@ function _animation(_sprite, _loop = true) constructor {
 }
 
 function _animation_track_error(_track) {
+	if _track == all {
+		return false;	
+	}
 	if _track > array_length(animations) - 1 or animations[_track] == 0 {
 		show_error("Tried to access a track that does not exist on object " + object_get_name(object_index) + ", track " + string(_track) + ". \nMake sure the track is created first with animation_play() before using other functions on it.", true); 
 		return true;

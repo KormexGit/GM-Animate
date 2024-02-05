@@ -1,10 +1,10 @@
 if keyboard_check_pressed(vk_space) {
-	animation_shake(30, 20, all);
+	animation_shake(120, 20, all);
 	animation_hitstop(50);
 }
 
 if keyboard_check_pressed(vk_up) {
-	animation_set_pause_all(true);
+	animation_effect_cancel("shake", all);
 }
 
 if keyboard_check_pressed(vk_down) {
