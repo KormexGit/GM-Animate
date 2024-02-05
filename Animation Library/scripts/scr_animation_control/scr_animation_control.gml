@@ -56,7 +56,9 @@ function animation_set_instance_mask(_use_scale, _use_angle, _track = 0) {
 
 function animation_get(_track = 0) {
 	__animation_error_checks
-	
+	if _track == all {
+		return animations;	
+	}
 	return animations[_track];	
 }
 
@@ -71,6 +73,10 @@ function animation_exists(_track = 0) {
 }
 
 function animation_remove(_track) {
+	if _track == all {
+		animations = [];
+		return;
+	}
 	animations[_track] = 0;
 	for (var i = array_length(animations) - 1; i > -1; i--;) {
 	    if animations[i] == 0 {
@@ -141,7 +147,14 @@ function animation_set_pause_all(_pause) {
 
 function animation_set_pause(_pause, _track = 0) {
 	__animation_error_checks
-	
+	if _track == all {
+		for (var i = 0, len = array_length(animations); i < len; ++i) {
+		    if animations[i] != 0 {
+				animations[i].paused = _pause;	
+			}
+		}
+		return;
+	}
 	animations[_track].paused = _pause;
 }
 
@@ -153,6 +166,15 @@ function animation_get_pause(_track = 0) {
 
 function animation_set_looping(_loop, _track = 0) {
 	__animation_error_checks
+	if _track == all {
+		for (var i = 0, len = array_length(animations); i < len; ++i) {
+		    if animations[i] != 0 {
+				animations[i].loop = _pause;	
+			}
+		}
+		return;
+	}
+
 	
 	animations[_track].loop = _loop;
 }
