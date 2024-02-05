@@ -47,6 +47,7 @@ function _animation(_sprite, _loop = true) constructor {
 	image_alpha = 1;
 	loop = _loop;
 	paused = false;
+	effect_pause = false;
 	
 	finished = false;
 	new_frame = -1;
@@ -71,7 +72,10 @@ function _animation(_sprite, _loop = true) constructor {
 	static animate = function() {
 		finished = false;
 		new_frame = -1;
-		if paused == false and image_speed > 0 {		
+		if paused == true {
+			return;
+		}
+		if image_speed > 0 and effect_pause == false {
 			var previous_frame = floor(image_index);
 			image_index += sprite_speed * image_speed;
 			var current_frame = floor(image_index);
@@ -88,10 +92,10 @@ function _animation(_sprite, _loop = true) constructor {
 					image_speed = 0;	
 				}
 			}
-			__reset_offsets();
-			for (var i = array_length(effects) - 1; i > -1; i--;) {
-			    effects[i].step();
-			}
+		}
+		__reset_offsets();
+		for (var i = array_length(effects) - 1; i > -1; i--;) {
+			effects[i].step();
 		}
 		if finished and array_length(queue) > 0 {
 			var queue_data = array_shift(queue);

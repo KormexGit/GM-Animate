@@ -114,7 +114,6 @@ function animation_arrived_at_frame(_frame, _track = 0) {
 	}
 }
 
-
 function animation_set_global_pause(_pause) {
 	if _pause == true {
 		time_source_pause(global._animation_timesource);

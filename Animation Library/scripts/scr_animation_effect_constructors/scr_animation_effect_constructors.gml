@@ -1,6 +1,6 @@
 function _animation_effect() constructor {
 	owner = other.id;
-		
+	
 	step = function() {};
 	
 	_animation_effect_get_index = function() {
@@ -17,6 +17,7 @@ function _animation_effect_shake(_duration, _intensity, _track = 0) : _animation
 	duration = _duration;
 	intensity = _intensity;
 	track = _track;
+	name = "shake";
 	
 	step = function() {
 		if duration <= 0 {
@@ -37,6 +38,7 @@ function _animation_effect_squash_and_stretch(_duration, _scale, _curve, _track 
 	curve = _curve;
 	scale = _scale;
 	track = _track;
+	name = "squash_and_stretch";
 	
 	curve_progress = 0;
 	rate = 1/duration;
@@ -67,15 +69,16 @@ function _animation_effect_squash_and_stretch(_duration, _scale, _curve, _track 
 function _animation_effect_hitstop(_duration, _track = 0) : _animation_effect() constructor {
 	duration = _duration;
 	track = _track;
+	name = "hitstop";
 	
 	step = function() {
 		if duration <= 0 {
 			var index = _animation_effect_get_index();
-			owner.animations[track].paused = false;
+			owner.animations[track].effect_pause = false;
 			array_delete(owner.animations[track].effects, index, 1);
 			return;	
 		}
 		duration -= 1;
-		owner.animations[track].paused = true;
+		owner.animations[track].effect_pause = true;
 	}
 }
