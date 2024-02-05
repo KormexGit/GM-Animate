@@ -75,21 +75,34 @@ function _animation(_sprite, _loop = true) constructor {
 		if paused == true {
 			return;
 		}
-		if image_speed > 0 and effect_pause == false {
+		if image_speed != 0 and effect_pause == false {
 			var previous_frame = floor(image_index);
 			image_index += sprite_speed * image_speed;
 			var current_frame = floor(image_index);
 			if current_frame > previous_frame {
 				new_frame = current_frame;
 			}
-			
-			if image_index >= image_number {
-				finished = true;
-				if loop == true {
-					image_index = 0;	
+			if image_speed > 0 {
+				if image_index >= image_number {
+					finished = true;
+					if loop == true {
+						image_index = 0;	
+					}
+					else {
+						image_speed = 0;	
+					}
 				}
-				else {
-					image_speed = 0;	
+			}
+			else {
+				//Backwards animation
+				if image_index <= 0 {
+					finished = true;
+					if loop == true {
+						image_index = image_number;	
+					}
+					else {
+						image_speed = 0;	
+					}
 				}
 			}
 		}
@@ -118,6 +131,7 @@ function _animation_track_error(_track) {
 	if _track == all {
 		return false;	
 	}
+	//feather ignore once GM1044
 	if _track > array_length(animations) - 1 or animations[_track] == 0 {
 		show_error("Tried to access a track that does not exist on object " + object_get_name(object_index) + ", track " + string(_track) + ". \nMake sure the track is created first with animation_play() before using other functions on it.", true); 
 		return true;

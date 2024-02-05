@@ -47,9 +47,6 @@ function _animation_effect_squash_and_stretch(_duration, _scale, _curve, _track 
 	x_channel = animcurve_get_channel(curve, "x");
 	y_channel = animcurve_get_channel(curve, "y");
 	
-	//starting_xscale = 0;
-	//starting_yscale = 0;
-	
 	step = function() {
 		if curve_progress >= duration/game_get_speed(gamespeed_fps) {
 			var index = _animation_effect_get_index();

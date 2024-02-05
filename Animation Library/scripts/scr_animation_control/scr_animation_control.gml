@@ -63,6 +63,9 @@ function animation_get(_track = 0) {
 }
 
 function animation_exists(_track = 0) {
+	if !variable_instance_exists(id, "animations") { 
+		return false;
+	}
 	if array_length(animations) <= _track or animations[_track] == 0 {
 		return false;	
 	}
