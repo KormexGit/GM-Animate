@@ -4,14 +4,9 @@
     {"name":"Animation Curves","order":2,"path":"folders/Animation/Animation Curves.yy",},
     {"name":"Internal Scripts (No Touchy!)","order":3,"path":"folders/Animation/Internal Scripts (No Touchy!).yy",},
     {"name":"Public Scripts (Use But Don't Edit!)","order":4,"path":"folders/Animation/Public Scripts (Use But Don't Edit!).yy",},
-  ],
-  "ResourceOrderSettings": [
     {"name":"scr_animation_effect_constructors","order":4,"path":"scripts/scr_animation_effect_constructors/scr_animation_effect_constructors.yy",},
     {"name":"anim_curve_bounce","order":1,"path":"animcurves/anim_curve_bounce/anim_curve_bounce.yy",},
     {"name":"scr_animation_effects","order":1,"path":"scripts/scr_animation_effects/scr_animation_effects.yy",},
     {"name":"scr_animation_macros","order":2,"path":"scripts/scr_animation_macros/scr_animation_macros.yy",},
-    {"name":"scr_animation_general","order":1,"path":"scripts/scr_animation_general/scr_animation_general.yy",},
-    {"name":"scr_animation_queue","order":2,"path":"scripts/scr_animation_queue/scr_animation_queue.yy",},
-    {"name":"Room1","order":2,"path":"rooms/Room1/Room1.yy",},
   ],
 }
