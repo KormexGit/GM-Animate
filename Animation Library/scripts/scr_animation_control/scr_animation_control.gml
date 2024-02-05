@@ -54,6 +54,8 @@ function animation_set_instance_mask(_use_scale, _use_angle, _track = 0) {
 	}
 }
 
+/// @desc Returns the animation struck on the specified track. If all is passed as the track, it will return the full animation array.
+/// @param {Real} _track The track to get the sprite from to use as the collision mask.
 function animation_get(_track = 0) {
 	__animation_error_checks
 	if _track == all {

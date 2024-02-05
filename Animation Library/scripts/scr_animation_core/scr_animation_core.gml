@@ -20,7 +20,7 @@ time_source_start(global._animation_timesource);
 /// @param {Bool} _loop Whether the animation should loopr not upon completion 
 function _animation(_sprite, _loop = true) constructor {
 	static __animation_get_speed = function(_sprite = sprite_index) {
-		//TY Tabularelf for this function!
+		//TY Tabularelf for this function! I converted it from a ternary to an if/else cuz I can't read ternaries to save my life
 		var sprite_speed;
 		if sprite_get_speed_type(_sprite) == spritespeed_framespergameframe {
 			sprite_speed = sprite_get_speed(_sprite);
