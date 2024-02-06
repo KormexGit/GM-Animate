@@ -1,7 +1,8 @@
 /// @desc Adds a sprite to the end of the animation queue.
-/// @param {asset.GMSprite} _sprite The sprite asset to add to the queue.
-/// @param {Bool} _loop Whether the queued animation should loop when it finishes or not.
-/// @param {Real} _track The track queue the animation for.
+/// @param {asset.GMSprite} _sprite The sprite to add to the queue.
+/// @param {Bool} _loop Whether the queued animation should loop when it finishes. Note: if there are more animations queued after this one,
+/// then this argument won't make a difference.
+/// @param {Real} _track The track to queue the animation for.
 function animation_queue_add(_sprite, _loop = true, _track = 0) {
 	__animation_error_checks
 	
@@ -14,8 +15,9 @@ function animation_queue_add(_sprite, _loop = true, _track = 0) {
 /// @desc Inserts a sprite into the specified position in the queue.
 /// @param {asset.GMSprite} _sprite The sprite asset to add to the queue.
 /// @param {Real} _index The position in the queue to insert the animation into.
-/// @param {Bool} _loop Whether the queued animation should loop when it finishes or not.
-/// @param {Real} _track The track queue the animation for.
+/// @param {Bool} _loop Whether the queued animation should loop when it finishes. Note: if there are more animations queued after this one,
+/// then this argument won't make a difference.
+/// @param {Real} _track The track to queue the animation for.
 function animation_queue_insert(_sprite, _index, _loop = true, _track = 0) {
 	__animation_error_checks
 	
@@ -25,7 +27,7 @@ function animation_queue_insert(_sprite, _index, _loop = true, _track = 0) {
 	});	
 }
 
-/// @desc Removes all instances of a sprite from the queue.
+/// @desc Removes a sprite from the queue. If the sprite has been queued multiple times, all of them will be removed.
 /// @param {asset.GMSprite} _sprite The sprite to remove.
 /// @param {Real} _track The track of the queue to remove from.
 function animation_queue_remove_sprite(_sprite, _track = 0) {
@@ -63,7 +65,7 @@ function animation_queue_clear(_track = 0) {
 	array_resize(animations[_track].queue, 0);
 }
 
-/// @desc Returns the length of the animation queue.
+/// @desc Returns how the number of queued animations.
 /// @param {Real} _track The track of the queue to check.
 function animation_queue_get_length(_track = 0) {
 	__animation_error_checks
@@ -73,7 +75,7 @@ function animation_queue_get_length(_track = 0) {
 
 /// @desc Returns an array of all queued sprites.
 /// @param {Real} _track The track of the queue to check.
-function animation_queue_get_array(_track = 0) {
+function animation_queue_get(_track = 0) {
 	__animation_error_checks
 	
 	return animations[_track].queue;	

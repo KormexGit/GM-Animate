@@ -1,9 +1,7 @@
 function __animation_effect() constructor {
 	owner = other.id;
-	
-	step = function() {};
-	
-	__animation_effect_get_index = function() {
+		
+	static __animation_effect_get_index = function() {
 		var effect_array = owner.animations[track].effects;
 		for (var i = 0, len = array_length(effect_array); i < len; ++i) {
 		    if effect_array[i] == self {
@@ -19,7 +17,7 @@ function __animation_effect_shake(_duration, _intensity, _track = 0) : __animati
 	track = _track;
 	name = "shake";
 	
-	step = function() {
+	static step = function() {
 		if duration <= 0 {
 			var index = __animation_effect_get_index();
 			array_delete(owner.animations[track].effects, index, 1);
@@ -43,11 +41,10 @@ function __animation_effect_squash_and_stretch(_duration, _scale, _curve, _track
 	curve_progress = 0;
 	rate = 1/duration;
 	
-	
 	x_channel = animcurve_get_channel(curve, "x");
 	y_channel = animcurve_get_channel(curve, "y");
 	
-	step = function() {
+	static step = function() {
 		if curve_progress >= duration/game_get_speed(gamespeed_fps) {
 			var index = __animation_effect_get_index();
 			array_delete(owner.animations[track].effects, index, 1);
@@ -59,8 +56,6 @@ function __animation_effect_squash_and_stretch(_duration, _scale, _curve, _track
 		var y_prog = animcurve_channel_evaluate(y_channel, curve_progress);
 
 		owner.animations[track].xscale_offset += lerp(0, scale, x_prog);
-		debug(scale)
-		debug(owner.animations[track].xscale_offset)
 		owner.animations[track].yscale_offset += lerp(0, scale, y_prog);
 	}
 }
@@ -70,7 +65,7 @@ function __animation_effect_hitstop(_duration, _track = 0) : __animation_effect(
 	track = _track;
 	name = "hitstop";
 	
-	step = function() {
+	static step = function() {
 		if duration <= 0 {
 			var index = __animation_effect_get_index();
 			owner.animations[track].effect_pause = false;
