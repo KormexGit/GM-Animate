@@ -1,15 +1,7 @@
 {
   "FolderOrderSettings": [
-    {"name":"Attach Point Setter","order":1,"path":"folders/Animation/Attach Point Setter.yy",},
     {"name":"Internal Scripts (No Touchy!)","order":2,"path":"folders/Animation/Internal Scripts (No Touchy!).yy",},
     {"name":"Public Scripts (Use But Don't Edit!)","order":3,"path":"folders/Animation/Public Scripts (Use But Don't Edit!).yy",},
-    {"name":"File Dropper","order":6,"path":"folders/Animation/Attach Point Setter/File Dropper.yy",},
   ],
-  "ResourceOrderSettings": [
-    {"name":"scrSaveLoad","order":2,"path":"scripts/scrSaveLoad/scrSaveLoad.yy",},
-    {"name":"sAreaBox","order":1,"path":"sprites/sAreaBox/sAreaBox.yy",},
-    {"name":"scrAttachPoint","order":4,"path":"scripts/scrAttachPoint/scrAttachPoint.yy",},
-    {"name":"sDirectionArrow","order":5,"path":"sprites/sDirectionArrow/sDirectionArrow.yy",},
-    {"name":"sPoint","order":3,"path":"sprites/sPoint/sPoint.yy",},
-  ],
+  "ResourceOrderSettings": [],
 }
