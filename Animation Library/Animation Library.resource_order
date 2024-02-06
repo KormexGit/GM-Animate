@@ -2,6 +2,15 @@
   "FolderOrderSettings": [
     {"name":"Internal Scripts (No Touchy!)","order":2,"path":"folders/Animation/Internal Scripts (No Touchy!).yy",},
     {"name":"Public Scripts (Use But Don't Edit!)","order":3,"path":"folders/Animation/Public Scripts (Use But Don't Edit!).yy",},
+    {"name":"For Testing","order":1,"path":"folders/For Testing.yy",},
   ],
-  "ResourceOrderSettings": [],
+  "ResourceOrderSettings": [
+    {"name":"sBite","order":1,"path":"sprites/sBite/sBite.yy",},
+    {"name":"sDodge","order":2,"path":"sprites/sDodge/sDodge.yy",},
+    {"name":"sIdle","order":3,"path":"sprites/sIdle/sIdle.yy",},
+    {"name":"Debug","order":6,"path":"scripts/Debug/Debug.yy",},
+    {"name":"sJump","order":4,"path":"sprites/sJump/sJump.yy",},
+    {"name":"sWalk","order":5,"path":"sprites/sWalk/sWalk.yy",},
+    {"name":"Room1","order":7,"path":"rooms/Room1/Room1.yy",},
+  ],
 }
