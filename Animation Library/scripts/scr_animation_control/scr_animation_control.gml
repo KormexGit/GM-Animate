@@ -6,7 +6,7 @@
 /// @param {Bool} _loop Whether the animation should loop or not upon completion.
 /// @param {Real} _track The track to play the animation on.
 function animation_play(_sprite, _loop = true, _track = 0) {
-	animations[_track] = new _animation(_sprite, _loop);
+	animations[_track] = new __animation(_sprite, _loop);
 	return animations[_track];
 }
 
@@ -78,7 +78,7 @@ function animation_exists(_track = 0) {
 	if array_length(animations) <= _track or animations[_track] == 0 {
 		return false;	
 	}
-	if instanceof(animations[_track]) == "_animation" {
+	if instanceof(animations[_track]) == "__animation" {
 		return true;	
 	}
 	return false;

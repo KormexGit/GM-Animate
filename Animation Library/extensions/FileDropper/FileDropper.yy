@@ -54,7 +54,7 @@
   "packageId": "",
   "parent": {
     "name": "File Dropper",
-    "path": "folders/File Dropper.yy",
+    "path": "folders/Animation/Attach Point Setter/File Dropper.yy",
   },
   "productId": "",
   "sourcedir": "",

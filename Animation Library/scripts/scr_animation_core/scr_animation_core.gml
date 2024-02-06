@@ -18,7 +18,7 @@ time_source_start(global._animation_timesource);
 /// @desc The core animation constructor.       
 /// @param {asset.GMSprite} _sprite Sprite asset to animate
 /// @param {Bool} _loop Whether the animation should loopr not upon completion 
-function _animation(_sprite, _loop = true) constructor {
+function __animation(_sprite, _loop = true) constructor {
 	static __animation_get_speed = function(_sprite = sprite_index) {
 		//TY Tabularelf for this function! I converted it from a ternary to an if/else cuz I can't read ternaries to save my life
 		var sprite_speed;
@@ -127,7 +127,7 @@ function _animation(_sprite, _loop = true) constructor {
 	array_push(global._animation_array, ref);
 }
 
-function _animation_track_error(_track) {
+function __animation_track_error(_track) {
 	if _track == all {
 		return false;	
 	}
@@ -139,7 +139,7 @@ function _animation_track_error(_track) {
 	return false;
 }
 
-function _animation_array_error() {
+function __animation_array_error() {
 	if !variable_instance_exists(id, "animations") { 
 		show_error("Tried to use an animation function on an object that never called animation_play: " + object_get_name(object_index) + "\nCall animation_play() on the object before using other animation functions.", true);
 		return true;

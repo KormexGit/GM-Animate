@@ -1,9 +1,9 @@
-function _animation_effect() constructor {
+function __animation_effect() constructor {
 	owner = other.id;
 	
 	step = function() {};
 	
-	_animation_effect_get_index = function() {
+	__animation_effect_get_index = function() {
 		var effect_array = owner.animations[track].effects;
 		for (var i = 0, len = array_length(effect_array); i < len; ++i) {
 		    if effect_array[i] == self {
@@ -13,7 +13,7 @@ function _animation_effect() constructor {
 	}
 }
 
-function _animation_effect_shake(_duration, _intensity, _track = 0) : _animation_effect() constructor {	
+function __animation_effect_shake(_duration, _intensity, _track = 0) : __animation_effect() constructor {	
 	duration = _duration;
 	intensity = _intensity;
 	track = _track;
@@ -21,7 +21,7 @@ function _animation_effect_shake(_duration, _intensity, _track = 0) : _animation
 	
 	step = function() {
 		if duration <= 0 {
-			var index = _animation_effect_get_index();
+			var index = __animation_effect_get_index();
 			array_delete(owner.animations[track].effects, index, 1);
 			return;
 		}
@@ -33,7 +33,7 @@ function _animation_effect_shake(_duration, _intensity, _track = 0) : _animation
 	}
 }
 
-function _animation_effect_squash_and_stretch(_duration, _scale, _curve, _track = 0) : _animation_effect() constructor {
+function __animation_effect_squash_and_stretch(_duration, _scale, _curve, _track = 0) : __animation_effect() constructor {
 	duration = _duration;
 	curve = _curve;
 	scale = _scale;
@@ -49,7 +49,7 @@ function _animation_effect_squash_and_stretch(_duration, _scale, _curve, _track 
 	
 	step = function() {
 		if curve_progress >= duration/game_get_speed(gamespeed_fps) {
-			var index = _animation_effect_get_index();
+			var index = __animation_effect_get_index();
 			array_delete(owner.animations[track].effects, index, 1);
 			return;
 		}
@@ -63,14 +63,14 @@ function _animation_effect_squash_and_stretch(_duration, _scale, _curve, _track 
 	}
 }
 
-function _animation_effect_hitstop(_duration, _track = 0) : _animation_effect() constructor {
+function __animation_effect_hitstop(_duration, _track = 0) : __animation_effect() constructor {
 	duration = _duration;
 	track = _track;
 	name = "hitstop";
 	
 	step = function() {
 		if duration <= 0 {
-			var index = _animation_effect_get_index();
+			var index = __animation_effect_get_index();
 			owner.animations[track].effect_pause = false;
 			array_delete(owner.animations[track].effects, index, 1);
 			return;	
