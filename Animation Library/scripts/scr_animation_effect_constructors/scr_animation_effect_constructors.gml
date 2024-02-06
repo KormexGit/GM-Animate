@@ -59,6 +59,8 @@ function __animation_effect_squash_and_stretch(_duration, _scale, _curve, _track
 		var y_prog = animcurve_channel_evaluate(y_channel, curve_progress);
 
 		owner.animations[track].xscale_offset += lerp(0, scale, x_prog);
+		debug(scale)
+		debug(owner.animations[track].xscale_offset)
 		owner.animations[track].yscale_offset += lerp(0, scale, y_prog);
 	}
 }

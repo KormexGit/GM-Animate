@@ -4,10 +4,7 @@ if keyboard_check_pressed(vk_space) {
 }
 
 if keyboard_check_pressed(vk_up) {
-	anim.image_speed = -1;
-}
-if animation_finished() {
-	debug("Hey");	
+	animation_squash_and_strech(60, 10);
 }
 
 if keyboard_check_pressed(vk_down) {

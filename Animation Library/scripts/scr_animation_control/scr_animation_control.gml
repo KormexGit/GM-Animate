@@ -85,7 +85,7 @@ function animation_exists(_track = 0) {
 }
 
 /// @desc Removes an animation track, deleting it entirely.
-/// @param {Real} _track The track to delete.
+/// @param {Real} _track The track to delete. Accepts `all`
 function animation_remove(_track) {
 	if _track == all {
 		animations = [];
@@ -102,12 +102,17 @@ function animation_remove(_track) {
 	}
 }
 
+/// @desc Checks if an animation finished this frame.
+/// @param {Real} _track The track to check.
 function animation_finished(_track = 0) {
 	__animation_error_checks
 	
 	return animations[_track].finished;
 }
 
+/// @desc Check if an animation is currently on the specified frame. Can return true multiple steps in a row.
+/// @param {Real} _frame The frame to check.
+/// @param {Real} _track The track to check.
 function animation_on_frame(_frame, _track = 0) {
 	if is_array(_frame) {
 		for (var i = 0, len = array_length(_frame); i < len; ++i) {
@@ -121,6 +126,9 @@ function animation_on_frame(_frame, _track = 0) {
 	}
 }
 
+/// @desc Check if an animation is arrived at the specified frame this step. Will only return true the first step it arrives at that frame.
+/// @param {Real} _frame The frame to check.
+/// @param {Real} _track The track to check.
 function animation_arrived_at_frame(_frame, _track = 0) {
 	if is_array(_frame) {
 		for (var i = 0, len = array_length(_frame); i < len; ++i) {
@@ -134,6 +142,8 @@ function animation_arrived_at_frame(_frame, _track = 0) {
 	}
 }
 
+/// @desc Pauses or unpauses the global animation timesource. This will pause ALL animations, including ones started after calling this function.
+/// @param {Bool} _pause Whether to pause or unpause. 
 function animation_set_global_pause(_pause) {
 	if _pause == true {
 		time_source_pause(global._animation_timesource);
@@ -143,6 +153,7 @@ function animation_set_global_pause(_pause) {
 	}
 }
 
+/// @desc Returns whether the global animation timesource is currently paused or unpaused.
 function animation_get_global_pause() {
 	var _state = time_source_get_state(global._animation_timesource);
 	if _state == time_source_state_paused {
@@ -151,6 +162,9 @@ function animation_get_global_pause() {
 	return false;
 }
 
+/// @desc Pauses or unpauses all animations that currently exist in the whole game. This will not pause new calls of animation_play that happen after.
+/// Good choice over animation_set_global_pause if you want to pause gameplay sprites and still use the animation system for pause menu elements.
+/// @param {Bool} _pause Whether to pause or unpause. 
 function animation_set_pause_all(_pause) {
 	for (var i = 0, len = array_length(global._animation_array); i < len; i++;){
 		if weak_ref_alive(global._animation_array[i]) {
@@ -159,6 +173,9 @@ function animation_set_pause_all(_pause) {
 	}
 }
 
+/// @desc Pauses or unpauses the animation on the specified track. Pass `all` as the track to set all tracks at once.
+/// @param {Bool} _pause Whether to pause or unpause. 
+/// @param {Real} _track The track to set.
 function animation_set_pause(_pause, _track = 0) {
 	__animation_error_checks
 	if _track == all {
@@ -172,12 +189,28 @@ function animation_set_pause(_pause, _track = 0) {
 	animations[_track].paused = _pause;
 }
 
+/// @desc Checks if the specified track is currently paused or not. Pass `all` as the track to check if every track is paused.
+/// @param {Real} _track The track to check. Accepts `all`
 function animation_get_pause(_track = 0) {
 	__animation_error_checks
 	
+	if _track == all {
+		var _all_paused = true;
+		for (var i = 0, len = array_length(animations); i < len; ++i) {
+		    if animations[i] != 0 {
+				if animations[i].paused == false {
+					return false;	
+				}
+			}
+		}
+		return _all_paused;
+	}
 	return animations[_track].paused;
 }
 
+/// @desc Sets looping for the animation on the specified track. Pass `all` as the track to set all tracks at once.
+/// @param {Bool} _loop Whether to loop or stop looping.
+/// @param {Real} _track The track to set. Accepts `all`
 function animation_set_looping(_loop, _track = 0) {
 	__animation_error_checks
 	if _track == all {
@@ -188,11 +221,11 @@ function animation_set_looping(_loop, _track = 0) {
 		}
 		return;
 	}
-
-	
 	animations[_track].loop = _loop;
 }
 
+/// @desc Checks if the specified track is currently looping or not.
+/// @param {Real} _track The track to check.
 function animation_get_looping(_track = 0) {
 	__animation_error_checks
 	

@@ -15,9 +15,6 @@ global._animation_timesource = time_source_create(time_source_game, 1, time_sour
 )
 time_source_start(global._animation_timesource);
 
-/// @desc The core animation constructor.       
-/// @param {asset.GMSprite} _sprite Sprite asset to animate
-/// @param {Bool} _loop Whether the animation should loopr not upon completion 
 function __animation(_sprite, _loop = true) constructor {
 	static __animation_get_speed = function(_sprite = sprite_index) {
 		//TY Tabularelf for this function! I converted it from a ternary to an if/else cuz I can't read ternaries to save my life

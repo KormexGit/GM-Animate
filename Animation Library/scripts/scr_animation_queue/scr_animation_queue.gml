@@ -1,18 +1,36 @@
+/// @desc Adds a sprite to the end of the animation queue.
+/// @param {asset.GMSprite} _sprite The sprite asset to add to the queue.
+/// @param {Bool} _loop Whether the queued animation should loop when it finishes or not.
+/// @param {Real} _track The track queue the animation for.
 function animation_queue_add(_sprite, _loop = true, _track = 0) {
+	__animation_error_checks
+	
 	array_push(animations[_track].queue, {
 		sprite_index : _sprite,
 		loop : _loop
 	});	
 }
 
+/// @desc Inserts a sprite into the specified position in the queue.
+/// @param {asset.GMSprite} _sprite The sprite asset to add to the queue.
+/// @param {Real} _index The position in the queue to insert the animation into.
+/// @param {Bool} _loop Whether the queued animation should loop when it finishes or not.
+/// @param {Real} _track The track queue the animation for.
 function animation_queue_insert(_sprite, _index, _loop = true, _track = 0) {
+	__animation_error_checks
+	
 	array_insert(animations[_track].queue, _index, {
 		sprite_index : _sprite,
 		loop : _loop
 	});	
 }
 
+/// @desc Removes all instances of a sprite from the queue.
+/// @param {asset.GMSprite} _sprite The sprite to remove.
+/// @param {Real} _track The track of the queue to remove from.
 function animation_queue_remove_sprite(_sprite, _track = 0) {
+	__animation_error_checks
+	
 	var queue = animations[_track].queue;
 	for (var i = array_length(queue) - 1; i > -1; i--) {
 	    if queue[i].sprite_index == _sprite {
@@ -21,31 +39,52 @@ function animation_queue_remove_sprite(_sprite, _track = 0) {
 	}
 }
 
+/// @desc Removes whatever sprite is in the queue at the specified position.
+/// @param {Real} _index The position to remove.
+/// @param {Real} _track The track of the queue to remove from.
 function animation_queue_remove_index(_index, _track = 0) {
+	__animation_error_checks
+	
 	var queue = animations[_track].queue;
 	if array_length(queue) - 1 >= _index {
 		array_delete(queue, _index, 1);
 	}
 	else {
-		show_debug_message("Animation warning: tried to use animation_queue_remove_index on an index that didn't exist");	
+		show_debug_message("Animation warning: tried to use animation_queue_remove_index on an index that didn't exist. Object: " +
+		object_get_name(object_index) + ", index: " + string(_index), + ", queue length: " + string(animation_queue_get_length(_track)));	
 	}
 }
 
-
+/// @desc Clears the animation queue, removing all queued animations.
+/// @param {Real} _track The track of the queue to clear.
 function animation_queue_clear(_track = 0) {
+	__animation_error_checks
+	
 	array_resize(animations[_track].queue, 0);
 }
 
+/// @desc Returns the length of the animation queue.
+/// @param {Real} _track The track of the queue to check.
 function animation_queue_get_length(_track = 0) {
+	__animation_error_checks
+	
 	return array_length(animations[_track].queue);
 }
 
+/// @desc Returns an array of all queued sprites.
+/// @param {Real} _track The track of the queue to check.
 function animation_queue_get_array(_track = 0) {
+	__animation_error_checks
+	
 	return animations[_track].queue;	
 }
 
-//returns the first position an animation is in
+/// @desc Returns the first position in the queue that the specified sprite is at. Returns -1 if the sprite is not present in the queue.
+/// @param {asset.GMSprite} _sprite The sprite to check for.
+/// @param {Real} _track The track of the queue to check.
 function animation_queue_get_index(_sprite, _track = 0) {
+	__animation_error_checks
+	
 	var queue = animations[_track].queue;
 	for (var i = 0, len = array_length(queue); i < len; ++i) {
 	    if queue[i].sprite_index == _sprite {
@@ -55,7 +94,12 @@ function animation_queue_get_index(_sprite, _track = 0) {
 	return -1;
 }
 
+/// @desc Returns an array of all positions in the queue that the specified sprite is at. Returns -1 if the sprite is not present in the queue.
+/// @param {asset.GMSprite} _sprite The sprite to check for.
+/// @param {Real} _track The track of the queue to check.
 function animation_queue_get_all_index(_sprite, _track = 0) {
+	__animation_error_checks
+	
 	var positions = [];
 	var queue = animations[_track].queue;
 	for (var i = 0, len = array_length(queue); i < len; ++i) {
