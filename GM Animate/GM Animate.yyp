@@ -45,13 +45,13 @@
   ],
   "Folders": [
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"GM Animate","folderPath":"folders/GM Animate.yy","order":11,},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Sample Platformer","folderPath":"folders/Sample Platformer.yy","order":12,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Animation Curves","folderPath":"folders/GM Animate/Animation Curves.yy","order":1,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Internal Scripts (No touchy!)","folderPath":"folders/GM Animate/Internal Scripts (No touchy!).yy","order":2,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Public Scripts (Use but don't edit!)","folderPath":"folders/GM Animate/Public Scripts (Use but don't edit!).yy","order":3,},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Player","folderPath":"folders/Sample Platformer/Player.yy","order":1,},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Sample Platformer","folderPath":"folders/Sample Platformer.yy","order":12,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Enemy","folderPath":"folders/Sample Platformer/Enemy.yy","order":2,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Environment","folderPath":"folders/Sample Platformer/Environment.yy","order":3,},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Player","folderPath":"folders/Sample Platformer/Player.yy","order":1,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Sprites","folderPath":"folders/Sample Platformer/Player/Sprites.yy","order":1,},
   ],
   "AudioGroups": [

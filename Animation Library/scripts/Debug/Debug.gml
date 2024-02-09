@@ -1,1 +1,0 @@
-#macro debug show_debug_message
