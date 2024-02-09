@@ -3,7 +3,7 @@ function __animation_effect() constructor {
 		
 	static __animation_effect_get_index = function() {
 		var _effect_array = owner.animations[track].effects;
-		for (var i = 0, _len = array_length(effect_array); i < _len; ++i) {
+		for (var i = 0, _len = array_length(_effect_array); i < _len; ++i) {
 		    if _effect_array[i] == self {
 				return i;
 			}
@@ -60,9 +60,10 @@ function __animation_effect_squash_and_stretch(_duration, _scale, _curve, _rever
 
 		var _x_prog = animcurve_channel_evaluate(x_channel, curve_progress);
 		var _y_prog = animcurve_channel_evaluate(y_channel, curve_progress);
-
-		owner.animations[track].xscale_offset += lerp(0, scale, _x_prog);
-		owner.animations[track].yscale_offset += lerp(0, scale, _y_prog);
+		
+		var anim = owner.animations[track];
+		anim.xscale_offset += (lerp(0, scale, _x_prog) * sign(anim.image_xscale));
+		anim.yscale_offset += (lerp(0, scale, _y_prog) * sign(anim.image_yscale));
 	}
 }
 

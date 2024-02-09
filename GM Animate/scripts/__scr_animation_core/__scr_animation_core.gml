@@ -86,7 +86,8 @@ function __animation(_sprite, _loop = true) constructor {
 						image_index = 0;	
 					}
 					else {
-						image_speed = 0;	
+						image_speed = 0;
+						image_index = image_number - 1;
 					}
 				}
 			}
@@ -98,6 +99,7 @@ function __animation(_sprite, _loop = true) constructor {
 						image_index = image_number;	
 					}
 					else {
+						image_index = 0;
 						image_speed = 0;	
 					}
 				}
@@ -108,8 +110,11 @@ function __animation(_sprite, _loop = true) constructor {
 			effects[i].step();
 		}
 		if finished and array_length(queue) > 0 {
-			var _queue_data = array_shift(queue);
+			var _queue_data = queue[0];
+			array_delete(queue, 0, 1);
 			sprite_index = _queue_data.sprite_index;
+			image_index = 0;
+			image_speed = 1;
 			loop = _queue_data.loop;
 			__animation_variable_setup();
 		}

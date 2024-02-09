@@ -1,3 +1,10 @@
-var _hor_input = keyboard_check(ord("D")) - keyboard_check(ord("A"));
-var _vert_input = keyboard_check(ord("S")) - keyboard_check(ord("W"));
-var _jump_key = keyboard_check_pressed(vk_space);
+hor_input = keyboard_check(ord("D")) - keyboard_check(ord("A"));
+key_jump = keyboard_check_pressed(vk_space);
+key_attack = mouse_check_button_pressed(mb_left);
+key_run = keyboard_check(vk_shift);
+
+state.step();
+
+if hsp != 0 {
+	anim.image_xscale = sign(hsp);
+}
