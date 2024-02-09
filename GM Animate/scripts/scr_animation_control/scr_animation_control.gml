@@ -18,14 +18,17 @@ function animation_play(_sprite, _loop = true, _track = 0) {
 /// @param {Real} _track The track to change the animation on.
 function animation_change(_sprite, _starting_image_index = 0, _loop = true, _track = 0) {
 	__animation_error_checks
-	
+
 	with animations[_track] {
-		sprite_index = _sprite;
-		if _starting_image_index != -1 {
-			image_index = _starting_image_index;
+		if sprite_index != _sprite {
+			image_speed = 1;
+			sprite_index = _sprite;
+			if _starting_image_index != -1 {
+				image_index = _starting_image_index;
+			}
+			loop = _loop;
+			__animation_variable_setup();
 		}
-		loop = _loop;
-		__animation_variable_setup();
 	}
 }
 
@@ -55,6 +58,7 @@ function animation_draw(_x = x, _y = y, _track = 0) {
 function animation_set_instance_mask(_use_scale = false, _use_angle = false, _track = 0) {
 	var _anim = animations[_track];
 	mask_index = _anim.sprite_index;
+	image_index = _anim.image_index;
 	if _use_scale == true {
 		image_xscale = _anim.image_xscale;
 		image_yscale = _anim.image_yscale;
