@@ -99,7 +99,7 @@ function animation_queue_get_index(_sprite, _track = 0) {
 /// @desc Returns an array of all positions in the queue that the specified sprite is at. Returns -1 if the sprite is not present in the queue.
 /// @param {asset.GMSprite} _sprite The sprite to check for.
 /// @param {Real} _track The track of the queue to check.
-function animation_queue_get_all_index(_sprite, _track = 0) {
+function animation_queue_get_all_indexes(_sprite, _track = 0) {
 	__animation_error_checks
 	
 	var _positions = [];

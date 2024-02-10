@@ -94,11 +94,11 @@ function animation_exists(_track = 0) {
 	return false;
 }
 
-/// @desc Removes the animation on the specified track, deleting it entirely.
+/// @desc Removes the specified animation track, deleting it entirely.
 /// @param {Real} _track The track to delete. Pass `all` to remove all animations from every track.
 function animation_remove(_track) {
 	if _track == all {
-		animations = [];
+		array_resize(animations, 0);
 		return;
 	}
 	animations[_track] = 0;
@@ -139,7 +139,7 @@ function animation_on_frame(_frame, _track = 0) {
 /// @desc Checks if an animation arrived at the specified frame this step. Will only return true the first step the animation is on that frame.
 /// @param {Real} _frame The frame to check.
 /// @param {Real} _track The track to check.
-function animation_arrived_at_frame(_frame, _track = 0) {
+function animation_enter_frame(_frame, _track = 0) {
 	if is_array(_frame) {
 		for (var i = 0, _len = array_length(_frame); i < _len; ++i) {
 			if animations[_track].new_frame == _frame[i] {
