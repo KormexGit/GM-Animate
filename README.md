@@ -11,7 +11,9 @@ GM Animate is made to be beginner friendly, with functions that resemble how Gam
 - Effects!
   - Squash and strech with animation curves. Use an included curve or make your own!
   - Shake. Like a screen shake, but just for one sprite.
+  - Hitstop. Stop an animation for a specified number of frames.
 
 ### Planned features for the future:
+- Animation events
 - Attachment point editor
 - Functions to automatically keep animations attached to eachother at the chosen points/angles
