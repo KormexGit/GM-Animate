@@ -57,6 +57,7 @@ function __animation(_sprite, _loop = true) constructor {
 	
 	effects = [];
 	queue = [];
+	events = [];
 	
 	static __reset_offsets = function() {
 		x_offset = 0;
@@ -105,9 +106,19 @@ function __animation(_sprite, _loop = true) constructor {
 				}
 			}
 		}
+		for (var i = array_length(events) - 1; i > -1; i--;) {
+			if events[i].frame == all {
+				events[i].callback();
+				continue;
+			}
+			if events[i].frame == new_frame {
+				events[i].callback();
+			}
+		}
+		
 		__reset_offsets();
-		for (var i = array_length(effects) - 1; i > -1; i--;) {
-			effects[i].step();
+		for (var j = array_length(effects) - 1; j > -1; j--;) {
+			effects[j].step();
 		}
 		if finished and array_length(queue) > 0 {
 			var _queue_data = queue[0];
@@ -121,7 +132,8 @@ function __animation(_sprite, _loop = true) constructor {
 	}
 	
 	static draw = function(_x = other.x, _y = other.y) {
-		draw_sprite_ext(sprite_index, image_index, _x + x_offset, _y + y_offset, image_xscale + xscale_offset, image_yscale + yscale_offset, 
+		draw_sprite_ext(sprite_index, image_index, _x + x_offset, _y + y_offset, image_xscale + (xscale_offset * image_xscale), 
+		image_yscale + (yscale_offset * image_yscale), 
 		image_angle + angle_offset, image_blend, image_alpha);
 	}
 	
