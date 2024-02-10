@@ -6,13 +6,13 @@ To get started with GM Animate, [download the .yymps file](https://github.com/Ko
 ### Features:
 - Play multiple sprite animations on one object
 - Check if an animation has finished or is on a specified frame
-- Animation queue to run animations in sequence
+- Animation queue to automatically play animations one after another
+- Pause or unpause all animations in the game at once
 - Effects!
   - Squash and strech with animation curves. Use an included curve or make your own!
   - Shake. Like a screen shake, but just for one sprite.
   - Hitstop. Stop an animation for a specified number of frames.
 
 ### Planned features for the future:
-- Animation events
 - Attachment point editor
 - Functions to automatically keep animations attached to eachother at the chosen points/angles
