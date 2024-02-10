@@ -35,6 +35,9 @@ collision_and_move = function() {
 idle = new create_state();
 idle.enter = function() {
 	animation_change(sprKnight_Idle_Bow);
+	animation_event_add(5, function() {
+		show_debug_message(image_index);	
+	})
 }
 idle.step = function() {
 	collision_and_move();
@@ -108,7 +111,7 @@ jump = new create_state();
 jump.enter = function() {
 	animation_change(sprKnight_Jump_Up_Bow, 0, false);
 	animation_queue_add(sprKnight_Jump_Airborne_Bow, true);
-	animation_squash_and_strech(300, 0.4, undefined, true);
+	animation_squash_and_strech(30, 0.4, undefined, true);
 	vsp = -jump_speed;
 }
 jump.step = function() {

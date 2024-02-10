@@ -37,6 +37,7 @@
   "creationCodeFile": "",
   "inheritCode": false,
   "instanceCreationOrder": [
+    {"name":"inst_734B1EB7","path":"rooms/Room1/Room1.yy",},
     {"name":"inst_45BCBEE","path":"rooms/Room1/Room1.yy",},
     {"name":"inst_445AD8B2","path":"rooms/Room1/Room1.yy",},
     {"name":"inst_39F30541","path":"rooms/Room1/Room1.yy",},
@@ -44,7 +45,6 @@
     {"name":"inst_2DFC414E","path":"rooms/Room1/Room1.yy",},
     {"name":"inst_5449EA20","path":"rooms/Room1/Room1.yy",},
     {"name":"inst_99EEE63","path":"rooms/Room1/Room1.yy",},
-    {"name":"inst_734B1EB7","path":"rooms/Room1/Room1.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,

@@ -57,6 +57,7 @@
     {"id":{"name":"sprKnight_Jump_Fall","path":"sprites/sprKnight_Jump_Fall/sprKnight_Jump_Fall.yy",},"order":5,},
     {"id":{"name":"sprKnight_Roll","path":"sprites/sprKnight_Roll/sprKnight_Roll.yy",},"order":7,},
     {"id":{"name":"sndWin1","path":"sounds/sndWin1/sndWin1.yy",},"order":6,},
+    {"id":{"name":"__scr_animation_events","path":"scripts/__scr_animation_events/__scr_animation_events.yy",},"order":3,},
     {"id":{"name":"SFX_Skeleton_Run1","path":"sounds/SFX_Skeleton_Run1/SFX_Skeleton_Run1.yy",},"order":10,},
     {"id":{"name":"tsStone","path":"tilesets/tsStone/tsStone.yy",},"order":2,},
     {"id":{"name":"sprKnight_Attack_Sword_Light","path":"sprites/sprKnight_Attack_Sword_Light/sprKnight_Attack_Sword_Light.yy",},"order":1,},
