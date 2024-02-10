@@ -57,6 +57,8 @@ function animation_draw(_x = x, _y = y, _track = 0) {
 /// @param {Bool} _use_angle Whether to match the instance's image_angle to the animation's image_angle. 
 /// @param {Real} _track The track to get the sprite from to use as the collision mask.
 function animation_set_instance_mask(_use_scale = false, _use_angle = false, _track = 0) {
+	__animation_error_checks
+	
 	var _anim = animations[_track];
 	mask_index = _anim.sprite_index;
 	image_index = _anim.image_index;
@@ -97,6 +99,8 @@ function animation_exists(_track = 0) {
 /// @desc Removes the specified animation track, deleting it entirely.
 /// @param {Real} _track The track to delete. Pass `all` to remove all animations from every track.
 function animation_remove(_track) {
+	__animation_error_checks
+	
 	if _track == all {
 		array_resize(animations, 0);
 		return;
@@ -121,9 +125,11 @@ function animation_finished(_track = 0) {
 }
 
 /// @desc Checks if an animation is currently on the specified frame. Can return true multiple steps in a row.
-/// @param {Real} _frame The frame to check.
+/// @param {Real|Array<Real>} _frame The frame to check, or an array of frames to check.
 /// @param {Real} _track The track to check.
 function animation_on_frame(_frame, _track = 0) {
+	__animation_error_checks
+	
 	if is_array(_frame) {
 		for (var i = 0, _len = array_length(_frame); i < _len; ++i) {
 			if floor(animations[_track].image_index) == _frame[i] {
@@ -137,9 +143,11 @@ function animation_on_frame(_frame, _track = 0) {
 }
 
 /// @desc Checks if an animation arrived at the specified frame this step. Will only return true the first step the animation is on that frame.
-/// @param {Real} _frame The frame to check.
+/// @param {Real|Array<Real>} _frame The frame to check, or an array of frames to check.
 /// @param {Real} _track The track to check.
 function animation_enter_frame(_frame, _track = 0) {
+	__animation_error_checks
+	
 	if is_array(_frame) {
 		for (var i = 0, _len = array_length(_frame); i < _len; ++i) {
 			if animations[_track].new_frame == _frame[i] {
@@ -151,6 +159,7 @@ function animation_enter_frame(_frame, _track = 0) {
 		return true;	
 	}
 }
+
 
 /// @desc Pauses or unpauses the global animation timesource. This will pause ALL animations, including ones started after calling this function.
 /// @param {Bool} _pause Whether to pause or unpause. 
