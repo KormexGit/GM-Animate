@@ -1,3 +1,5 @@
+//feather ignore all
+
 global._animation_array = [];
 
 global._animation_timesource = time_source_create(time_source_game, 1, time_source_units_frames, 
