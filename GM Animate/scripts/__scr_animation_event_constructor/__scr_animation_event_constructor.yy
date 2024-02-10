@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "__scr_animation_events",
+  "name": "__scr_animation_event_constructor",
   "isDnD": false,
   "isCompatibility": false,
   "parent": {

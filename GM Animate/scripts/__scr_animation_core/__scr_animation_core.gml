@@ -107,6 +107,10 @@ function __animation(_sprite, _loop = true) constructor {
 			}
 		}
 		for (var i = array_length(events) - 1; i > -1; i--;) {
+			if events[i].frame == all {
+				events[i].callback();
+				continue;
+			}
 			if events[i].frame == new_frame {
 				events[i].callback();
 			}

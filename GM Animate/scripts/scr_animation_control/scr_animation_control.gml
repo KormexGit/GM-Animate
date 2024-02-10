@@ -27,6 +27,7 @@ function animation_change(_sprite, _starting_image_index = 0, _loop = true, _tra
 				image_index = _starting_image_index;
 			}
 			loop = _loop;
+			array_resize(events, 0);
 			__animation_variable_setup();
 		}
 	}
