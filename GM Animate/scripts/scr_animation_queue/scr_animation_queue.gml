@@ -21,24 +21,22 @@ function animation_queue_add(_sprite, _loop = true, _track = 0) {
 function animation_queue_insert(_sprite, _index, _loop = true, _track = 0) {
 	__animation_error_checks
 	
+	if _index > array_length(animations[_track].queue) {
+		animation_queue_add(_sprite, _loop, _track);
+		return;
+	}
 	array_insert(animations[_track].queue, _index, {
 		sprite_index : _sprite,
 		loop : _loop
 	});	
 }
 
-/// @desc Removes a sprite from the queue. If the sprite has been queued multiple times, all of them will be removed.
-/// @param {asset.GMSprite} _sprite The sprite to remove.
-/// @param {Real} _track The track of the queue to remove from.
-function animation_queue_remove_sprite(_sprite, _track = 0) {
+/// @desc Clears the animation queue, removing all queued animations.
+/// @param {Real} _track The track of the queue to clear.
+function animation_queue_clear(_track = 0) {
 	__animation_error_checks
 	
-	var _queue = animations[_track].queue;
-	for (var i = array_length(queue) - 1; i > -1; i--) {
-	    if _queue[i].sprite_index == _sprite {
-			array_delete(_queue, i, 1);
-		}
-	}
+	array_resize(animations[_track].queue, 0);
 }
 
 /// @desc Removes whatever sprite is in the queue at the specified position.
@@ -57,12 +55,18 @@ function animation_queue_remove_index(_index, _track = 0) {
 	}
 }
 
-/// @desc Clears the animation queue, removing all queued animations.
-/// @param {Real} _track The track of the queue to clear.
-function animation_queue_clear(_track = 0) {
+/// @desc Removes a sprite from the queue. If the sprite has been queued multiple times, all of them will be removed.
+/// @param {asset.GMSprite} _sprite The sprite to remove.
+/// @param {Real} _track The track of the queue to remove from.
+function animation_queue_remove_sprite(_sprite, _track = 0) {
 	__animation_error_checks
 	
-	array_resize(animations[_track].queue, 0);
+	var _queue = animations[_track].queue;
+	for (var i = array_length(queue) - 1; i > -1; i--) {
+	    if _queue[i].sprite_index == _sprite {
+			array_delete(_queue, i, 1);
+		}
+	}
 }
 
 /// @desc Returns how the number of queued animations.

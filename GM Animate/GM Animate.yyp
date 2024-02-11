@@ -102,6 +102,7 @@
     {"id":{"name":"SFX_Skeleton_Run4","path":"sounds/SFX_Skeleton_Run4/SFX_Skeleton_Run4.yy",},"order":13,},
     {"id":{"name":"sprKnight_Die_Sword","path":"sprites/sprKnight_Die_Sword/sprKnight_Die_Sword.yy",},"order":3,},
     {"id":{"name":"SFX_Pickup_Sword","path":"sounds/SFX_Pickup_Sword/SFX_Pickup_Sword.yy",},"order":14,},
+    {"id":{"name":"scr_animation_pausing","path":"scripts/scr_animation_pausing/scr_animation_pausing.yy",},"order":4,},
     {"id":{"name":"SFX_Knight_Run4","path":"sounds/SFX_Knight_Run4/SFX_Knight_Run4.yy",},"order":15,},
     {"id":{"name":"SFX_Knight_Run3","path":"sounds/SFX_Knight_Run3/SFX_Knight_Run3.yy",},"order":14,},
     {"id":{"name":"SFX_Knight_Walk4","path":"sounds/SFX_Knight_Walk4/SFX_Knight_Walk4.yy",},"order":26,},
