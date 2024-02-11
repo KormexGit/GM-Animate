@@ -23,7 +23,9 @@ function animation_change(_sprite, _starting_image_index = 0, _loop = true, _tra
 
 	with animations[_track] {
 		if sprite_index != _sprite {
-			image_speed = 1;
+			if loop == false and image_speed == 0 {
+				image_speed = 1;
+			}
 			sprite_index = _sprite;
 			if _starting_image_index != -1 {
 				image_index = _starting_image_index;
@@ -103,7 +105,7 @@ function animation_exists(_track = 0) {
 
 /// @desc Removes the specified animation track, deleting it entirely.
 /// @param {Real} _track The track to delete. Pass `all` to remove all animations from every track.
-function animation_remove(_track) {
+function animation_delete(_track) {
 	__animation_error_checks
 	
 	if _track == all {
@@ -139,12 +141,12 @@ function animation_on_frame(_frame, _track = 0) {
 	
 	if is_array(_frame) {
 		for (var i = 0, _len = array_length(_frame); i < _len; ++i) {
-			if floor(animations[_track].image_index) == _frame[i] {
+			if floor(animations[_track].image_index) == floor(_frame[i]) {
 				return true;	
 			}
 		}
 	}
-	else if floor(animations[_track].image_index) == _frame {
+	else if floor(animations[_track].image_index) == floor(_frame) {
 		return true;	
 	}
 }
@@ -158,12 +160,12 @@ function animation_enter_frame(_frame, _track = 0) {
 	
 	if is_array(_frame) {
 		for (var i = 0, _len = array_length(_frame); i < _len; ++i) {
-			if animations[_track].new_frame == _frame[i] {
+			if animations[_track].new_frame == floor(_frame[i]) {
 				return true;	
 			}
 		}
 	}
-	else if animations[_track].new_frame == _frame {
+	else if animations[_track].new_frame == floor(_frame) {
 		return true;	
 	}
 }
