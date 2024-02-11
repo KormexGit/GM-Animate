@@ -51,7 +51,7 @@ function __animation_effect_squash_and_stretch(_duration, _scale, _curve, _rever
 	}
 	
 	static step = function() {
-		if curve_progress >= duration/game_get_speed(gamespeed_fps) {
+		if curve_progress >= 1 {
 			var _index = __animation_effect_get_index();
 			array_delete(owner.animations[track].effects, _index, 1);
 			return;
