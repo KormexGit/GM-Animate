@@ -3,6 +3,7 @@
   "resourceVersion": "1.6",
   "name": "GM Animate",
   "resources": [
+    {"id":{"name":"obj_arrow","path":"objects/obj_arrow/obj_arrow.yy",},"order":6,},
     {"id":{"name":"SFX_Knight_Jump","path":"sounds/SFX_Knight_Jump/SFX_Knight_Jump.yy",},"order":9,},
     {"id":{"name":"sprKnight_Idle_Sword","path":"sprites/sprKnight_Idle_Sword/sprKnight_Idle_Sword.yy",},"order":5,},
     {"id":{"name":"SFX_Skeleton_Walk1","path":"sounds/SFX_Skeleton_Walk1/SFX_Skeleton_Walk1.yy",},"order":15,},
@@ -58,6 +59,7 @@
     {"id":{"name":"sprKnight_Jump_Fall","path":"sprites/sprKnight_Jump_Fall/sprKnight_Jump_Fall.yy",},"order":5,},
     {"id":{"name":"sprKnight_Roll","path":"sprites/sprKnight_Roll/sprKnight_Roll.yy",},"order":7,},
     {"id":{"name":"sndWin1","path":"sounds/sndWin1/sndWin1.yy",},"order":6,},
+    {"id":{"name":"obj_enemy","path":"objects/obj_enemy/obj_enemy.yy",},"order":2,},
     {"id":{"name":"__scr_animation_event_constructor","path":"scripts/__scr_animation_event_constructor/__scr_animation_event_constructor.yy",},"order":3,},
     {"id":{"name":"SFX_Skeleton_Run1","path":"sounds/SFX_Skeleton_Run1/SFX_Skeleton_Run1.yy",},"order":10,},
     {"id":{"name":"tsStone","path":"tilesets/tsStone/tsStone.yy",},"order":2,},

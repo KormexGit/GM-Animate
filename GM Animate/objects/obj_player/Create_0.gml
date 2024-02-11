@@ -1,3 +1,4 @@
+//feather ignore all
 hor_input = 0;
 key_run = false;
 key_jump = false;
@@ -137,6 +138,14 @@ falling.step = function() {
 	}	
 }
 
+shoot = new create_state();
+shoot.enter = function() {
+	animation_change(sprKnight_Attack_Bow, 0, false);
+	animation_event_add(5, function() {
+		animation_effect_hitstop(8);
+		instance_create_depth(x, y, depth-1, obj_arrow);
+	})
+}
 
 state = idle;
 anim = animation_play(sprKnight_Idle_Bow);

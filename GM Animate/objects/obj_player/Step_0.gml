@@ -1,3 +1,4 @@
+//feather ignore all
 hor_input = keyboard_check(ord("D")) - keyboard_check(ord("A"));
 key_jump = keyboard_check_pressed(vk_space);
 key_attack = mouse_check_button_pressed(mb_left);

@@ -1,3 +1,5 @@
+//feather ignore all
+
 /// @desc Starts a shake effect for the specified track.
 /// @param {Real} _duration How long the shake should last, in steps/game frames.
 /// @param {Real} _intensity How strong the shake should be. This value is be the max distance the animation will move during the shake, measured in pixels.
