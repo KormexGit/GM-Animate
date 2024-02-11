@@ -144,22 +144,14 @@ function __animation(_sprite, _loop = true) constructor {
 }
 
 function __animation_track_error(_track) {
-	if _track == all {
-		return false;	
-	}
-	//feather ignore once GM1044
-	if _track > array_length(animations) - 1 or animations[_track] == 0 {
+	if _track != all and (_track > array_length(animations) - 1 or animations[_track] == 0) {
 		show_error("Tried to access a track that does not exist on object " + object_get_name(object_index) + ", track " + string(_track) + ". \nMake sure the track is created first with animation_play() before using other functions on it.", true); 
-		return true;
 	}
-	return false;
 }
 
 function __animation_array_error() {
 	if !variable_instance_exists(id, "animations") { 
 		show_error("Tried to use an animation function on an object that never called animation_play: " + object_get_name(object_index) + "\nCall animation_play() on the object before using other animation functions.", true);
-		return true;
 	} 
-	return false;
 }
 

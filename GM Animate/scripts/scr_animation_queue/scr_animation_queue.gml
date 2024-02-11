@@ -67,6 +67,7 @@ function animation_queue_clear(_track = 0) {
 
 /// @desc Returns how the number of queued animations.
 /// @param {Real} _track The track of the queue to check.
+/// @return {Real} The length of the specified queue.
 function animation_queue_get_length(_track = 0) {
 	__animation_error_checks
 	
@@ -75,15 +76,21 @@ function animation_queue_get_length(_track = 0) {
 
 /// @desc Returns an array of all queued sprites.
 /// @param {Real} _track The track of the queue to check.
+/// @return {Array<Any>} An array of all currently queued sprites.
 function animation_queue_get(_track = 0) {
-	__animation_error_checks
-	
-	return animations[_track].queue;	
+	__animation_error_checks	
+	var _array = [];
+	var _queue = animations[_track].queue;
+	for (var i = 0, _len = array_length(queue); i < _len; ++i) {
+	    _array[i] = _queue[i].sprite_index;
+	}
+	return _array;
 }
 
 /// @desc Returns the first position in the queue that the specified sprite is at. Returns -1 if the sprite is not present in the queue.
 /// @param {asset.GMSprite} _sprite The sprite to check for.
 /// @param {Real} _track The track of the queue to check.
+/// @return {Real} The index the specified sprite is present in, or -1 if the sprite is not present.
 function animation_queue_get_index(_sprite, _track = 0) {
 	__animation_error_checks
 	
@@ -99,6 +106,7 @@ function animation_queue_get_index(_sprite, _track = 0) {
 /// @desc Returns an array of all positions in the queue that the specified sprite is at. Returns -1 if the sprite is not present in the queue.
 /// @param {asset.GMSprite} _sprite The sprite to check for.
 /// @param {Real} _track The track of the queue to check.
+/// @return {Array<Real>} An array of all indexes the sprite is present in.
 function animation_queue_get_all_indexes(_sprite, _track = 0) {
 	__animation_error_checks
 	

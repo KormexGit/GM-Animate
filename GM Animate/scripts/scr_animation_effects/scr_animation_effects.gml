@@ -60,6 +60,7 @@ function animation_effect_hitstop(_duration, _track = 0) {
 /// @desc Counts how many instances of an effect are active on the specified track.
 /// @param {String} _effect_name The name of the effect to count, as a string. Effect names: "shake", "squash_and_stretch", "hitstop"
 /// @param {Real} _track The track to count effects from. Pass `all` to add up how many of the effect is active across all tracks.
+/// @return {Real} How many of the specified effect is currently active.
 function animation_effect_get_count(_effect_name, _track = 0) {
 	__animation_error_checks
 	
