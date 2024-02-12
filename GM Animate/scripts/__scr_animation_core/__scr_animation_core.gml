@@ -1,21 +1,21 @@
 //feather ignore all
 
-global._animation_array = [];
+global.__animation_array = [];
 
-global._animation_timesource = time_source_create(time_source_game, 1, time_source_units_frames, 
+global.__animation_timesource = time_source_create(time_source_game, 1, time_source_units_frames, 
 	function() {
-		for (var i = array_length(global._animation_array) - 1; i >= 0; i--;) {
-		    if weak_ref_alive(global._animation_array[i]) {
-				global._animation_array[i].ref.animate();
+		for (var i = array_length(global.__animation_array) - 1; i >= 0; i--;) {
+		    if weak_ref_alive(global.__animation_array[i]) {
+				global.__animation_array[i].ref.animate();
 			}
 			else {
-				array_delete(global._animation_array, i, 1);	
+				array_delete(global.__animation_array, i, 1);	
 			}
 		}
 	},
 	[], -1
 )
-time_source_start(global._animation_timesource);
+time_source_start(global.__animation_timesource);
 
 function __animation(_sprite, _loop = true) constructor {
 	static __animation_get_speed = function(_sprite = sprite_index) {
@@ -33,6 +33,26 @@ function __animation(_sprite, _loop = true) constructor {
 	static __animation_variable_setup = function() {
 		image_number = sprite_get_number(sprite_index);
 		sprite_speed = __animation_get_speed(sprite_index);
+	}
+	
+	static __animation_event_setup = function() {
+		var _sprite_name = sprite_get_name(sprite_index);
+		if variable_struct_exists(event_database, _sprite_name) {
+			events = event_database[$ _sprite_name];
+		}
+		else {
+			events = [];	
+		}
+	}
+	
+	if instance_exists(other) {
+		creator = other.id;	
+	}
+	else if is_struct(other) {
+		creator = other;	
+	}
+	else {
+		creator = undefined;	
 	}
 	
 	sprite_index = _sprite;
@@ -59,6 +79,7 @@ function __animation(_sprite, _loop = true) constructor {
 	
 	effects = [];
 	queue = [];
+	event_database = {};
 	events = [];
 	
 	static __reset_offsets = function() {
@@ -109,11 +130,20 @@ function __animation(_sprite, _loop = true) constructor {
 			}
 		}
 		for (var i = array_length(events) - 1; i > -1; i--;) {
-			if events[i].frame == all {
+			var _frame = events[i].frame;
+			if _frame == all {
 				events[i].callback();
 				continue;
 			}
-			if events[i].frame == new_frame {
+			if is_array(_frame) {
+				for (var j = 0, _len = array_length(_frame); j < _len; ++j) {
+				    if _frame[j] == new_frame {
+						events[i].callback();
+					}
+				}
+				continue;
+			}
+			if _frame == new_frame {
 				events[i].callback();
 			}
 		}
@@ -140,7 +170,7 @@ function __animation(_sprite, _loop = true) constructor {
 	}
 	
 	var _ref = weak_ref_create(self);
-	array_push(global._animation_array, _ref);
+	array_push(global.__animation_array, _ref);
 }
 
 function __animation_track_error(_track) {
@@ -149,7 +179,7 @@ function __animation_track_error(_track) {
 	}
 }
 
-function __animation_array_error() {
+function ___animation_array_error() {
 	if !variable_instance_exists(id, "animations") { 
 		show_error("Tried to use an animation function on an object that never called animation_play: " + object_get_name(object_index) + "\nCall animation_play() on the object before using other animation functions.", true);
 	} 

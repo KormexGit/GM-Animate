@@ -1,11 +1,18 @@
 /// @desc Add an event. The callback method will be run when the current animation hits the specified frame. 
 /// Note: the callback will run in the scope of the animation struct, not the calling instance. You can use `other` inside the method to refer to the calling instance.
+/// @param {asset.GMSprite} _sprite The sprite to add an event to.
 /// @param {Real} _frame The frame to run the callback on.
 /// @param {Function} _callback The function/method to run when the frame is reached.
 /// @param {Real} _track The track to add the event to.
-function animation_event_add(_frame, _callback, _track = 0) {
+function animation_event_add(_sprite, _frame, _callback, _track = 0) {
 	__animation_error_checks
-	array_push(animations[_track].events, new __animation_event(_frame, _callback, _track));
+	
+	var _event = animations[_track].event_database;
+	var _sprite_name = sprite_get_name(_sprite);
+	if !variable_struct_exists(_event, _sprite_name) {
+		_event[$ _sprite_name] = [];
+	}
+	array_push(_event[$ _sprite_name], new __animation_event(_frame, _callback, _track));
 }
 
 /// @desc Remove all events from the specified frame.
@@ -24,3 +31,4 @@ function animation_event_remove(_frame, _track = 0) {
 		}
 	}
 }
+

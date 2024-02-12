@@ -17,3 +17,4 @@ if keyboard_check_pressed(vk_up) {
 if keyboard_check_pressed(vk_down) {
 	animation_effect_hitstop(12);
 }
+

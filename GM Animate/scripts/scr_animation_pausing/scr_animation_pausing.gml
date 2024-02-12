@@ -3,17 +3,17 @@
 /// @param {Bool} _pause Whether to pause or unpause. 
 function animation_set_global_pause(_pause) {
 	if _pause == true {
-		time_source_pause(global._animation_timesource);
+		time_source_pause(global.__animation_timesource);
 	}
 	else if _pause == false {
-		time_source_resume(global._animation_timesource);
+		time_source_resume(global.__animation_timesource);
 	}
 }
 
 /// @desc Checks whether the global animation timesource is currently paused or not.
 /// @return {Bool} Whether the global animation timesource is currently paused or not.
 function animation_get_global_pause() {
-	var _state = time_source_get_state(global._animation_timesource);
+	var _state = time_source_get_state(global.__animation_timesource);
 	if _state == time_source_state_paused {
 		return true;	
 	}
@@ -24,9 +24,9 @@ function animation_get_global_pause() {
 /// Good choice over animation_set_global_pause if you want to pause gameplay sprites but still use the animation system for a pause menu.
 /// @param {Bool} _pause Whether to pause or unpause. 
 function animation_set_pause_all(_pause) {
-	for (var i = 0, _len = array_length(global._animation_array); i < _len; i++;){
-		if weak_ref_alive(global._animation_array[i]) {
-			global._animation_array[i].ref.paused = _pause;
+	for (var i = 0, _len = array_length(global.__animation_array); i < _len; i++;){
+		if weak_ref_alive(global.__animation_array[i]) {
+			global.__animation_array[i].ref.paused = _pause;
 		}
 	}
 }
