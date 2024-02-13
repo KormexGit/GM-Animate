@@ -148,7 +148,7 @@ shoot.enter = function() {
 }
 
 state = idle;
-anim = animation_play(sprKnight_Idle_Bow);
+anim = animation_start(sprKnight_Idle_Bow);
 
 animation_event_add(sprKnight_Idle_Bow, [4, 1], function() {
 	show_message("Hello!");	
