@@ -11,18 +11,17 @@ if hsp != 0 {
 }
 
 if keyboard_check_pressed(vk_up) {
-	animation_effect_float(120, 20, 90, true, animation_curve_bounce_once);
+	animation_effect_oscillate(120, 20, 90, true, animation_curve_bounce_once);
 } 
 
 if keyboard_check_pressed(vk_left) {
-	animation_effect_float(120, 20, 0, false, animation_curve_bounce_thrice);
+	animation_effect_oscillate(120, 20, 0, false, animation_curve_bounce_thrice);
 }
 
 if keyboard_check_pressed(vk_right) {
-	animation_effect_float(120, 20, 145, true, animation_curve_snap_middle);
+	animation_effect_oscillate(120, 20, 145, true, animation_curve_snap_middle);
 }
 
 if keyboard_check_pressed(vk_down) {
 	animation_effect_sway(30, 45, 30, 30, animation_curve_snap_end, true);
 }
-

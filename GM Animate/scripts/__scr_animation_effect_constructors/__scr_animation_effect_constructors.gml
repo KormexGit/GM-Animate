@@ -113,14 +113,14 @@ function __animation_effect_sway(_duration, _range, _x_offset, _y_offset, _curve
 	}
 }
 
-function __animation_effect_float(_duration, _range, _direction, _loop, _curve, _reverse_xy, _track = 0) : __animation_effect() constructor {
+function __animation_effect_oscillate(_duration, _range, _direction, _loop, _curve, _reverse_xy, _track = 0) : __animation_effect() constructor {
 	duration = _duration;
 	curve = _curve;
 	range = _range;
 	direction = _direction;
 	loop = _loop;
 	track = _track;
-	name = "float";
+	name = "oscillate";
 	
 	curve_progress = 0;
 	rate = 1/duration;
