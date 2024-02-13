@@ -53,13 +53,12 @@ function __animation_effect_squash_and_stretch(_duration, _scale, _curve, _rever
 	static step = function() {
 		curve_progress += rate;
 		
-		if curve_progress >= 1 {
+		if curve_progress > 1 {
 			var _index = __animation_effect_get_index();
 			array_delete(owner.animations[track].effects, _index, 1);
 			return;
 		}
 		
-
 		var _x_prog = animcurve_channel_evaluate(x_channel, curve_progress);
 		var _y_prog = animcurve_channel_evaluate(y_channel, curve_progress);
 		
