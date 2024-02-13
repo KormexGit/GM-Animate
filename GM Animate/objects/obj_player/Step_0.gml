@@ -23,6 +23,6 @@ if keyboard_check_pressed(vk_right) {
 }
 
 if keyboard_check_pressed(vk_down) {
-	animation_effect_sway(30, 45, animation_curve_bounce_thrice);
+	animation_effect_sway(30, 45, 30, 30, animation_curve_snap_end, true);
 }
 

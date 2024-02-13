@@ -68,10 +68,12 @@ function __animation_effect_squash_and_stretch(_duration, _scale, _curve, _rever
 	}
 }
 
-function __animation_effect_sway(_duration, _range, _curve, _reverse_xy, _track = 0) : __animation_effect() constructor {
+function __animation_effect_sway(_duration, _range, _x_offset, _y_offset, _curve, _reverse_xy, _track = 0) : __animation_effect() constructor {
 	duration = _duration;
-	curve = _curve;
 	range = _range;
+	curve = _curve;
+	x_offset = _x_offset;
+	y_offset = _y_offset;
 	track = _track;
 	name = "sway";
 	
@@ -96,10 +98,18 @@ function __animation_effect_sway(_duration, _range, _curve, _reverse_xy, _track 
 			return;
 		}
 		
-		var _x_prog = animcurve_channel_evaluate(x_channel, curve_progress);
+		var _x_prog = animcurve_channel_evaluate(x_channel, curve_progress);		
 		
 		var _anim = owner.animations[track];
-		_anim.angle_offset += lerp(0, range, _x_prog);
+		var _angle = lerp(0, range, _x_prog);
+		_anim.angle_offset += _angle;
+		
+		if x_offset != 0 or y_offset != 0 {
+			var _offset_dist = point_distance(0, 0, x_offset, y_offset);
+			var _offset_angle = point_direction(0, 0, x_offset, y_offset) + 180;
+			_anim.x_offset += lengthdir_x(_offset_dist, _angle + _offset_angle) + x_offset;
+			_anim.y_offset += lengthdir_y(_offset_dist, _angle + _offset_angle) + y_offset;
+		}
 	}
 }
 

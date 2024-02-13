@@ -44,22 +44,25 @@ function animation_effect_squash_and_strech(_duration, _scale, _curve = animatio
 /// @desc Starts a sway effect for the specified track. 
 /// @param {Real} _duration How long the sway should last, in steps/game frames.
 /// @param {Real} _range How the sway should rotate, measured in degrees.
+/// @param {Real} _x_offset Offsets the x origin of the rotation, relative to the sprite's actual origin.
+/// @param {Real} _y_offset Offsets the y origin of the rotation, relative to the sprite's actual origin.
+/// These allows you to do things like have the rotation of the sway be based on the bottom of the sprite even if the sprite has a centered origin.
 /// @param {Asset.GMAnimCurve} _curve The animation curve asset to base the sway on. See the Animation Curves folder inside the Animation folder.
 /// in the asset browser for some curves you can use, or make your own using the same format as the included ones. 
 /// Only the "x" channel is used by this effect.
 /// @param {Bool} _reverse_xy Reverses the x and y tracks in the animation curve. If set to true, the "y" channel will be used instead of the "x" channel.
 /// @param {Real} _track The track to apply the effect to. Pass `all` to apply the effect to all tracks at once.
-function animation_effect_sway(_duration, _range, _curve = animation_curve_bounce_once, _reverse_xy = false, _track = 0) {
+function animation_effect_sway(_duration, _range, _x_offset = 0, _y_offset = 0, _curve = animation_curve_bounce_once, _reverse_xy = false, _track = 0) {
 	__animation_error_checks
 	if _track == all {
 		for (var i = 0, _len = array_length(animations); i < _len; ++i) {
 		    if animations[i] != 0 {
-				array_push(animations[i].effects, new __animation_effect_sway(_duration, _range, _curve, _reverse_xy, i));
+				array_push(animations[i].effects, new __animation_effect_sway(_duration, _range, _x_offset, _y_offset, _curve, _reverse_xy, i));
 			}
 		}
 		return;
 	}
-	array_push(animations[_track].effects, new __animation_effect_sway(_duration, _range, _curve, _reverse_xy, _track));
+	array_push(animations[_track].effects, new __animation_effect_sway(_duration, _range, _x_offset, _y_offset, _curve, _reverse_xy, _track));
 }
 
 /// @desc Starts a float effect for the specified track. 
