@@ -53,19 +53,107 @@ function __animation_effect_squash_and_stretch(_duration, _scale, _curve, _rever
 	static step = function() {
 		curve_progress += rate;
 		
-		if curve_progress >= 1 {
+		if curve_progress > 1 {
 			var _index = __animation_effect_get_index();
 			array_delete(owner.animations[track].effects, _index, 1);
 			return;
 		}
 		
-
 		var _x_prog = animcurve_channel_evaluate(x_channel, curve_progress);
 		var _y_prog = animcurve_channel_evaluate(y_channel, curve_progress);
 		
 		var _anim = owner.animations[track];
 		_anim.xscale_offset += lerp(0, scale, _x_prog);
 		_anim.yscale_offset += lerp(0, scale, _y_prog);
+	}
+}
+
+function __animation_effect_sway(_duration, _range, _x_offset, _y_offset, _curve, _reverse_xy, _track = 0) : __animation_effect() constructor {
+	duration = _duration;
+	range = _range;
+	curve = _curve;
+	x_offset = _x_offset;
+	y_offset = _y_offset;
+	track = _track;
+	name = "sway";
+	
+	curve_progress = 0;
+	rate = 1/duration;
+	
+	if !_reverse_xy {
+		x_channel = animcurve_get_channel(curve, "x");
+		y_channel = animcurve_get_channel(curve, "y");
+	}
+	else {
+		x_channel = animcurve_get_channel(curve, "y");
+		y_channel = animcurve_get_channel(curve, "x");
+	}
+	
+	static step = function() {
+		curve_progress += rate;
+		
+		if curve_progress > 1 {
+			var _index = __animation_effect_get_index();
+			array_delete(owner.animations[track].effects, _index, 1);
+			return;
+		}
+		
+		var _x_prog = animcurve_channel_evaluate(x_channel, curve_progress);		
+		
+		var _anim = owner.animations[track];
+		var _angle = lerp(0, range, _x_prog);
+		_anim.angle_offset += _angle;
+		
+		if x_offset != 0 or y_offset != 0 {
+			var _offset_dist = point_distance(0, 0, x_offset, y_offset);
+			var _offset_angle = point_direction(0, 0, x_offset, y_offset) + 180;
+			_anim.x_offset += lengthdir_x(_offset_dist, _angle + _offset_angle) + x_offset;
+			_anim.y_offset += lengthdir_y(_offset_dist, _angle + _offset_angle) + y_offset;
+		}
+	}
+}
+
+function __animation_effect_oscillate(_duration, _range, _direction, _loop, _curve, _reverse_xy, _track = 0) : __animation_effect() constructor {
+	duration = _duration;
+	curve = _curve;
+	range = _range;
+	direction = _direction;
+	loop = _loop;
+	track = _track;
+	name = "oscillate";
+	
+	curve_progress = 0;
+	rate = 1/duration;
+	
+	if !_reverse_xy {
+		x_channel = animcurve_get_channel(curve, "x");
+		y_channel = animcurve_get_channel(curve, "y");
+	}
+	else {
+		x_channel = animcurve_get_channel(curve, "y");
+		y_channel = animcurve_get_channel(curve, "x");
+	}
+	
+	static step = function() {
+		curve_progress += rate;
+		
+		if curve_progress > 1 {
+			if loop == false {
+				var _index = __animation_effect_get_index();
+				array_delete(owner.animations[track].effects, _index, 1);
+				return;
+			}
+			else {
+				curve_progress = 0;	
+			}
+		}
+		
+		var _x_prog = animcurve_channel_evaluate(x_channel, curve_progress);
+		
+		var _anim = owner.animations[track];
+		var _offset = lerp(0, range, _x_prog);
+		_anim.x_offset += lengthdir_x(_offset, direction);
+		_anim.y_offset += lengthdir_y(_offset, direction);
 	}
 }
 
