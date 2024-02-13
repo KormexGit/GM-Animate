@@ -141,17 +141,10 @@ falling.step = function() {
 shoot = new create_state();
 shoot.enter = function() {
 	animation_change(sprKnight_Attack_Bow, 0, false);
-	//animation_event_add(sprKnight_5, function() {
-	//	animation_effect_hitstop(8);
-	//	instance_create_depth(x, y, depth-1, obj_arrow);
-	//})
 }
 
 state = idle;
-anim = animation_play(sprKnight_Idle_Bow);
+anim = animation_start(sprKnight_Idle_Bow);
 
-animation_event_add(sprKnight_Idle_Bow, [4, 1], function() {
-	show_message("Hello!");	
-})
 
 sprite_prefetch_multi([sprKnight_Jump_Airborne_Bow, sprKnight_Jump_Up_Bow, sprKnight_Walk_Bow, sprKnight_Idle_Bow]);

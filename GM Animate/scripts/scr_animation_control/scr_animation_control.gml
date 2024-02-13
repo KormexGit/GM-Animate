@@ -6,7 +6,7 @@
 /// @param {Bool} _loop Whether the animation should loop or not upon completion.
 /// @param {Real} _track The track to play the animation on.
 /// @return {Struct} Animation struct
-function animation_play(_sprite, _loop = true, _track = 0) {
+function animation_start(_sprite, _loop = true, _track = 0) {
 	animations[_track] = new __animation(_sprite, _loop);
 	return animations[_track];
 }
@@ -31,9 +31,7 @@ function animation_change(_sprite, _starting_image_index = 0, _loop = true, _tra
 				image_index = _starting_image_index;
 			}
 			loop = _loop;
-			//array_resize(events, 0);
 			__animation_variable_setup();
-			__animation_event_setup();
 		}
 	}
 	return animations[_track];
