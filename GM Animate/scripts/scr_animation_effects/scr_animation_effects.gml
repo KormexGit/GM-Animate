@@ -28,7 +28,7 @@ function animation_effect_shake(_duration, _intensity, _track = 0) {
 /// @param {Bool} _reverse_xy Reverses the x and y tracks in the animation curve. If set to true, the x track will be applied to image_yscale
 /// and the y track applied to image_xscale.
 /// @param {Real} _track The track to apply the effect to. Pass `all` to apply the effect to all tracks at once.
-function animation_effect_squash_and_strech(_duration, _scale, _curve = animation_curve_bounce_once, _reverse_xy = false, _track = 0) {
+function animation_effect_squash_and_strech(_duration, _scale, _curve = animation_curve_wave, _reverse_xy = false, _track = 0) {
 	__animation_error_checks
 	if _track == all {
 		for (var i = 0, _len = array_length(animations); i < _len; ++i) {
@@ -39,6 +39,50 @@ function animation_effect_squash_and_strech(_duration, _scale, _curve = animatio
 		return;
 	}
 	array_push(animations[_track].effects, new __animation_effect_squash_and_stretch(_duration, _scale, _curve, _reverse_xy, _track));
+}
+
+/// @desc Starts a sway effect for the specified track. 
+/// @param {Real} _duration How long the sway should last, in steps/game frames.
+/// @param {Real} _range How the sway should rotate, measured in degrees.
+/// @param {Asset.GMAnimCurve} _curve The animation curve asset to base the sway on. See the Animation Curves folder inside the Animation folder.
+/// in the asset browser for some curves you can use, or make your own using the same format as the included ones. 
+/// Only the "x" channel is used by this effect.
+/// @param {Bool} _reverse_xy Reverses the x and y tracks in the animation curve. If set to true, the "y" channel will be used instead of the "x" channel.
+/// @param {Real} _track The track to apply the effect to. Pass `all` to apply the effect to all tracks at once.
+function animation_effect_sway(_duration, _range, _curve = animation_curve_bounce_once, _reverse_xy = false, _track = 0) {
+	__animation_error_checks
+	if _track == all {
+		for (var i = 0, _len = array_length(animations); i < _len; ++i) {
+		    if animations[i] != 0 {
+				array_push(animations[i].effects, new __animation_effect_sway(_duration, _range, _curve, _reverse_xy, i));
+			}
+		}
+		return;
+	}
+	array_push(animations[_track].effects, new __animation_effect_sway(_duration, _range, _curve, _reverse_xy, _track));
+}
+
+/// @desc Starts a float effect for the specified track. 
+/// @param {Real} _duration How long the float should last, in steps/game frames. If loop is set to true, this will be the duration of each loop.
+/// @param {Real} _range How big the float should be, measured in pixels.
+/// @param {Real} _direction The direction the animation should float in. The pixel range will be applied in this direction.
+/// @param {Bool} _loop Whether the effect should loop or not.
+/// @param {Asset.GMAnimCurve} _curve The animation curve asset to base the float on. See the Animation Curves folder inside the Animation folder
+/// in the asset browser for some curves you can use, or make your own using the same format as the included ones. 
+/// Only the "x" channel is used by this effect.
+/// @param {Bool} _reverse_xy Reverses the x and y tracks in the animation curve. If set to true, the "y" channel will be used instead of the "x" channel.
+/// @param {Real} _track The track to apply the effect to. Pass `all` to apply the effect to all tracks at once.
+function animation_effect_float(_duration, _range, _direction = 90, _loop = false, _curve = animation_curve_bounce_once, _reverse_xy = false, _track = 0) {
+	__animation_error_checks
+	if _track == all {
+		for (var i = 0, _len = array_length(animations); i < _len; ++i) {
+		    if animations[i] != 0 {
+				array_push(animations[i].effects, new __animation_effect_float(_duration, _range, _direction, _loop, _curve, _reverse_xy, i));
+			}
+		}
+		return;
+	}
+	array_push(animations[_track].effects, new __animation_effect_float(_duration, _range, _direction, _loop, _curve, _reverse_xy, _track));
 }
 
 /// @desc Starts a hitstop effect for the specified track. This will stop the track from animating for the duration,
