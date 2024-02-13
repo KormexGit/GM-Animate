@@ -11,7 +11,15 @@ if hsp != 0 {
 }
 
 if keyboard_check_pressed(vk_up) {
-	animation_effect_squash_and_strech(30, 0.5, animation_curve_bounce_once);
+	animation_effect_squash_and_strech(30, 0.5, animation_curve_one_way_middle);
+} 
+
+if keyboard_check_pressed(vk_left) {
+	animation_effect_squash_and_strech(30, 0.5, animation_curve_one_way_start);
+}
+
+if keyboard_check_pressed(vk_right) {
+	animation_effect_squash_and_strech(30, 0.5, animation_curve_one_way_end);
 }
 
 if keyboard_check_pressed(vk_down) {

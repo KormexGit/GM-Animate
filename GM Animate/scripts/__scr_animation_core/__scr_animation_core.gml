@@ -59,8 +59,6 @@ function __animation(_sprite, _loop = true) constructor {
 	
 	effects = [];
 	queue = [];
-	event_database = {};
-	events = [];
 	
 	static __reset_offsets = function() {
 		x_offset = 0;
