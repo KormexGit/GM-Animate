@@ -43,7 +43,7 @@ function animation_effect_squash_and_strech(_duration, _scale, _curve = animatio
 
 /// @desc Starts a sway effect for the specified track. 
 /// @param {Real} _duration How long the sway should last, in steps/game frames.
-/// @param {Real} _range How the sway should rotate, measured in degrees.
+/// @param {Real} _range How far the sway should rotate, measured in degrees.
 /// @param {Real} _x_offset Offsets the x origin of the rotation, relative to the sprite's actual origin.
 /// @param {Real} _y_offset Offsets the y origin of the rotation, relative to the sprite's actual origin.
 /// These allows you to do things like have the rotation of the sway be based on the bottom of the sprite even if the sprite has a centered origin.
