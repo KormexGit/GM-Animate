@@ -24,5 +24,6 @@ Sample project is in the repo but still WIP!
   - Hitstop, stop an animation for a specified number of frames.
 
 ### Planned features for the future:
+- More effects!
 - Attachment point editor
 - Functions to automatically keep animations attached to eachother at the chosen points/angles
