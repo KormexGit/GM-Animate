@@ -7,6 +7,8 @@ To get started with GM Animate, [download the .yymps file](https://github.com/Ko
 
 You can also find full documentation on the [Github wiki page](https://github.com/KormexGit/GM-Animate/wiki).
 
+Sample project is in the repo but still WIP!
+
 ### Features:
 - Play multiple sprite animations on one object
 - Check if an animation has finished or is on a specified frame
