@@ -3,7 +3,7 @@ GM Animate is made to be beginner friendly, and uses a GameMaker-like function s
 
 LTS compatible! Works on any GM version 2022.0 or newer.
 
-To get started with GM Animate, [download the .yymps file](https://github.com/KormexGit/GM-Animate/releases) and then check out the [basics guide](https://github.com/KormexGit/GM-Animate/wiki/Basics-Guide)!
+To get started with GM Animate, [download the newest .yymps file](https://github.com/KormexGit/GM-Animate/releases) and then check out the [basics guide](https://github.com/KormexGit/GM-Animate/wiki/Basics-Guide) for installation and usage instructions!
 
 You can also find full documentation on the [Github wiki page](https://github.com/KormexGit/GM-Animate/wiki).
 
