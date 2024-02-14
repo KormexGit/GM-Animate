@@ -106,9 +106,12 @@ function __animation_effect_sway(_duration, _range, _x_offset, _y_offset, _curve
 		
 		if x_offset != 0 or y_offset != 0 {
 			var _offset_dist = point_distance(0, 0, x_offset, y_offset);
-			var _offset_angle = point_direction(0, 0, x_offset, y_offset) + 180;
-			_anim.x_offset += lengthdir_x(_offset_dist, _angle + _offset_angle) + x_offset;
-			_anim.y_offset += lengthdir_y(_offset_dist, _angle + _offset_angle) + y_offset;
+			var _offset_angle = point_direction(0, 0, x_offset, y_offset) + _anim.image_angle;
+			
+			var _effect_rotation_offset_x = lengthdir_x(_offset_dist, _offset_angle);
+			var _effect_rotation_offset_y = lengthdir_y(_offset_dist, _offset_angle);
+			_anim.x_offset += lengthdir_x(_offset_dist, _angle + _offset_angle + 180) + _effect_rotation_offset_x;
+			_anim.y_offset += lengthdir_y(_offset_dist, _angle + _offset_angle + 180) + _effect_rotation_offset_y;
 		}
 	}
 }
