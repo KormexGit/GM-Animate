@@ -23,22 +23,23 @@ function animation_effect_shake(_duration, _intensity, _track = 0) {
 /// as an image_xscale and image_yscale multiplier. For example, a scale of 0.5 would make the largest stretch be 50% larger. 
 /// In most cases, you will want a value that is in between 0.1 and 0.9. 
 /// A value higher than the animations's current image_xscale or image_yscale may cause the animation to overshoot the squash and flip.
+/// @param {Bool} _loop Wether the effect should loop or not.
 /// @param {Asset.GMAnimCurve} _curve The animation curve asset to base the squash and stretch on. See the Animation Curves folder inside the Animation folder
 /// in the asset browser for some curves you can use, or make your own using the same format as the included ones. 
 /// @param {Bool} _reverse_xy Reverses the x and y tracks in the animation curve. If set to true, the x track will be applied to image_yscale
 /// and the y track applied to image_xscale.
 /// @param {Real} _track The track to apply the effect to. Pass `all` to apply the effect to all tracks at once.
-function animation_effect_squash_and_strech(_duration, _scale, _curve = animation_curve_wave, _reverse_xy = false, _track = 0) {
+function animation_effect_squash_and_strech(_duration, _scale, _loop = false, _curve = animation_curve_bounce_thrice, _reverse_xy = false, _track = 0) {
 	__animation_error_checks
 	if _track == all {
 		for (var i = 0, _len = array_length(animations); i < _len; ++i) {
 		    if animations[i] != 0 {
-				array_push(animations[i].effects, new __animation_effect_squash_and_stretch(_duration, _scale, _curve, _reverse_xy, i));
+				array_push(animations[i].effects, new __animation_effect_squash_and_stretch(_duration, _scale, _loop, _curve, _reverse_xy, i));
 			}
 		}
 		return;
 	}
-	array_push(animations[_track].effects, new __animation_effect_squash_and_stretch(_duration, _scale, _curve, _reverse_xy, _track));
+	array_push(animations[_track].effects, new __animation_effect_squash_and_stretch(_duration, _scale, _loop, _curve, _reverse_xy, _track));
 }
 
 /// @desc Starts a sway effect for the specified track. 
@@ -46,23 +47,24 @@ function animation_effect_squash_and_strech(_duration, _scale, _curve = animatio
 /// @param {Real} _range How far the sway should rotate, measured in degrees.
 /// @param {Real} _x_offset Offsets the x origin of the rotation, relative to the sprite's actual origin.
 /// @param {Real} _y_offset Offsets the y origin of the rotation, relative to the sprite's actual origin.
+/// @param {Bool} _loop Whether to loop the effect or not.
 /// These allows you to do things like have the rotation of the sway be based on the bottom of the sprite even if the sprite has a centered origin.
 /// @param {Asset.GMAnimCurve} _curve The animation curve asset to base the sway on. See the Animation Curves folder inside the Animation folder.
 /// in the asset browser for some curves you can use, or make your own using the same format as the included ones. 
 /// Only the "x" channel is used by this effect.
 /// @param {Bool} _reverse_xy Reverses the x and y tracks in the animation curve. If set to true, the "y" channel will be used instead of the "x" channel.
 /// @param {Real} _track The track to apply the effect to. Pass `all` to apply the effect to all tracks at once.
-function animation_effect_sway(_duration, _range, _x_offset = 0, _y_offset = 0, _curve = animation_curve_bounce_once, _reverse_xy = false, _track = 0) {
+function animation_effect_sway(_duration, _range, _x_offset = 0, _y_offset = 0, _loop = false, _curve = animation_curve_wave, _reverse_xy = false, _track = 0) {
 	__animation_error_checks
 	if _track == all {
 		for (var i = 0, _len = array_length(animations); i < _len; ++i) {
 		    if animations[i] != 0 {
-				array_push(animations[i].effects, new __animation_effect_sway(_duration, _range, _x_offset, _y_offset, _curve, _reverse_xy, i));
+				array_push(animations[i].effects, new __animation_effect_sway(_duration, _range, _x_offset, _y_offset, _loop, _curve, _reverse_xy, i));
 			}
 		}
 		return;
 	}
-	array_push(animations[_track].effects, new __animation_effect_sway(_duration, _range, _x_offset, _y_offset, _curve, _reverse_xy, _track));
+	array_push(animations[_track].effects, new __animation_effect_sway(_duration, _range, _x_offset, _y_offset, _loop, _curve, _reverse_xy, _track));
 }
 
 /// @desc Starts a oscillate effect for the specified track. 
@@ -75,7 +77,7 @@ function animation_effect_sway(_duration, _range, _x_offset = 0, _y_offset = 0, 
 /// Only the "x" channel is used by this effect.
 /// @param {Bool} _reverse_xy Reverses the x and y tracks in the animation curve. If set to true, the "y" channel will be used instead of the "x" channel.
 /// @param {Real} _track The track to apply the effect to. Pass `all` to apply the effect to all tracks at once.
-function animation_effect_oscillate(_duration, _range, _direction = 90, _loop = false, _curve = animation_curve_bounce_once, _reverse_xy = false, _track = 0) {
+function animation_effect_oscillate(_duration, _range, _direction = 90, _loop = false, _curve = animation_curve_wave, _reverse_xy = false, _track = 0) {
 	__animation_error_checks
 	if _track == all {
 		for (var i = 0, _len = array_length(animations); i < _len; ++i) {
