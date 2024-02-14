@@ -10,6 +10,7 @@ You can also find full documentation on the [Github wiki page](https://github.co
 Sample project is in the repo but still WIP!
 
 ### Features:
+- Doesn't interfere with GM's built in animation, so you can use both at once if desired
 - Play multiple sprite animations on one object
 - Check if an animation has finished or is on a specified frame
 - Animation queue to automatically play animations one after another
