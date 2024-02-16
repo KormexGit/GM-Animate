@@ -11,6 +11,32 @@ function __animation_effect() constructor {
 			}
 		}
 	}
+	
+	static __animation_channel_setup = function(_reverse_xy) {
+		if !_reverse_xy {
+			x_channel = animcurve_get_channel(curve, "x");
+			y_channel = animcurve_get_channel(curve, "y");
+		}
+		else {
+			x_channel = animcurve_get_channel(curve, "y");
+			y_channel = animcurve_get_channel(curve, "x");
+		}
+	}
+	
+	static __animation_progress_curve = function() {
+		curve_progress += rate;
+		
+		if curve_progress > 1 {
+			if loop == false {
+				var _index = __animation_effect_get_index();
+				array_delete(owner.animations[track].effects, _index, 1);
+				return;
+			}
+			else {
+				curve_progress = 0;	
+			}
+		}	
+	}
 }
 
 function __animation_effect_shake(_duration, _intensity, _track = 0) : __animation_effect() constructor {	
@@ -33,33 +59,21 @@ function __animation_effect_shake(_duration, _intensity, _track = 0) : __animati
 	}
 }
 
-function __animation_effect_squash_and_stretch(_duration, _scale, _curve, _reverse_xy, _track = 0) : __animation_effect() constructor {
+function __animation_effect_squash_and_stretch(_duration, _scale, _loop, _curve, _reverse_xy, _track = 0) : __animation_effect() constructor {
 	duration = _duration;
-	curve = _curve;
 	scale = _scale;
+	loop = _loop;
+	curve = _curve;
 	track = _track;
 	name = "squash_and_stretch";
 	
 	curve_progress = 0;
 	rate = 1/duration;
 	
-	if !_reverse_xy {
-		x_channel = animcurve_get_channel(curve, "x");
-		y_channel = animcurve_get_channel(curve, "y");
-	}
-	else {
-		x_channel = animcurve_get_channel(curve, "y");
-		y_channel = animcurve_get_channel(curve, "x");
-	}
+	__animation_channel_setup(_reverse_xy);
 	
 	static step = function() {
-		curve_progress += rate;
-		
-		if curve_progress > 1 {
-			var _index = __animation_effect_get_index();
-			array_delete(owner.animations[track].effects, _index, 1);
-			return;
-		}
+		__animation_progress_curve();
 		
 		var _x_prog = animcurve_channel_evaluate(x_channel, curve_progress);
 		var _y_prog = animcurve_channel_evaluate(y_channel, curve_progress);
@@ -70,40 +84,29 @@ function __animation_effect_squash_and_stretch(_duration, _scale, _curve, _rever
 	}
 }
 
-function __animation_effect_sway(_duration, _range, _x_offset, _y_offset, _curve, _reverse_xy, _track = 0) : __animation_effect() constructor {
+function __animation_effect_sway(_duration, _range, _x_offset, _y_offset, _loop, _curve, _reverse_xy, _track = 0) : __animation_effect() constructor {
 	duration = _duration;
 	range = _range;
-	curve = _curve;
 	x_offset = _x_offset;
 	y_offset = _y_offset;
+	loop = _loop;
+	curve = _curve;
 	track = _track;
 	name = "sway";
 	
 	curve_progress = 0;
 	rate = 1/duration;
 	
-	if !_reverse_xy {
-		x_channel = animcurve_get_channel(curve, "x");
-		y_channel = animcurve_get_channel(curve, "y");
-	}
-	else {
-		x_channel = animcurve_get_channel(curve, "y");
-		y_channel = animcurve_get_channel(curve, "x");
-	}
+	__animation_channel_setup(_reverse_xy);
 	
 	static step = function() {
-		curve_progress += rate;
-		
-		if curve_progress > 1 {
-			var _index = __animation_effect_get_index();
-			array_delete(owner.animations[track].effects, _index, 1);
-			return;
-		}
+		__animation_progress_curve();
 		
 		var _x_prog = animcurve_channel_evaluate(x_channel, curve_progress);		
 		
 		var _anim = owner.animations[track];
 		var _angle = lerp(0, range, _x_prog);
+		show_debug_message(_angle)
 		_anim.angle_offset += _angle;
 		
 		if x_offset != 0 or y_offset != 0 {
@@ -130,28 +133,10 @@ function __animation_effect_oscillate(_duration, _range, _direction, _loop, _cur
 	curve_progress = 0;
 	rate = 1/duration;
 	
-	if !_reverse_xy {
-		x_channel = animcurve_get_channel(curve, "x");
-		y_channel = animcurve_get_channel(curve, "y");
-	}
-	else {
-		x_channel = animcurve_get_channel(curve, "y");
-		y_channel = animcurve_get_channel(curve, "x");
-	}
+	__animation_channel_setup(_reverse_xy);
 	
 	static step = function() {
-		curve_progress += rate;
-		
-		if curve_progress > 1 {
-			if loop == false {
-				var _index = __animation_effect_get_index();
-				array_delete(owner.animations[track].effects, _index, 1);
-				return;
-			}
-			else {
-				curve_progress = 0;	
-			}
-		}
+		__animation_progress_curve();
 		
 		var _x_prog = animcurve_channel_evaluate(x_channel, curve_progress);
 		
