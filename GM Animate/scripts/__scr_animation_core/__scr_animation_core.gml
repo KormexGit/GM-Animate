@@ -8,7 +8,7 @@ global.__animation_timesource = time_source_create(time_source_game, 1, time_sou
 		    if weak_ref_alive(global.__animation_array[i]) {
 				var _anim_struct = global.__animation_array[i].ref;
 				if instance_exists(_anim_struct.creator) {
-					_anim_struct.animate();
+					_anim_struct.__animate();
 				}
 			}
 			else {
@@ -78,7 +78,7 @@ function __animation(_sprite, _loop = true) constructor {
 		angle_offset = 0;
 	}
 	
-	static animate = function() {
+	static __animate = function() {
 		finished = false;
 		new_frame = -1;
 		if paused == true {
@@ -133,7 +133,7 @@ function __animation(_sprite, _loop = true) constructor {
 		}
 	}
 	
-	static draw = function(_x = other.x, _y = other.y) {
+	static __draw = function(_x = other.x, _y = other.y) {
 		draw_sprite_ext(sprite_index, image_index, _x + x_offset, _y + y_offset, image_xscale + (xscale_offset * image_xscale), 
 		image_yscale + (yscale_offset * image_yscale), 
 		image_angle + angle_offset, image_blend, image_alpha);

@@ -156,8 +156,10 @@ shoot.enter = function() {
 
 shoot.step = function() {
 	if animation_enter_frame(4)	{
-		with instance_create_layer(x, y, "Projectiles", obj_arrow) {
-				
+		var _arrow =  instance_create_layer(x, y, "Projectiles", obj_arrow);
+		if anim.image_xscale < 0 {
+			_arrow.dir = 180;
+			_arrow.image_angle = 180;
 		}
 	}
 	if animation_finished() {

@@ -49,12 +49,12 @@ function animation_draw(_x = x, _y = y, _track = 0) {
 	if _track == all {
 		for (var i = 0, _len = array_length(animations); i < _len; ++i) {
 			if animations[i] != 0 {
-				animations[i].draw(_x, _y);
+				animations[i].__draw(_x, _y);
 			}
 		}
 		return;
 	}		
-	animations[_track].draw(_x, _y);
+	animations[_track].__draw(_x, _y);
 }
 
 /// @desc Set the instance's collision mask to match the specified animation track. Effects (such as shake, squash and stretch) will not affect the mask's position or size.
