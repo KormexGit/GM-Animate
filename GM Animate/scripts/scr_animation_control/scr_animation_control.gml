@@ -195,3 +195,21 @@ function animation_get_looping(_track = 0) {
 	
 	return animations[_track].loop;
 }
+
+/// @desc Returns the width of the animation, image_xscale factored in. Equivalent to GM's built in sprite_width.
+/// @param {Real} _track The track to get the width of.
+function animation_get_sprite_width(_track = 0) {
+	__animation_error_checks
+	
+	var _anim = animations[_track];
+	return sprite_get_width(_anim.sprite_index)*abs(_anim.image_xscale);
+}
+
+/// @desc Returns the height of the animation, image_yscale factored in. Equivalent to GM's built in sprite_height.
+/// @param {Real} _track The track to get the height of.
+function animation_get_sprite_height(_track = 0) {
+	__animation_error_checks
+	
+	var _anim = animations[_track];
+	return sprite_get_height(_anim.sprite_index)*abs(_anim.image_yscale);
+}
