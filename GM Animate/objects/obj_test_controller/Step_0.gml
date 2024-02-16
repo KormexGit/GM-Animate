@@ -9,7 +9,7 @@ with obj_player {
 	}
 
 	if keyboard_check_pressed(vk_right) {
-		animation_effect_oscillate(120, 20, 145, true, animation_curve_snap_middle);
+		animation_effect_blink(30, 0.8, true);
 	}
 
 	if keyboard_check_pressed(vk_down) {

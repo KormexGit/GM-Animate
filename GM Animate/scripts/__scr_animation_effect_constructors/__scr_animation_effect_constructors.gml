@@ -13,6 +13,8 @@ function __animation_effect() constructor {
 	}
 	
 	static __animation_channel_setup = function(_reverse_xy) {
+		curve_progress = 0;
+		rate = 1/duration;
 		if !_reverse_xy {
 			x_channel = animcurve_get_channel(curve, "x");
 			y_channel = animcurve_get_channel(curve, "y");
@@ -67,9 +69,6 @@ function __animation_effect_squash_and_stretch(_duration, _scale, _loop, _curve,
 	track = _track;
 	name = "squash_and_stretch";
 	
-	curve_progress = 0;
-	rate = 1/duration;
-	
 	__animation_channel_setup(_reverse_xy);
 	
 	static step = function() {
@@ -93,9 +92,6 @@ function __animation_effect_sway(_duration, _range, _x_offset, _y_offset, _loop,
 	curve = _curve;
 	track = _track;
 	name = "sway";
-	
-	curve_progress = 0;
-	rate = 1/duration;
 	
 	__animation_channel_setup(_reverse_xy);
 	
@@ -130,9 +126,6 @@ function __animation_effect_oscillate(_duration, _range, _direction, _loop, _cur
 	track = _track;
 	name = "oscillate";
 	
-	curve_progress = 0;
-	rate = 1/duration;
-	
 	__animation_channel_setup(_reverse_xy);
 	
 	static step = function() {
@@ -144,6 +137,28 @@ function __animation_effect_oscillate(_duration, _range, _direction, _loop, _cur
 		var _offset = lerp(0, range, _x_prog);
 		_anim.x_offset += lengthdir_x(_offset, direction);
 		_anim.y_offset += lengthdir_y(_offset, direction);
+	}
+}
+
+function __animation_effect_blink(_duration, _alpha_range, _loop, _curve, _reverse_xy, _track = 0) : __animation_effect() constructor {
+	duration = _duration;
+	alpha_range = _alpha_range;
+	loop = _loop;
+	curve = _curve;
+	reverse_xy = _reverse_xy;
+	track = _track;
+	name = "blink";
+	
+	__animation_channel_setup(_reverse_xy);
+	
+	static step = function() {
+		__animation_progress_curve();
+		
+		var _x_prog = animcurve_channel_evaluate(x_channel, curve_progress);
+		
+		var _anim = owner.animations[track];
+		var _offset = lerp(0, alpha_range, _x_prog);
+		_anim.alpha_offset += abs(_offset);
 	}
 }
 

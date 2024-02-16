@@ -61,23 +61,21 @@ function __animation(_sprite, _loop = true) constructor {
 	finished = false;
 	new_frame = -1;
 	
-	x_offset = 0;
-	y_offset = 0;
-	xscale_offset = 0;
-	yscale_offset = 0;
-	angle_offset = 0;
-	
-	effects = [];
-	queue = [];
-	
 	static __reset_offsets = function() {
 		x_offset = 0;
 		y_offset = 0;
 		xscale_offset = 0;
 		yscale_offset = 0;
 		angle_offset = 0;
+		alpha_offset = 0;
 	}
 	
+	__reset_offsets();
+	
+	effects = [];
+	queue = [];
+	
+
 	static animate = function() {
 		finished = false;
 		new_frame = -1;
@@ -136,7 +134,7 @@ function __animation(_sprite, _loop = true) constructor {
 	static draw = function(_x = other.x, _y = other.y) {
 		draw_sprite_ext(sprite_index, image_index, _x + x_offset, _y + y_offset, image_xscale + (xscale_offset * image_xscale), 
 		image_yscale + (yscale_offset * image_yscale), 
-		image_angle + angle_offset, image_blend, image_alpha);
+		image_angle + angle_offset, image_blend, image_alpha - alpha_offset);
 	}
 	
 	var _ref = weak_ref_create(self);

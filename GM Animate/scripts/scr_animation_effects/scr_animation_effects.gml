@@ -87,8 +87,22 @@ function animation_effect_oscillate(_duration, _range, _direction = 90, _loop = 
 		}
 		return;
 	}
-	array_push(animations[_track].effects, new __animation_effect_oscillate(_duration, _range, _direction, _loop, _curve, _reverse_xy, _track));
+	array_push(animations[_track].effects, new __animation_effect_oscillate(_duration, _range, _loop, _curve, _reverse_xy, _track));
 }
+
+function animation_effect_blink(_duration, _alpha_range, _loop = false, _curve = animation_curve_wave, _reverse_xy = false, _track = 0) {
+	__animation_error_checks
+	if _track == all {
+		for (var i = 0, _len = array_length(animations); i < _len; ++i) {
+		    if animations[i] != 0 {
+				array_push(animations[i].effects, new __animation_effect_blink(_duration, _alpha_range, _loop, _curve, _reverse_xy, i));
+			}
+		}
+		return;
+	}
+	array_push(animations[_track].effects, new __animation_effect_blink(_duration, _alpha_range, _loop, _curve, _reverse_xy, _track));
+}
+
 
 /// @desc Starts a hitstop effect for the specified track. This will stop the track from animating for the duration,
 /// but will not stop effects from running. 
