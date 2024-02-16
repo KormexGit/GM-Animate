@@ -87,15 +87,11 @@ function __animation(_sprite, _loop = true) constructor {
 		if image_speed != 0 and effect_pause == false {
 			var _previous_frame = floor(image_index);
 			image_index += sprite_speed * image_speed;
-			var _current_frame = floor(image_index);
-			if _current_frame > _previous_frame {
-				new_frame = _current_frame;
-			}
 			if image_speed > 0 {
 				if image_index >= image_number {
 					finished = true;
 					if loop == true {
-						image_index = 0;	
+						image_index = 0;
 					}
 					else {
 						image_speed = 0;
@@ -115,6 +111,10 @@ function __animation(_sprite, _loop = true) constructor {
 						image_speed = 0;	
 					}
 				}
+			}
+			var _current_frame = floor(image_index);
+			if _current_frame > _previous_frame or finished == true {
+				new_frame = _current_frame;
 			}
 		}
 		
