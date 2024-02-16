@@ -36,7 +36,10 @@ You can also find full documentation on the [Github wiki page](https://github.co
 A sample project is in the repo but is still WIP.
 
 
-### Planned features for the future:
+## Planned features for the future:
 - More effects!
 - Attachment point editor (this one may take a while)
 - Functions to automatically keep animations attached to eachother at the chosen points/angles
+
+## More resources
+Need help with GM Animate? Looking for more libraries and tools for GameMaker? Come join us at the [GameMaker Kitchen discord server](https://discord.gg/8krYCqr)! You can find the thread for GM Animate in the `your_resources` forum.
