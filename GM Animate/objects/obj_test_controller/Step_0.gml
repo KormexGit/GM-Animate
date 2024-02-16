@@ -18,13 +18,11 @@ with obj_player {
 
 if keyboard_check_pressed(vk_tab) {
 	if player_active {
-		obj_player.anim.paused = true;
 		instance_deactivate_object(obj_player);
 		player_active = false;
 	}
 	else {
 		instance_activate_object(obj_player);
-		obj_player.anim.paused = false;
 		player_active = true;
 	}
 }	

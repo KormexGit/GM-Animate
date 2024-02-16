@@ -6,7 +6,10 @@ global.__animation_timesource = time_source_create(time_source_game, 1, time_sou
 	function() {
 		for (var i = array_length(global.__animation_array) - 1; i >= 0; i--;) {
 		    if weak_ref_alive(global.__animation_array[i]) {
-				global.__animation_array[i].ref.animate();
+				var _anim_struct = global.__animation_array[i].ref;
+				if instance_exists(_anim_struct.creator) or is_struct(_anim_struct.creator) {
+					_anim_struct.animate();
+				}
 			}
 			else {
 				array_delete(global.__animation_array, i, 1);	
@@ -29,7 +32,15 @@ function __animation(_sprite, _loop = true) constructor {
 		}
 		return _sprite_speed;
 	}
-
+	
+	creator = undefined;
+	if instance_exists(other) {
+		creator = other.id;	
+	}
+	else if is_struct(other) {
+		creator = other;	
+	}
+	
 	static __animation_variable_setup = function() {
 		image_number = sprite_get_number(sprite_index);
 		sprite_speed = __animation_get_speed(sprite_index);
