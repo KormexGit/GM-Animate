@@ -1,3 +1,5 @@
+///feather ignore all
+
 function __animation_effect() constructor {
 	owner = other.id;
 		

@@ -36,11 +36,16 @@ collision_and_move = function() {
 idle = new create_state();
 idle.enter = function() {
 	animation_change(sprKnight_Idle_Bow);
+	hsp = 0;
 }
 idle.step = function() {
 	collision_and_move();
 	if !grounded {
 		change_state(falling);
+		exit;
+	}
+	if key_attack {
+		change_state(shoot);
 		exit;
 	}
 	if hor_input != 0 {
@@ -64,7 +69,10 @@ walk.step = function() {
 		change_state(falling);
 		exit;
 	}
-	
+	if key_attack {
+		change_state(shoot);
+		exit;
+	}
 	if key_jump {
 		change_state(jump);
 		exit;
@@ -91,7 +99,10 @@ run.step = function() {
 		change_state(falling);
 		exit;
 	}
-	
+	if key_attack {
+		change_state(shoot);
+		exit;
+	}
 	if key_jump {
 		change_state(jump);
 		exit;
@@ -109,7 +120,7 @@ jump = new create_state();
 jump.enter = function() {
 	animation_change(sprKnight_Jump_Up_Bow, 0, false);
 	animation_queue_add(sprKnight_Jump_Airborne_Bow, true);
-	animation_effect_squash_and_strech(30, 0.4, animation_curve_bounce_twice, true);
+	animation_effect_squash_and_strech(30, 0.4, false, animation_curve_bounce_twice, true);
 	vsp = -jump_speed;
 }
 jump.step = function() {
@@ -141,6 +152,17 @@ falling.step = function() {
 shoot = new create_state();
 shoot.enter = function() {
 	animation_change(sprKnight_Attack_Bow, 0, false);
+}
+
+shoot.step = function() {
+	if animation_enter_frame(4)	{
+		with instance_create_layer(x, y, "Projectiles", obj_arrow) {
+				
+		}
+	}
+	if animation_finished() {
+		change_state(idle);	
+	}
 }
 
 state = idle;

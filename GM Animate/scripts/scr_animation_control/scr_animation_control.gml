@@ -1,3 +1,5 @@
+/// feather ignore all
+
 /// @desc Plays an animation. Must be called at least once on an object before using any other animation functions.
 /// Creates a new animation struct, so if the specified track already has an animation playing then
 /// effects, the animation queue, and variable changes will be reset.

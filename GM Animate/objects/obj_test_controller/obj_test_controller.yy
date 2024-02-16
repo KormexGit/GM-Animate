@@ -1,11 +1,8 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_enemy",
-  "spriteId": {
-    "name": "sprSkeleton_Idle_Sword",
-    "path": "sprites/sprSkeleton_Idle_Sword/sprSkeleton_Idle_Sword.yy",
-  },
+  "name": "obj_test_controller",
+  "spriteId": null,
   "solid": false,
   "visible": true,
   "managed": true,
@@ -25,13 +22,13 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Enemy",
-    "path": "folders/Sample Platformer/Enemy.yy",
+    "name": "Sample Platformer",
+    "path": "folders/Sample Platformer.yy",
   },
 }
