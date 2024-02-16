@@ -7,7 +7,7 @@ global.__animation_timesource = time_source_create(time_source_game, 1, time_sou
 		for (var i = array_length(global.__animation_array) - 1; i >= 0; i--;) {
 		    if weak_ref_alive(global.__animation_array[i]) {
 				var _anim_struct = global.__animation_array[i].ref;
-				if instance_exists(_anim_struct.creator) or is_struct(_anim_struct.creator) {
+				if instance_exists(_anim_struct.creator) {
 					_anim_struct.animate();
 				}
 			}
@@ -33,12 +33,11 @@ function __animation(_sprite, _loop = true) constructor {
 		return _sprite_speed;
 	}
 	
-	creator = undefined;
 	if instance_exists(other) {
 		creator = other.id;	
 	}
-	else if is_struct(other) {
-		creator = other;	
+	else {
+		show_error("GM Animate: tried to use animation_start in a non-instance scope. \nGM Animate currently only supports being run on instances, not structs or other scopes.", true);	
 	}
 	
 	static __animation_variable_setup = function() {
@@ -146,13 +145,16 @@ function __animation(_sprite, _loop = true) constructor {
 
 function __animation_track_error(_track) {
 	if _track != all and (_track > array_length(animations) - 1 or animations[_track] == 0 or _track < 0) {
-		show_error("Tried to access a track that does not exist on object " + object_get_name(object_index) + ", track " + string(_track) + ". \nMake sure the track is created first with animation_start() before using other functions on it.", true); 
+		show_error("GM Animate: tried to access a track that does not exist on object " + object_get_name(object_index) + ", track " + string(_track) + ". \nMake sure the track is created first with animation_start() before using other functions on it.", true); 
 	}
 }
 
 function ___animation_array_error() {
+	if !instance_exists(self) {
+		show_error("GM Animate: tried to use an animation function in a non-instance scope. \nRunning animations in struct or global scope is currently not supported.", true);
+	}
 	if !variable_instance_exists(id, "animations") { 
-		show_error("Tried to use an animation function on an object that never called animation_start: " + object_get_name(object_index) + "\nCall animation_start() on the object before using other animation functions.", true);
+		show_error("GM Animate: tried to use an animation function on an object that never called animation_start: " + object_get_name(object_index) + "\nCall animation_start() on the object before using other animation functions.", true);
 	} 
 }
 

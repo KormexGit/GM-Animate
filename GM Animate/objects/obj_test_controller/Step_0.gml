@@ -1,3 +1,4 @@
+///feather ignore all
 with obj_player {
 	if keyboard_check_pressed(vk_up) {
 		animation_effect_oscillate(90, 30, 90, true);
