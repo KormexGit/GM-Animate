@@ -1,15 +1,15 @@
 ///feather ignore all
 with obj_player {
 	if keyboard_check_pressed(vk_up) {
-		animation_effect_oscillate(90, 30, 90, true);
+		animation_effect_oscillate(90, 30, 90, infinity);
 	} 
 
 	if keyboard_check_pressed(vk_left) {
-		animation_effect_squash_and_strech(30, 0.5);
+		animation_effect_squash_and_strech(30, 0.5, 2);
 	}
 
 	if keyboard_check_pressed(vk_right) {
-		animation_effect_blink(30, 0.8, true);
+		animation_effect_blink(30, 0.8, 3);
 	}
 
 	if keyboard_check_pressed(vk_down) {
