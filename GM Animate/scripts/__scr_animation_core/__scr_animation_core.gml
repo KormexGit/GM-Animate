@@ -1,24 +1,29 @@
 //feather ignore all
 
-global.__animation_array = [];
+if ANIMATION_AUTOMATIC_MODE {
+	global.__animation_array = [];
 
-global.__animation_timesource = time_source_create(time_source_game, 1, time_source_units_frames, 
-	function() {
-		for (var i = array_length(global.__animation_array) - 1; i >= 0; i--;) {
-		    if weak_ref_alive(global.__animation_array[i]) {
-				var _anim_struct = global.__animation_array[i].ref;
-				if instance_exists(_anim_struct.creator) {
-					_anim_struct.__animate();
+	global.__animation_timesource = time_source_create(time_source_game, 1, time_source_units_frames, 
+		function() {
+			for (var i = array_length(global.__animation_array) - 1; i >= 0; i--;) {
+			    if weak_ref_alive(global.__animation_array[i]) {
+					var _anim_struct = global.__animation_array[i].ref;
+					if instance_exists(_anim_struct.creator) {
+						_anim_struct.__animate();
+					}
+					else {
+						array_delete(global.__animation_array, i, 1);
+					}
+				}
+				else {
+					array_delete(global.__animation_array, i, 1);	
 				}
 			}
-			else {
-				array_delete(global.__animation_array, i, 1);	
-			}
-		}
-	},
-	[], -1
-)
-time_source_start(global.__animation_timesource);
+		},
+		[], -1
+	)
+	time_source_start(global.__animation_timesource);
+}
 
 function __animation(_sprite, _loop = true) constructor {
 	static __animation_get_speed = function(_sprite = sprite_index) {
@@ -137,8 +142,10 @@ function __animation(_sprite, _loop = true) constructor {
 		image_angle + angle_offset, image_blend, image_alpha - alpha_offset);
 	}
 	
-	var _ref = weak_ref_create(self);
-	array_push(global.__animation_array, _ref);
+	if ANIMATION_AUTOMATIC_MODE {
+		var _ref = weak_ref_create(self);
+		array_push(global.__animation_array, _ref);
+	}
 }
 
 function __animation_track_error(_track) {

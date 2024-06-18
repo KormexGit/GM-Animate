@@ -92,6 +92,7 @@
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},"order":0,},
     {"id":{"name":"sprSkeleton_Run_Sword","path":"sprites/sprSkeleton_Run_Sword/sprSkeleton_Run_Sword.yy",},"order":5,},
     {"id":{"name":"scr_animation_control","path":"scripts/scr_animation_control/scr_animation_control.yy",},"order":0,},
+    {"id":{"name":"scr_animation_config","path":"scripts/scr_animation_config/scr_animation_config.yy",},"order":0,},
     {"id":{"name":"SFX_Knight_Sword_Stab1","path":"sounds/SFX_Knight_Sword_Stab1/SFX_Knight_Sword_Stab1.yy",},"order":17,},
     {"id":{"name":"SFX_Knight_Hit2","path":"sounds/SFX_Knight_Hit2/SFX_Knight_Hit2.yy",},"order":7,},
     {"id":{"name":"sprKnight_Jump_Airborne","path":"sprites/sprKnight_Jump_Airborne/sprKnight_Jump_Airborne.yy",},"order":4,},
@@ -175,9 +176,9 @@
   ],
   "Folders": [
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"GM Animate","folderPath":"folders/GM Animate.yy","order":11,},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Animation Curves","folderPath":"folders/GM Animate/Animation Curves.yy","order":1,},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Internal Scripts (No touchy!)","folderPath":"folders/GM Animate/Internal Scripts (No touchy!).yy","order":2,},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Public Scripts (Use but don't edit!)","folderPath":"folders/GM Animate/Public Scripts (Use but don't edit!).yy","order":3,},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Animation Curves","folderPath":"folders/GM Animate/Animation Curves.yy","order":0,},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Internal Scripts (No touchy!)","folderPath":"folders/GM Animate/Internal Scripts (No touchy!).yy","order":1,},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Public Scripts (Use but don't edit!)","folderPath":"folders/GM Animate/Public Scripts (Use but don't edit!).yy","order":2,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Sample Platformer","folderPath":"folders/Sample Platformer.yy","order":12,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Enemy","folderPath":"folders/Sample Platformer/Enemy.yy","order":2,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Sprites","folderPath":"folders/Sample Platformer/Enemy/Sprites.yy","order":1,},
@@ -201,6 +202,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Environment","folderPath":"folders/Sample Platformer/Sounds/SFX/Environment.yy","order":2,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Tiles","folderPath":"folders/Sample Platformer/Tiles.yy","order":5,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Tilesets","folderPath":"folders/Sample Platformer/Tiles/Tilesets.yy","order":0,},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Config (Edit me!)","folderPath":"folders/GM Animate/Config (Edit me!).yy","order":3,},
   ],
   "AudioGroups": [
     {"resourceType":"GMAudioGroup","resourceVersion":"1.3","name":"audiogroup_default","targets":-1,},

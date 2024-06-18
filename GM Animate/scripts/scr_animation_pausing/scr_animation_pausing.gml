@@ -1,32 +1,37 @@
 
-/// @desc Pauses or unpauses the global animation timesource. This will pause ALL animations, including ones started after calling this function.
-/// @param {Bool} _pause Whether to pause or unpause. 
-function animation_set_global_pause(_pause) {
-	if _pause == true {
-		time_source_pause(global.__animation_timesource);
+if ANIMATION_AUTOMATIC_MODE {
+	/// @desc Pauses or unpauses the global animation timesource. This will pause ALL animations, including ones started after calling this function.
+	/// Only for use with automatic mode enabled!
+	/// @param {Bool} _pause Whether to pause or unpause. 
+	function animation_set_global_pause(_pause) {
+		if _pause == true {
+			time_source_pause(global.__animation_timesource);
+		}
+		else if _pause == false {
+			time_source_resume(global.__animation_timesource);
+		}
 	}
-	else if _pause == false {
-		time_source_resume(global.__animation_timesource);
-	}
-}
 
-/// @desc Checks whether the global animation timesource is currently paused or not.
-/// @return {Bool} Whether the global animation timesource is currently paused or not.
-function animation_get_global_pause() {
-	var _state = time_source_get_state(global.__animation_timesource);
-	if _state == time_source_state_paused {
-		return true;	
+	/// @desc Checks whether the global animation timesource is currently paused or not.
+	/// Only for use with automatic mode enabled!
+	/// @return {Bool} Whether the global animation timesource is currently paused or not.
+	function animation_get_global_pause() {
+		var _state = time_source_get_state(global.__animation_timesource);
+		if _state == time_source_state_paused {
+			return true;	
+		}
+		return false;
 	}
-	return false;
-}
 
-/// @desc Pauses or unpauses all animations that currently exist in the whole game. Will not pause newly played animations that start after this is called.
-/// Good choice over animation_set_global_pause if you want to pause gameplay sprites but still use the animation system for a pause menu.
-/// @param {Bool} _pause Whether to pause or unpause. 
-function animation_set_pause_all(_pause) {
-	for (var i = 0, _len = array_length(global.__animation_array); i < _len; i++;){
-		if weak_ref_alive(global.__animation_array[i]) {
-			global.__animation_array[i].ref.paused = _pause;
+	/// @desc Pauses or unpauses all animations that currently exist in the whole game. Will not pause newly played animations that start after this is called.
+	/// Good choice over animation_set_global_pause if you want to pause gameplay sprites but still use the animation system for a pause menu.
+	/// Only for use with automatic mode enabled!
+	/// @param {Bool} _pause Whether to pause or unpause. 
+	function animation_set_pause_all(_pause) {
+		for (var i = 0, _len = array_length(global.__animation_array); i < _len; i++;){
+			if weak_ref_alive(global.__animation_array[i]) {
+				global.__animation_array[i].ref.paused = _pause;
+			}
 		}
 	}
 }

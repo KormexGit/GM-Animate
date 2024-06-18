@@ -13,6 +13,14 @@ function animation_start(_sprite, _loop = true, _track = 0) {
 	return animations[_track];
 }
 
+/// @desc Runs the animations for this object. Must be called in step when automatic mode is disabled for animations to work.
+/// Do not call this if automatic mode is enabled.
+function animation_run() {
+	for(var i = 0, len = array_length(animations); i < len; i++;) { 
+		animations[i].__animate();
+	}
+}
+
 /// @desc Change an animation track to a different sprite without resetting effects, the animation queue, or variables.
 /// The equivalent of changing sprite_index when using GameMaker's built in animation.
 /// @param {asset.GMSprite} _sprite The sprite asset to animate.
