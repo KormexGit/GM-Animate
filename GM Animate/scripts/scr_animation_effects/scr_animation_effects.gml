@@ -42,6 +42,30 @@ function animation_effect_squash_and_strech(_duration, _scale, _loop_count = 1, 
 	array_push(animations[_track].effects, new __animation_effect_squash_and_stretch(_duration, _scale, _loop_count, _curve, _reverse_xy, _track));
 }
 
+/// @desc Starts a pulse for the specified track. 
+/// @param {Real} _duration How long the pulse should last, in steps/game frames. If loop_count is greater than 1, this will be the duration of each loop.
+/// @param {Real} _scale How big the pulse should be. This value is the size of the largest part of the pulse.
+/// as an image_xscale and image_yscale multiplier. For example, a scale of 0.5 would make the largest part of the pulse be 50% larger. 
+/// In most cases, you will want a value that is in between 0.1 and 0.9. 
+/// A value higher than the animations's current image_xscale or image_yscale may cause the animation to overshoot and show up backwards for part of the pulse.
+/// @param {Real} _loop_count How many times the effect should loop. Pass `infinity` to loop forever.
+/// @param {Asset.GMAnimCurve} _curve The animation curve asset to base the pulse on. See the Animation Curves folder inside the Animation folder
+/// in the asset browser for some curves you can use, or make your own using the same format as the included ones. 
+/// @param {Bool} _reverse_xy Reverses the x and y tracks in the animation curve. If set to true, y track of the animation curve will be used instead of the x track.
+/// @param {Real} _track The track to apply the effect to. Pass `all` to apply the effect to all tracks at once.
+function animation_effect_pulse(_duration, _scale, _loop_count = 1, _curve = animation_curve_bounce_once, _reverse_xy = false, _track = 0) {
+	__animation_error_checks
+	if _track == all {
+		for (var i = 0, _len = array_length(animations); i < _len; ++i) {
+		    if animations[i] != 0 {
+				array_push(animations[i].effects, new __animation_effect_pulse(_duration, _scale, _loop_count, _curve, _reverse_xy, i));
+			}
+		}
+		return;
+	}
+	array_push(animations[_track].effects, new __animation_effect_pulse(_duration, _scale, _loop_count, _curve, _reverse_xy, _track));
+}
+
 /// @desc Starts a sway effect for the specified track. 
 /// @param {Real} _duration How long the sway should last, in steps/game frames. If loop_count is greater than 1, this will be the duration of each loop.
 /// @param {Real} _range How far the sway should rotate, measured in degrees.

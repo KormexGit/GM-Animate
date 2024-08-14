@@ -65,6 +65,32 @@ function animation_draw(_x = x, _y = y, _track = 0) {
 	animations[_track].__draw(_x, _y);
 }
 
+/// @desc Draw an animation with different parameters than it's current variables, similar to draw_sprite_ext. Should always be called in a draw related event.
+/// @param {Real} _x x coordinate to draw at.
+/// @param {Real} _y y coordinate to draw at.
+/// @param {Real} _image_index The frame to draw.
+/// @param {Real} _image_xscale The base xscale to use. Effects that change xscale will apply their multiplier to this value.
+/// @param {Real} _image_yscale The base yscale to use. Effects that change yscale will apply their multiplier to this value.
+/// @param {Real} _image_angle The angle to draw at. Effects that change angle will be relative to this value.
+/// @param {Real} _image_blend The blend to draw with.
+/// @param {Real} _image_alpha The alpha to draw at.
+/// @param {Real} _track The track to draw. Pass `all` to draw every active track.
+function animation_draw_ext(_x = x, _y = y, _image_index = image_index, _image_xscale = image_xscale, _image_yscale = image_yscale,
+	_image_angle = image_angle, _image_blend = image_blend, _image_alpha = image_alpha, _track = 0) {
+		
+	__animation_error_checks
+	
+	if _track == all {
+		for (var i = 0, _len = array_length(animations); i < _len; ++i) {
+			if animations[i] != 0 {
+				animations[i].__draw_ext(_image_index, _x, _y, _image_xscale, _image_yscale, _image_angle, _image_blend, _image_alpha);
+			}
+		}
+		return;
+	}		
+	animations[_track].__draw_ext(_image_index, _x, _y, _image_xscale, _image_yscale, _image_angle, _image_blend, _image_alpha);
+}
+
 /// @desc Set the instance's collision mask to match the specified animation track. Effects (such as shake, squash and stretch) will not affect the mask's position or size.
 /// WARNING: _use_scale and _use_angle will change the calling instance's image_xscale, image_yscale, and/or image_angle if set to true. 
 /// @param {Bool} _use_scale Whether to match the instance's image_xscale and image_yscale to the animation's image_xscale and image_yscale. 

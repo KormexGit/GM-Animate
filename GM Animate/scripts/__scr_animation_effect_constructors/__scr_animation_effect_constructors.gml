@@ -85,6 +85,27 @@ function __animation_effect_squash_and_stretch(_duration, _scale, _loop_count, _
 	}
 }
 
+function __animation_effect_pulse(_duration, _scale, _loop_count, _curve, _reverse_xy, _track = 0) : __animation_effect() constructor {
+	duration = _duration;
+	scale = _scale;
+	loop_count = _loop_count;
+	curve = _curve;
+	track = _track;
+	name = "pulse";
+	
+	__animation_channel_setup(_reverse_xy);
+	
+	static step = function() {
+		__animation_progress_curve();
+		
+		var _prog = animcurve_channel_evaluate(x_channel, curve_progress);
+		
+		var _anim = owner.animations[track];
+		_anim.xscale_offset += lerp(0, scale, _prog);
+		_anim.yscale_offset += lerp(0, scale, _prog);
+	}
+}
+
 function __animation_effect_sway(_duration, _range, _x_offset, _y_offset, _loop_count, _curve, _reverse_xy, _track = 0) : __animation_effect() constructor {
 	duration = _duration;
 	range = _range;

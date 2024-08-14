@@ -1,7 +1,7 @@
 ///feather ignore all
 with obj_player {
 	if keyboard_check_pressed(vk_up) {
-		animation_effect_oscillate(90, 30, 90, infinity);
+		animation_effect_pulse(30, 0.5, , , true);
 	} 
 
 	if keyboard_check_pressed(vk_left) {

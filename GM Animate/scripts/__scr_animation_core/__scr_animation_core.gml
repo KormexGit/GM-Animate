@@ -142,6 +142,13 @@ function __animation(_sprite, _loop = true) constructor {
 		image_angle + angle_offset, image_blend, image_alpha - alpha_offset);
 	}
 	
+	static __draw_ext = function(_image_index = image_index, _x = other.x, _y = other.y, _image_xscale = image_xscale, _image_yscale = image_yscale,
+	_image_angle = image_angle, _image_blend = image_blend, _image_alpha = image_alpha) {
+		draw_sprite_ext(sprite_index, _image_index, _x + x_offset, _y + y_offset, _image_xscale + (xscale_offset * _image_xscale), 
+		_image_yscale + (yscale_offset * _image_yscale), 
+		_image_angle + angle_offset, _image_blend, _image_alpha - alpha_offset);
+	}
+	
 	if ANIMATION_AUTOMATIC_MODE {
 		var _ref = weak_ref_create(self);
 		array_push(global.__animation_array, _ref);
