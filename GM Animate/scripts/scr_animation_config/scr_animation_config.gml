@@ -1,4 +1,4 @@
-//Current GM Animate version: 0.3.2
+//GM Animate version: 0.3.2
 
 
 /// Automatic mode will run animations automatically, without needing to call animation_run() in the step event of each object.

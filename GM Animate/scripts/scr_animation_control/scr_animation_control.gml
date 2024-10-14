@@ -13,11 +13,13 @@ function animation_start(_sprite, _loop = true, _track = 0) {
 	return animations[_track];
 }
 
-/// @desc Runs the animations for this object. Must be called in step when automatic mode is disabled for animations to work.
-/// Do not call this if automatic mode is enabled.
-function animation_run() {
-	for(var i = 0, len = array_length(animations); i < len; i++;) { 
-		animations[i].__animate();
+if !ANIMATION_AUTOMATIC_MODE {
+	/// @desc Runs the animations for this object. Must be called in step when automatic mode is disabled for animations to work.
+	/// Do not call this if automatic mode is enabled.
+	function animation_run() {
+		for(var i = 0, len = array_length(animations); i < len; i++;) { 
+			animations[i].__animate();
+		}
 	}
 }
 
