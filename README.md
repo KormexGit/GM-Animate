@@ -15,6 +15,7 @@ LTS compatible! Works on any GM version 2022.0 or newer.
   - Oscillate, makes a sprite move up and down (or any direction you choose!)
   - Shake, like a screen shake, but just for one sprite.
   - Hitstop, stop an animation for a specified number of frames.
+  - Blink, fades an animation in and out, like an old school invincibility frame effect.
 
 ## Adding GM Animate to your project
 1. [Download the newest .yymps file here](https://github.com/KormexGit/GM-Animate/releases)
