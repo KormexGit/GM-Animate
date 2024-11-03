@@ -36,8 +36,9 @@ You can also find full documentation on the [Github wiki page](https://github.co
 A sample project is in the repo but is still WIP.
 
 
-## Planned features for the future:
+### Planned features for the future (at whatever point I get around to it)
 - More effects!
+- A curve runner: Changes a variable based on an animation curve. Would work with any variable, not just ones inside the GM animate system
 - Attachment point editor (this one may take a while)
 - Functions to automatically keep animations attached to eachother at the chosen points/angles
 
