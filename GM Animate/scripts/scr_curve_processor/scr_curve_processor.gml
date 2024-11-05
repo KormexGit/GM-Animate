@@ -22,3 +22,14 @@ function curve_run() {
 		curves[i].__curve_process();
 	}
 }
+
+function curve_init() {
+	curves = [];	
+}
+
+function curve_is_finished(_curve) {
+	if _curve.curve_progress >= 1 {
+		return true;
+	}
+	return false;
+}

@@ -42,14 +42,15 @@ function __curve_runner(_curve, _channel, _variable_name, _start_value, _end_val
 		owner[$ variable] = lerp(start_value, end_value, _prog);
 	}
 	
-	//static __curve_automatic = function() {
-	//	var ts = time_source_create(time_source_game, 1, time_source_units_frames, function() {
+	//automatic = true;
+	//static __timeSources = [];
+	
+	//if automatic == true {
+	//	ts = time_source_create(time_source_game, 1, time_source_units_frames, function() {
 	//		curve_progress += rate;
-		
 	//		if curve_progress > 1 {
 	//			if loop_count <= 1 {
 	//				var _index = __curve_get_index();
-	//				array_delete(calling_instance.curves, _index, 1);
 	//				return;
 	//			}
 	//			else {
@@ -61,7 +62,7 @@ function __curve_runner(_curve, _channel, _variable_name, _start_value, _end_val
 	//		var _prog = animcurve_channel_evaluate(channel, curve_progress);
 		
 	//		owner[$ variable] = lerp(start_value, end_value, _prog);
-	//	})
-	//	array_push(calling_instance.curves, ts);
+	//	}, [], -1)
+	//	time_source_start(ts);
 	//}
 }
