@@ -56,8 +56,8 @@ function animation_change(_sprite, _starting_image_index = 0, _loop = true, _tra
 }
 
 /// @desc Draw an animation. Must be called for an animation to appear. Should always be called in a draw related event.
-/// @param {Real} _x x coordinate to draw at.
-/// @param {Real} _y y coordinate to draw at.
+/// @param {Real} _x x coordinate to draw at. Defaults to the instance's x.
+/// @param {Real} _y y coordinate to draw at. Defaults to the instance's y.
 /// @param {Real} _track The track to draw. Pass `all` to draw every active track.
 function animation_draw(_x = x, _y = y, _track = 0) {
 	__animation_error_checks
@@ -74,8 +74,9 @@ function animation_draw(_x = x, _y = y, _track = 0) {
 }
 
 /// @desc Draw an animation with different parameters than it's current variables, similar to draw_sprite_ext. Should always be called in a draw related event.
-/// @param {Real} _x x coordinate to draw at.
-/// @param {Real} _y y coordinate to draw at.
+/// All arguments are optional, and default to the animation's value for that variable. 
+/// @param {Real} _x x coordinate to draw at. Defaults to the instance's x.
+/// @param {Real} _y y coordinate to draw at. Defaults to the instance's y.
 /// @param {Real} _image_index The frame to draw.
 /// @param {Real} _image_xscale The base xscale to use. Effects that change xscale will apply their multiplier to this value.
 /// @param {Real} _image_yscale The base yscale to use. Effects that change yscale will apply their multiplier to this value.
@@ -83,8 +84,8 @@ function animation_draw(_x = x, _y = y, _track = 0) {
 /// @param {Real} _image_blend The blend to draw with.
 /// @param {Real} _image_alpha The alpha to draw at.
 /// @param {Real} _track The track to draw. Pass `all` to draw every active track.
-function animation_draw_ext(_x = x, _y = y, _image_index = image_index, _image_xscale = image_xscale, _image_yscale = image_yscale,
-	_image_angle = image_angle, _image_blend = image_blend, _image_alpha = image_alpha, _track = 0) {
+function animation_draw_ext(_x = undefined, _y = undefined, _image_index = undefined, _image_xscale = undefined, _image_yscale = undefined,
+	_image_angle = undefined, _image_blend = undefined, _image_alpha = undefined, _track = 0) {
 		
 	__animation_error_checks
 	
@@ -95,7 +96,8 @@ function animation_draw_ext(_x = x, _y = y, _image_index = image_index, _image_x
 			}
 		}
 		return;
-	}		
+	}	
+	
 	animations[_track].__draw_ext(_image_index, _x, _y, _image_xscale, _image_yscale, _image_angle, _image_blend, _image_alpha);
 }
 
@@ -230,8 +232,6 @@ function animation_set_variable(_variable_name, _value, _track = 0) {
 	}
 	animations[_track][$ _variable_name] = _value;
 }
-
-animation_set_variable("image_index", 5, all);
 
 /// @desc Sets looping for the animation on the specified track. 
 /// @param {Bool} _loop Whether to loop or stop looping.

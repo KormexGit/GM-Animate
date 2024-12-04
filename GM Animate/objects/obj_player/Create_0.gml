@@ -169,6 +169,7 @@ shoot.step = function() {
 
 state = idle;
 anim = animation_start(sprKnight_Idle_Bow);
+animation_start(sprKnight_Die_Spikes_Sword, true, 1);
 
 
 sprite_prefetch_multi([sprKnight_Jump_Airborne_Bow, sprKnight_Jump_Up_Bow, sprKnight_Walk_Bow, sprKnight_Idle_Bow]);
