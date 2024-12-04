@@ -178,6 +178,7 @@
     {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
   ],
   "Folders": [
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Auto-Curve","folderPath":"folders/Auto-Curve.yy","order":14,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"GM Animate","folderPath":"folders/GM Animate.yy","order":11,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Animation Curves","folderPath":"folders/GM Animate/Animation Curves.yy","order":0,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Config (Edit me!)","folderPath":"folders/GM Animate/Config (Edit me!).yy","order":3,},
@@ -206,7 +207,6 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Environment","folderPath":"folders/Sample Platformer/Sounds/SFX/Environment.yy","order":2,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Tiles","folderPath":"folders/Sample Platformer/Tiles.yy","order":5,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Tilesets","folderPath":"folders/Sample Platformer/Tiles/Tilesets.yy","order":0,},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Auto-Curve","folderPath":"folders/Auto-Curve.yy","order":14,},
   ],
   "AudioGroups": [
     {"resourceType":"GMAudioGroup","resourceVersion":"1.3","name":"audiogroup_default","targets":-1,},

@@ -213,6 +213,26 @@ function animation_enter_frame(_frame, _track = 0) {
 	}
 }
 
+/// @desc Sets a variable for the specified track. Can be used to set a variable for all tracks at once.
+/// @param {String} _variable_name The variable to change, as a string. 
+/// @param {Any} _value The value to set the variable to.
+/// @param {Real} _track The track to set. Pass `all` to set all tracks at once.
+function animation_set_variable(_variable_name, _value, _track = 0) {
+	__animation_error_checks
+	
+	if _track == all {
+		for (var i = 0, _len = array_length(animations); i < _len; ++i) {
+		    if animations[i] != 0 {
+				animations[i][$ _variable_name] = _value;	
+			}
+		}
+		return;
+	}
+	animations[_track][$ _variable_name] = _value;
+}
+
+animation_set_variable("image_index", 5, all);
+
 /// @desc Sets looping for the animation on the specified track. 
 /// @param {Bool} _loop Whether to loop or stop looping.
 /// @param {Real} _track The track to set. Pass `all` to set all tracks at once.
