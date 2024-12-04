@@ -51,6 +51,7 @@ function __animation(_sprite, _loop = true) constructor {
 	}
 	
 	sprite_index = _sprite;
+	sprite_name = sprite_get_name(sprite_index);
 	__animation_variable_setup();
 	image_index = 0;
 	image_speed = 1;
@@ -79,6 +80,7 @@ function __animation(_sprite, _loop = true) constructor {
 	
 	effects = [];
 	queue = [];
+	events = {};
 	
 	static __animate = function() {
 
@@ -121,6 +123,28 @@ function __animation(_sprite, _loop = true) constructor {
 			}
 		}
 		
+		if variable_struct_exists(events, sprite_name) {	
+			var current_events = events[$ sprite_name];
+			for (var i = array_length(current_events) - 1; i > -1; i--;) {
+				var _frame = current_events[i].frames;
+				if is_array(_frame) {
+					for (var j = 0, _len = array_length(_frame); j < _len; ++j) {
+					    if _frame[j] == new_frame {
+							current_events[i].callback();
+						}
+					}
+					continue;
+				}
+				if _frame == new_frame {
+					current_events[i].callback();
+					continue;
+				}
+				//if _frame == all {
+				//	current_events[i].callback();
+				//}
+			}
+		}
+		
 		__reset_offsets();
 		for (var j = array_length(effects) - 1; j > -1; j--;) {
 			effects[j].step();
@@ -133,6 +157,16 @@ function __animation(_sprite, _loop = true) constructor {
 			image_speed = 1;
 			loop = _queue_data.loop;
 			__animation_variable_setup();
+		}
+	}
+	
+	static __animation_event_setup = function() {
+		var _sprite_name = sprite_get_name(sprite_index);
+		if variable_struct_exists(event_database, _sprite_name) {
+			events = event_database[$ _sprite_name];
+		}
+		else {
+			events = [];	
 		}
 	}
 	

@@ -20,7 +20,7 @@ if !ANIMATION_AUTOMATIC_MODE {
 		
 		___animation_array_error();
 		
-		for(var i = 0, len = array_length(animations); i < len; i++;) { 
+		for(var i = 0, _len = array_length(animations); i < _len; i++;) { 
 			if animations[i] == 0 {
 				continue;	
 			}
@@ -45,6 +45,7 @@ function animation_change(_sprite, _starting_image_index = 0, _loop = true, _tra
 				image_speed = 1;
 			}
 			sprite_index = _sprite;
+			sprite_name = sprite_get_name(sprite_index);
 			if _starting_image_index != -1 {
 				image_index = _starting_image_index;
 			}
@@ -64,9 +65,10 @@ function animation_draw(_x = x, _y = y, _track = 0) {
 	
 	if _track == all {
 		for (var i = 0, _len = array_length(animations); i < _len; ++i) {
-			if animations[i] != 0 {
-				animations[i].__draw(_x, _y);
+			if animations[i] == 0 {
+				continue;
 			}
+			animations[i].__draw(_x, _y);
 		}
 		return;
 	}		
@@ -91,9 +93,10 @@ function animation_draw_ext(_x = undefined, _y = undefined, _image_index = undef
 	
 	if _track == all {
 		for (var i = 0, _len = array_length(animations); i < _len; ++i) {
-			if animations[i] != 0 {
-				animations[i].__draw_ext(_image_index, _x, _y, _image_xscale, _image_yscale, _image_angle, _image_blend, _image_alpha);
+			if animations[i] == 0 {
+				continue;
 			}
+			animations[i].__draw_ext(_image_index, _x, _y, _image_xscale, _image_yscale, _image_angle, _image_blend, _image_alpha);
 		}
 		return;
 	}	
@@ -102,7 +105,8 @@ function animation_draw_ext(_x = undefined, _y = undefined, _image_index = undef
 }
 
 /// @desc Set the instance's collision mask to match the specified animation track. Effects (such as shake, squash and stretch) will not affect the mask's position or size.
-/// WARNING: _use_scale and _use_angle will change the calling instance's image_xscale, image_yscale, and/or image_angle if set to true. 
+/// WARNING: This function changes the calling instance's mask_index and image_index, so it will interfere with built in animation.
+/// Additionally, it will change the calling instance's image_xscale, image_yscale, and/or image_angle if _use_scale and/or _use_angle are set to true. 
 /// @param {Bool} _use_scale Whether to match the instance's image_xscale and image_yscale to the animation's image_xscale and image_yscale. 
 /// @param {Bool} _use_angle Whether to match the instance's image_angle to the animation's image_angle. 
 /// @param {Real} _track The track to get the sprite from to use as the collision mask.
@@ -224,9 +228,10 @@ function animation_set_variable(_variable_name, _value, _track = 0) {
 	
 	if _track == all {
 		for (var i = 0, _len = array_length(animations); i < _len; ++i) {
-		    if animations[i] != 0 {
-				animations[i][$ _variable_name] = _value;	
+		    if animations[i] == 0 {
+				continue;
 			}
+			animations[i][$ _variable_name] = _value;
 		}
 		return;
 	}
@@ -240,9 +245,10 @@ function animation_set_looping(_loop, _track = 0) {
 	__animation_error_checks
 	if _track == all {
 		for (var i = 0, _len = array_length(animations); i < _len; ++i) {
-		    if animations[i] != 0 {
-				animations[i].loop = _pause;	
+			if animations[i] == 0 {
+				continue;
 			}
+			animations[i].loop = _pause;	
 		}
 		return;
 	}

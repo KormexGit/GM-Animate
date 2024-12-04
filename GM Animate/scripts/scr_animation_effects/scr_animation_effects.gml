@@ -8,9 +8,10 @@ function animation_effect_shake(_duration, _intensity, _track = 0) {
 	__animation_error_checks
 	if _track == all {
 		for (var i = 0, _len = array_length(animations); i < _len; ++i) {
-		    if animations[i] != 0 {
-				array_push(animations[i].effects, new __animation_effect_shake(_duration, _intensity, i));
+		    if animations[i] == 0 {
+				continue;
 			}
+			array_push(animations[i].effects, new __animation_effect_shake(_duration, _intensity, i));
 		}
 		return;
 	}
@@ -33,9 +34,10 @@ function animation_effect_squash_and_strech(_duration, _scale, _loop_count = 1, 
 	__animation_error_checks
 	if _track == all {
 		for (var i = 0, _len = array_length(animations); i < _len; ++i) {
-		    if animations[i] != 0 {
-				array_push(animations[i].effects, new __animation_effect_squash_and_stretch(_duration, _scale, _loop_count, _curve, _reverse_xy, i));
+		   	if animations[i] == 0 {
+				continue;
 			}
+			array_push(animations[i].effects, new __animation_effect_squash_and_stretch(_duration, _scale, _loop_count, _curve, _reverse_xy, i));
 		}
 		return;
 	}
@@ -57,9 +59,10 @@ function animation_effect_pulse(_duration, _scale, _loop_count = 1, _curve = ani
 	__animation_error_checks
 	if _track == all {
 		for (var i = 0, _len = array_length(animations); i < _len; ++i) {
-		    if animations[i] != 0 {
-				array_push(animations[i].effects, new __animation_effect_pulse(_duration, _scale, _loop_count, _curve, _reverse_xy, i));
+		    if animations[i] == 0 {
+				continue;
 			}
+			array_push(animations[i].effects, new __animation_effect_pulse(_duration, _scale, _loop_count, _curve, _reverse_xy, i));
 		}
 		return;
 	}
@@ -82,9 +85,10 @@ function animation_effect_sway(_duration, _range, _x_offset = 0, _y_offset = 0, 
 	__animation_error_checks
 	if _track == all {
 		for (var i = 0, _len = array_length(animations); i < _len; ++i) {
-		    if animations[i] != 0 {
-				array_push(animations[i].effects, new __animation_effect_sway(_duration, _range, _x_offset, _y_offset, _loop_count, _curve, _reverse_xy, i));
+		    if animations[i] == 0 {
+				continue;
 			}
+			array_push(animations[i].effects, new __animation_effect_sway(_duration, _range, _x_offset, _y_offset, _loop_count, _curve, _reverse_xy, i));
 		}
 		return;
 	}
@@ -105,9 +109,10 @@ function animation_effect_oscillate(_duration, _range, _direction = 90, _loop_co
 	__animation_error_checks
 	if _track == all {
 		for (var i = 0, _len = array_length(animations); i < _len; ++i) {
-		    if animations[i] != 0 {
-				array_push(animations[i].effects, new __animation_effect_oscillate(_duration, _range, _direction, _loop_count, _curve, _reverse_xy, i));
+		    if animations[i] == 0 {
+				continue;
 			}
+			array_push(animations[i].effects, new __animation_effect_oscillate(_duration, _range, _direction, _loop_count, _curve, _reverse_xy, i));
 		}
 		return;
 	}
@@ -127,9 +132,10 @@ function animation_effect_blink(_duration, _alpha_range, _loop_count = 1, _curve
 	__animation_error_checks
 	if _track == all {
 		for (var i = 0, _len = array_length(animations); i < _len; ++i) {
-		    if animations[i] != 0 {
-				array_push(animations[i].effects, new __animation_effect_blink(_duration, _alpha_range, _loop_count, _curve, _reverse_xy, i));
+		    if animations[i] == 0 {
+				continue;
 			}
+			array_push(animations[i].effects, new __animation_effect_blink(_duration, _alpha_range, _loop_count, _curve, _reverse_xy, i));
 		}
 		return;
 	}
@@ -145,9 +151,10 @@ function animation_effect_hitstop(_duration, _track = 0) {
 	__animation_error_checks
 	if _track == all {
 		for (var i = 0, _len = array_length(animations); i < _len; ++i) {
-		    if animations[i] != 0 {
-				array_push(animations[i].effects, new __animation_effect_hitstop(_duration, i));
+		    if animations[i] == 0 {
+				continue;
 			}
+			array_push(animations[i].effects, new __animation_effect_hitstop(_duration, i));
 		}
 		return;
 	}

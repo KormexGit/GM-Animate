@@ -43,9 +43,10 @@ function animation_set_pause(_pause, _track = 0) {
 	__animation_error_checks
 	if _track == all {
 		for (var i = 0, _len = array_length(animations); i < _len; ++i) {
-		    if animations[i] != 0 {
-				animations[i].paused = _pause;	
+		    if animations[i] == 0 {
+				continue;
 			}
+			animations[i].paused = _pause;	
 		}
 		return;
 	}
@@ -59,15 +60,15 @@ function animation_get_pause(_track = 0) {
 	__animation_error_checks
 	
 	if _track == all {
-		var _all_paused = true;
 		for (var i = 0, _len = array_length(animations); i < _len; ++i) {
-		    if animations[i] != 0 {
-				if animations[i].paused == false {
-					return false;	
-				}
+		    if animations[i] == 0 {
+				continue;
+			}
+			if animations[i].paused == false {
+				return false;	
 			}
 		}
-		return _all_paused;
+		return true;
 	}
 	return animations[_track].paused;
 }

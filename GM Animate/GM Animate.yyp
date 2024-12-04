@@ -44,6 +44,8 @@
     {"id":{"name":"animation_curve_bounce_thrice","path":"animcurves/animation_curve_bounce_thrice/animation_curve_bounce_thrice.yy",},"order":2,},
     {"id":{"name":"SFX_Skeleton_Hit2","path":"sounds/SFX_Skeleton_Hit2/SFX_Skeleton_Hit2.yy",},"order":9,},
     {"id":{"name":"SFX_Knight_Die_Fall","path":"sounds/SFX_Knight_Die_Fall/SFX_Knight_Die_Fall.yy",},"order":4,},
+    {"id":{"name":"scr_animation_events","path":"scripts/scr_animation_events/scr_animation_events.yy",},"order":5,},
+    {"id":{"name":"__scr_animation_event_constructors","path":"scripts/__scr_animation_event_constructors/__scr_animation_event_constructors.yy",},"order":3,},
     {"id":{"name":"sprSkeleton_Hit_Bow","path":"sprites/sprSkeleton_Hit_Bow/sprSkeleton_Hit_Bow.yy",},"order":2,},
     {"id":{"name":"SFX_Knight_Walk5","path":"sounds/SFX_Knight_Walk5/SFX_Knight_Walk5.yy",},"order":27,},
     {"id":{"name":"animation_curve_snap_start","path":"animcurves/animation_curve_snap_start/animation_curve_snap_start.yy",},"order":8,},
