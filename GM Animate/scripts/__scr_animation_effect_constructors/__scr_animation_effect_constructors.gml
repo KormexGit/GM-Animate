@@ -29,7 +29,6 @@ function __animation_effect() constructor {
 		curve_progress += rate;
 		
 		if curve_progress > 1 {
-			show_debug_message(loop_count);
 			if loop_count <= 1 {
 				var _index = __animation_effect_get_index();
 				array_delete(owner.animations[track].effects, _index, 1);
@@ -125,7 +124,6 @@ function __animation_effect_sway(_duration, _range, _x_offset, _y_offset, _loop_
 		
 		var _anim = owner.animations[track];
 		var _angle = lerp(0, range, _x_prog);
-		show_debug_message(_angle)
 		_anim.angle_offset += _angle;
 		
 		if x_offset != 0 or y_offset != 0 {

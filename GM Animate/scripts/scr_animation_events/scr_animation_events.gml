@@ -28,6 +28,15 @@ function animation_event_add(_sprite, _frames, _callback, _track = 0) {
 	array_push(_event[$ _sprite_name], new __animation_event(_frames, method(self, _callback), _track));
 }
 
+events = {
+    spr_walk : [
+		{
+			frames : [3, 6],
+			callback : function() {}
+		}
+	]
+}
+
 /// @desc Remove events from the specified sprite, frame, and track. Pass `all` for all three arguments to remove all events for this instance.
 /// @param {asset.GMSprite|Array} _sprite The sprites to remove events from. Can pass a single sprite, or an array of sprites to remove events from multiple at once. Pass `all` to remove events from every sprite for this track.
 /// @param {Real} _frames The frames to remove events from. Can pass a number, or an array of numbers to remove events from multiple frames at once. Pass `all` to remove all events for this sprite and track.
