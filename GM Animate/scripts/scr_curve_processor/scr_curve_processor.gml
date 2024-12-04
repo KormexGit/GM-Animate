@@ -13,7 +13,9 @@ function curve_start(_curve, _channel, _variable_name, _start_value, _end_value,
 	if !variable_instance_exists(id, "curves") {
 		curves = [];	
 	}
-	array_push(curves, new __curve_runner(_curve, _channel, _variable_name, _start_value, _end_value, _duration, _loops, _owner));
+	var curve = new __curve_runner(_curve, _channel, _variable_name, _start_value, _end_value, _duration, _loops, _owner);
+	array_push(curves, curve);
+	return curve;
 }
 
 /// @desc Runs any active curves on this instance. Must be called in step for the curves to work.
