@@ -5,7 +5,7 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Internal Scripts (No touchy!)",
-    "path": "folders/GM Animate/Internal Scripts (No touchy!).yy",
+    "name": "Auto-Curve",
+    "path": "folders/Auto-Curve.yy",
   },
 }
