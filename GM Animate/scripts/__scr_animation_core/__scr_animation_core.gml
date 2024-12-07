@@ -195,7 +195,7 @@ function __animation_track_error(_track) {
 	}
 }
 
-function ___animation_array_error() {
+function __animation_array_error() {
 	if !instance_exists(self) {
 		show_error("GM Animate: tried to use an animation function in a non-instance scope. \nRunning animations in struct or global scope is currently not supported.", true);
 	}

@@ -14,8 +14,3 @@ state.step();
 if hsp != 0 {
 	anim.image_xscale = sign(hsp);
 }
-
-
-if keyboard_check_pressed(ord("U")) {
-	animation_event_remove()	
-}

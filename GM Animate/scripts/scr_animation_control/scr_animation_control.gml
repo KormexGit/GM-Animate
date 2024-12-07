@@ -18,7 +18,7 @@ if !ANIMATION_AUTOMATIC_MODE {
 	/// Do not call this if automatic mode is enabled.
 	function animation_run() {
 		
-		___animation_array_error();
+		__animation_array_error();
 		
 		for(var i = 0, _len = array_length(animations); i < _len; i++;) { 
 			if animations[i] == 0 {
