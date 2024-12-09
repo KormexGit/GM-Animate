@@ -13,21 +13,19 @@ function animation_start(_sprite, _loop = true, _track = 0) {
 	return animations[_track];
 }
 
-if !ANIMATION_AUTOMATIC_MODE {
-	/// @desc Runs the animations for this object. Must be called in step when automatic mode is disabled for animations to work.
-	/// Do not call this if automatic mode is enabled.
-	function animation_run() {
+/// @desc Runs the animations for this object. Must be called in a step event for animations to work.
+function animation_run() {
 		
-		__animation_array_error();
+	__animation_array_error();
 		
-		for(var i = 0, _len = array_length(animations); i < _len; i++;) { 
-			if animations[i] == 0 {
-				continue;	
-			}
-			animations[i].__animate();
+	for(var i = 0, _len = array_length(animations); i < _len; i++;) { 
+		if animations[i] == 0 {
+			continue;	
 		}
+		animations[i].__animate();
 	}
 }
+
 
 /// @desc Change an animation track to a different sprite without resetting effects, the animation queue, or variables.
 /// The equivalent of changing sprite_index when using GameMaker's built in animation.

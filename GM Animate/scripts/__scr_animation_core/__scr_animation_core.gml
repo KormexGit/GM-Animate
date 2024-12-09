@@ -1,29 +1,6 @@
 //feather ignore all
 
-if ANIMATION_AUTOMATIC_MODE {
-	global.__animation_array = [];
-
-	global.__animation_timesource = time_source_create(time_source_game, 1, time_source_units_frames, 
-		function() {
-			for (var i = array_length(global.__animation_array) - 1; i >= 0; i--;) {
-			    if weak_ref_alive(global.__animation_array[i]) {
-					var _anim_struct = global.__animation_array[i].ref;
-					if instance_exists(_anim_struct.creator) {
-						_anim_struct.__animate();
-					}
-					else {
-						array_delete(global.__animation_array, i, 1);
-					}
-				}
-				else {
-					array_delete(global.__animation_array, i, 1);	
-				}
-			}
-		},
-		[], -1
-	)
-	time_source_start(global.__animation_timesource);
-}
+//GM Animate version: 0.3.2
 
 function __animation(_sprite, _loop = true) constructor {
 	static __animation_get_speed = function(_sprite = sprite_index) {
@@ -181,11 +158,6 @@ function __animation(_sprite, _loop = true) constructor {
 		draw_sprite_ext(sprite_index, _image_index, _x + x_offset, _y + y_offset, _image_xscale + (xscale_offset * _image_xscale), 
 		_image_yscale + (yscale_offset * _image_yscale), 
 		_image_angle + angle_offset, _image_blend, _image_alpha - alpha_offset);
-	}
-	
-	if ANIMATION_AUTOMATIC_MODE {
-		var _ref = weak_ref_create(self);
-		array_push(global.__animation_array, _ref);
 	}
 }
 
