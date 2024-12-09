@@ -1,29 +1,6 @@
 //feather ignore all
 
-if ANIMATION_AUTOMATIC_MODE {
-	global.__animation_array = [];
-
-	global.__animation_timesource = time_source_create(time_source_game, 1, time_source_units_frames, 
-		function() {
-			for (var i = array_length(global.__animation_array) - 1; i >= 0; i--;) {
-			    if weak_ref_alive(global.__animation_array[i]) {
-					var _anim_struct = global.__animation_array[i].ref;
-					if instance_exists(_anim_struct.creator) {
-						_anim_struct.__animate();
-					}
-					else {
-						array_delete(global.__animation_array, i, 1);
-					}
-				}
-				else {
-					array_delete(global.__animation_array, i, 1);	
-				}
-			}
-		},
-		[], -1
-	)
-	time_source_start(global.__animation_timesource);
-}
+//GM Animate version: 0.3.2
 
 function __animation(_sprite, _loop = true) constructor {
 	static __animation_get_speed = function(_sprite = sprite_index) {
@@ -51,6 +28,7 @@ function __animation(_sprite, _loop = true) constructor {
 	}
 	
 	sprite_index = _sprite;
+	sprite_name = sprite_get_name(sprite_index);
 	__animation_variable_setup();
 	image_index = 0;
 	image_speed = 1;
@@ -79,6 +57,7 @@ function __animation(_sprite, _loop = true) constructor {
 	
 	effects = [];
 	queue = [];
+	events = {};
 	
 	static __animate = function() {
 
@@ -121,6 +100,28 @@ function __animation(_sprite, _loop = true) constructor {
 			}
 		}
 		
+		if variable_struct_exists(events, sprite_name) {	
+			var current_events = events[$ sprite_name];
+			for (var i = array_length(current_events) - 1; i > -1; i--;) {
+				var _frame = current_events[i].frames;
+				if is_array(_frame) {
+					for (var j = 0, _len = array_length(_frame); j < _len; ++j) {
+					    if _frame[j] == new_frame {
+							current_events[i].callback();
+						}
+					}
+					continue;
+				}
+				if _frame == new_frame {
+					current_events[i].callback();
+					continue;
+				}
+				//if _frame == all {
+				//	current_events[i].callback();
+				//}
+			}
+		}
+		
 		__reset_offsets();
 		for (var j = array_length(effects) - 1; j > -1; j--;) {
 			effects[j].step();
@@ -136,6 +137,16 @@ function __animation(_sprite, _loop = true) constructor {
 		}
 	}
 	
+	static __animation_event_setup = function() {
+		var _sprite_name = sprite_get_name(sprite_index);
+		if variable_struct_exists(event_database, _sprite_name) {
+			events = event_database[$ _sprite_name];
+		}
+		else {
+			events = [];	
+		}
+	}
+	
 	static __draw = function(_x = other.x, _y = other.y) {
 		draw_sprite_ext(sprite_index, image_index, _x + x_offset, _y + y_offset, image_xscale + (xscale_offset * image_xscale), 
 		image_yscale + (yscale_offset * image_yscale), 
@@ -148,11 +159,6 @@ function __animation(_sprite, _loop = true) constructor {
 		_image_yscale + (yscale_offset * _image_yscale), 
 		_image_angle + angle_offset, _image_blend, _image_alpha - alpha_offset);
 	}
-	
-	if ANIMATION_AUTOMATIC_MODE {
-		var _ref = weak_ref_create(self);
-		array_push(global.__animation_array, _ref);
-	}
 }
 
 function __animation_track_error(_track) {
@@ -161,7 +167,7 @@ function __animation_track_error(_track) {
 	}
 }
 
-function ___animation_array_error() {
+function __animation_array_error() {
 	if !instance_exists(self) {
 		show_error("GM Animate: tried to use an animation function in a non-instance scope. \nRunning animations in struct or global scope is currently not supported.", true);
 	}
@@ -169,4 +175,21 @@ function ___animation_array_error() {
 		show_error("GM Animate: tried to use an animation function on an object that never called animation_start: " + object_get_name(object_index) + "\nCall animation_start() on the object before using other animation functions.", true);
 	} 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

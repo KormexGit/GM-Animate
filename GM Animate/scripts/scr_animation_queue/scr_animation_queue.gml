@@ -50,7 +50,7 @@ function animation_queue_remove_index(_index, _track = 0) {
 		array_delete(_queue, _index, 1);
 	}
 	else {
-		show_debug_message("Animation warning: tried to use animation_queue_remove_index on an index that didn't exist. Object: " +
+		show_debug_message("GM Animate Warning: tried to use animation_queue_remove_index on an index that didn't exist. Object: " +
 		object_get_name(object_index) + ", index: " + string(_index) + ", queue length: " + string(animation_queue_get_length(_track)));	
 	}
 }

@@ -1,7 +1,6 @@
 //feather ignore all
-if !ANIMATION_AUTOMATIC_MODE {
-	animation_run();
-}
+
+animation_run();
 
 
 hor_input = keyboard_check(ord("D")) - keyboard_check(ord("A"));

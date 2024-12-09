@@ -13,13 +13,19 @@ function animation_start(_sprite, _loop = true, _track = 0) {
 	return animations[_track];
 }
 
-/// @desc Runs the animations for this object. Must be called in step when automatic mode is disabled for animations to work.
-/// Do not call this if automatic mode is enabled.
+/// @desc Runs the animations for this object. Must be called in a step event for animations to work.
 function animation_run() {
-	for(var i = 0, len = array_length(animations); i < len; i++;) { 
+		
+	__animation_array_error();
+		
+	for(var i = 0, _len = array_length(animations); i < _len; i++;) { 
+		if animations[i] == 0 {
+			continue;	
+		}
 		animations[i].__animate();
 	}
 }
+
 
 /// @desc Change an animation track to a different sprite without resetting effects, the animation queue, or variables.
 /// The equivalent of changing sprite_index when using GameMaker's built in animation.
@@ -37,6 +43,7 @@ function animation_change(_sprite, _starting_image_index = 0, _loop = true, _tra
 				image_speed = 1;
 			}
 			sprite_index = _sprite;
+			sprite_name = sprite_get_name(sprite_index);
 			if _starting_image_index != -1 {
 				image_index = _starting_image_index;
 			}
@@ -48,17 +55,18 @@ function animation_change(_sprite, _starting_image_index = 0, _loop = true, _tra
 }
 
 /// @desc Draw an animation. Must be called for an animation to appear. Should always be called in a draw related event.
-/// @param {Real} _x x coordinate to draw at.
-/// @param {Real} _y y coordinate to draw at.
+/// @param {Real} _x x coordinate to draw at. Defaults to the instance's x.
+/// @param {Real} _y y coordinate to draw at. Defaults to the instance's y.
 /// @param {Real} _track The track to draw. Pass `all` to draw every active track.
 function animation_draw(_x = x, _y = y, _track = 0) {
 	__animation_error_checks
 	
 	if _track == all {
 		for (var i = 0, _len = array_length(animations); i < _len; ++i) {
-			if animations[i] != 0 {
-				animations[i].__draw(_x, _y);
+			if animations[i] == 0 {
+				continue;
 			}
+			animations[i].__draw(_x, _y);
 		}
 		return;
 	}		
@@ -66,8 +74,9 @@ function animation_draw(_x = x, _y = y, _track = 0) {
 }
 
 /// @desc Draw an animation with different parameters than it's current variables, similar to draw_sprite_ext. Should always be called in a draw related event.
-/// @param {Real} _x x coordinate to draw at.
-/// @param {Real} _y y coordinate to draw at.
+/// All arguments are optional, and default to the animation's value for that variable. 
+/// @param {Real} _x x coordinate to draw at. Defaults to the instance's x.
+/// @param {Real} _y y coordinate to draw at. Defaults to the instance's y.
 /// @param {Real} _image_index The frame to draw.
 /// @param {Real} _image_xscale The base xscale to use. Effects that change xscale will apply their multiplier to this value.
 /// @param {Real} _image_yscale The base yscale to use. Effects that change yscale will apply their multiplier to this value.
@@ -75,24 +84,27 @@ function animation_draw(_x = x, _y = y, _track = 0) {
 /// @param {Real} _image_blend The blend to draw with.
 /// @param {Real} _image_alpha The alpha to draw at.
 /// @param {Real} _track The track to draw. Pass `all` to draw every active track.
-function animation_draw_ext(_x = x, _y = y, _image_index = image_index, _image_xscale = image_xscale, _image_yscale = image_yscale,
-	_image_angle = image_angle, _image_blend = image_blend, _image_alpha = image_alpha, _track = 0) {
+function animation_draw_ext(_x = undefined, _y = undefined, _image_index = undefined, _image_xscale = undefined, _image_yscale = undefined,
+	_image_angle = undefined, _image_blend = undefined, _image_alpha = undefined, _track = 0) {
 		
 	__animation_error_checks
 	
 	if _track == all {
 		for (var i = 0, _len = array_length(animations); i < _len; ++i) {
-			if animations[i] != 0 {
-				animations[i].__draw_ext(_image_index, _x, _y, _image_xscale, _image_yscale, _image_angle, _image_blend, _image_alpha);
+			if animations[i] == 0 {
+				continue;
 			}
+			animations[i].__draw_ext(_image_index, _x, _y, _image_xscale, _image_yscale, _image_angle, _image_blend, _image_alpha);
 		}
 		return;
-	}		
+	}	
+	
 	animations[_track].__draw_ext(_image_index, _x, _y, _image_xscale, _image_yscale, _image_angle, _image_blend, _image_alpha);
 }
 
 /// @desc Set the instance's collision mask to match the specified animation track. Effects (such as shake, squash and stretch) will not affect the mask's position or size.
-/// WARNING: _use_scale and _use_angle will change the calling instance's image_xscale, image_yscale, and/or image_angle if set to true. 
+/// WARNING: This function changes the calling instance's mask_index and image_index, so it will interfere with built in animation.
+/// Additionally, it will change the calling instance's image_xscale, image_yscale, and/or image_angle if _use_scale and/or _use_angle are set to true. 
 /// @param {Bool} _use_scale Whether to match the instance's image_xscale and image_yscale to the animation's image_xscale and image_yscale. 
 /// @param {Bool} _use_angle Whether to match the instance's image_angle to the animation's image_angle. 
 /// @param {Real} _track The track to get the sprite from to use as the collision mask.
@@ -205,6 +217,26 @@ function animation_enter_frame(_frame, _track = 0) {
 	}
 }
 
+/// @desc Sets a variable for the specified track. Can be used to set a variable for all tracks at once.
+/// Intended use is with built in variables, such as "image_angle", "image_xscale", etc.
+/// @param {String} _variable_name The variable to change, as a string. 
+/// @param {Any} _value The value to set the variable to.
+/// @param {Real} _track The track to set. Pass `all` to set all tracks at once.
+function animation_set_variable(_variable_name, _value, _track = 0) {
+	__animation_error_checks
+	
+	if _track == all {
+		for (var i = 0, _len = array_length(animations); i < _len; ++i) {
+		    if animations[i] == 0 {
+				continue;
+			}
+			animations[i][$ _variable_name] = _value;
+		}
+		return;
+	}
+	animations[_track][$ _variable_name] = _value;
+}
+
 /// @desc Sets looping for the animation on the specified track. 
 /// @param {Bool} _loop Whether to loop or stop looping.
 /// @param {Real} _track The track to set. Pass `all` to set all tracks at once.
@@ -212,9 +244,10 @@ function animation_set_looping(_loop, _track = 0) {
 	__animation_error_checks
 	if _track == all {
 		for (var i = 0, _len = array_length(animations); i < _len; ++i) {
-		    if animations[i] != 0 {
-				animations[i].loop = _pause;	
+			if animations[i] == 0 {
+				continue;
 			}
+			animations[i].loop = _pause;	
 		}
 		return;
 	}

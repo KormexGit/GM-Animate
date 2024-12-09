@@ -1,11 +1,11 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "scr_animation_config",
+  "name": "scr_curve_processor",
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Config (Edit me!)",
-    "path": "folders/GM Animate/Config (Edit me!).yy",
+    "name": "Auto-Curve",
+    "path": "folders/Auto-Curve.yy",
   },
 }

@@ -5,7 +5,7 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Public Scripts (Use but don't edit!)",
-    "path": "folders/GM Animate/Public Scripts (Use but don't edit!).yy",
+    "name": "Public Scripts (Use these!)",
+    "path": "folders/GM Animate/Public Scripts (Use these!).yy",
   },
 }
