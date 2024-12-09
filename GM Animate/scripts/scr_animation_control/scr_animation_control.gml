@@ -218,6 +218,7 @@ function animation_enter_frame(_frame, _track = 0) {
 }
 
 /// @desc Sets a variable for the specified track. Can be used to set a variable for all tracks at once.
+/// Intended use is with built in variables, such as "image_angle", "image_xscale", etc.
 /// @param {String} _variable_name The variable to change, as a string. 
 /// @param {Any} _value The value to set the variable to.
 /// @param {Real} _track The track to set. Pass `all` to set all tracks at once.
