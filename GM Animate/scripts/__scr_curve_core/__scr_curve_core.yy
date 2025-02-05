@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "__scr_curve_core",
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "Auto-Curve",
-    "path": "folders/Auto-Curve.yy",
+  "$GMScript":"v1",
+  "%Name":"__scr_curve_core",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"__scr_curve_core",
+  "parent":{
+    "name":"Auto-Curve",
+    "path":"folders/Auto-Curve.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

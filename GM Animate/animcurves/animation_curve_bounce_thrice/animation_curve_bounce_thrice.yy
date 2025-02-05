@@ -1,10 +1,8 @@
 {
-  "resourceType": "GMAnimCurve",
-  "resourceVersion": "1.2",
-  "name": "animation_curve_bounce_thrice",
-  "function": 2,
-  "channels": [
-    {"resourceType":"GMAnimCurveChannel","resourceVersion":"1.0","name":"x","colour":4290799884,"visible":true,"points":[
+  "$GMAnimCurve":"",
+  "%Name":"animation_curve_bounce_thrice",
+  "channels":[
+    {"$GMAnimCurveChannel":"","%Name":"x","colour":4290799884,"name":"x","points":[
         {"th0":-0.1,"th1":0.027752513,"tv0":0.0,"tv1":0.56507444,"x":0.0,"y":0.0,},
         {"th0":-0.06663245,"th1":0.08784622,"tv0":0.0040477514,"tv1":-0.005336433,"x":0.0992801,"y":1.0,},
         {"th0":-0.082020566,"th1":0.0961931,"tv0":-0.018062234,"tv1":0.02118325,"x":0.2973804,"y":-0.8,},
@@ -12,8 +10,8 @@
         {"th0":-0.058104463,"th1":0.1002478,"tv0":0.0020887328,"tv1":-0.0036036968,"x":0.69336736,"y":-0.4,},
         {"th0":-0.07683021,"th1":0.05230373,"tv0":-0.0750148,"tv1":0.05099822,"x":0.8950382,"y":0.2,},
         {"th0":-0.033678472,"th1":0.1,"tv0":0.09294546,"tv1":0.0,"x":1.0,"y":0.0,},
-      ],},
-    {"resourceType":"GMAnimCurveChannel","resourceVersion":"1.0","name":"y","colour":4281083598,"visible":true,"points":[
+      ],"resourceType":"GMAnimCurveChannel","resourceVersion":"2.0","visible":true,},
+    {"$GMAnimCurveChannel":"","%Name":"y","colour":4281083598,"name":"y","points":[
         {"th0":-0.1,"th1":0.016302133,"tv0":0.0,"tv1":-0.61362946,"x":0.0,"y":0.0,},
         {"th0":-0.0664337,"th1":0.08215362,"tv0":-0.024386497,"tv1":0.03015697,"x":0.10118849,"y":-1.0,},
         {"th0":-0.08963242,"th1":0.09643693,"tv0":-0.016236305,"tv1":0.017468898,"x":0.29738042,"y":0.8,},
@@ -21,10 +19,14 @@
         {"th0":-0.05927486,"th1":0.08152777,"tv0":-0.000320987,"tv1":0.0004414916,"x":0.69909257,"y":0.4,},
         {"th0":-0.07391435,"th1":0.05026084,"tv0":0.08631244,"tv1":-0.058641963,"x":0.898855,"y":-0.2,},
         {"th0":-0.031018794,"th1":0.1,"tv0":-0.09296825,"tv1":0.0,"x":1.0,"y":0.0,},
-      ],},
+      ],"resourceType":"GMAnimCurveChannel","resourceVersion":"2.0","visible":true,},
   ],
-  "parent": {
-    "name": "Animation Curves",
-    "path": "folders/GM Animate/Animation Curves.yy",
+  "function":2,
+  "name":"animation_curve_bounce_thrice",
+  "parent":{
+    "name":"Animation Curves",
+    "path":"folders/GM Animate/Animation Curves.yy",
   },
+  "resourceType":"GMAnimCurve",
+  "resourceVersion":"2.0",
 }
