@@ -17,6 +17,10 @@ with obj_player {
 	}	
 }
 
+animation_event_add(spr_player_walk, [3, 6], function() {
+	audio_play_sound(snd_footstep, 0, false);
+})
+
 if keyboard_check_pressed(vk_tab) {
 	if player_active {
 		instance_deactivate_object(obj_player);
