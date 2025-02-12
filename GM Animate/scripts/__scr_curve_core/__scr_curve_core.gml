@@ -1,4 +1,4 @@
-function __curve_runner(_curve, _channel, _variable_name, _start_value, _end_value, _duration, _loops = 1, _owner = id) constructor {
+function __curve_runner_lerp(_curve, _channel, _variable_name, _start_value, _end_value, _duration, _loops = 1, _owner = id) constructor {
 	curve = _curve;
 	variable = _variable_name;
 	start_value = _start_value;
@@ -12,6 +12,7 @@ function __curve_runner(_curve, _channel, _variable_name, _start_value, _end_val
 	curve_progress = 0;
 	rate = 1/duration;
 	channel = animcurve_get_channel(curve, _channel);
+	prog = animcurve_channel_evaluate(channel, curve_progress);
 	
 	static __curve_get_index = function() {
 		var _array = calling_instance.curves;
@@ -20,6 +21,10 @@ function __curve_runner(_curve, _channel, _variable_name, _start_value, _end_val
 				return i;
 			}
 		}
+	}
+	
+	static __curve_effect = function() {
+		owner[$ variable] = lerp(start_value, end_value, prog);
 	}
 	
 	static __curve_process = function() {
@@ -37,9 +42,9 @@ function __curve_runner(_curve, _channel, _variable_name, _start_value, _end_val
 			}
 		}	
 		
-		var _prog = animcurve_channel_evaluate(channel, curve_progress);
+		prog = animcurve_channel_evaluate(channel, curve_progress);
 		
-		owner[$ variable] = lerp(start_value, end_value, _prog);
+		__curve_effect();
 	}
 	
 	//automatic = true;
@@ -65,4 +70,14 @@ function __curve_runner(_curve, _channel, _variable_name, _start_value, _end_val
 	//	}, [], -1)
 	//	time_source_start(ts);
 	//}
+}
+
+
+function __curve_runner_wave(_curve, _channel, _variable_name, _range, _duration, _loops = 1, _owner = id) : 
+__curve_runner_lerp(_curve, _channel, _variable_name, 0, 0, _duration, _loops, _owner) constructor {
+	range = _range;
+	
+	__curve_effect = function() {
+		owner[$ variable] += prog*range;
+	}
 }

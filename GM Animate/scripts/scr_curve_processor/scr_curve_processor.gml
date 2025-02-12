@@ -9,11 +9,14 @@
 /// @param {Real} _duration How long it should take for the value to change.
 /// @param {Real} _loops How many times the curve should repeat. Pass `infinity` to repeat forever. Defaults to 1.
 /// @param {Id.Instance|Struct} _owner The instance (or struct) that owns the variable. Set to the calling instance by default.
-function curve_start(_curve, _channel, _variable_name, _start_value, _end_value, _duration, _loops = 1, _owner = id) {
-	if !variable_instance_exists(id, "curves") {
-		curves = [];	
-	}
-	var curve = new __curve_runner(_curve, _channel, _variable_name, _start_value, _end_value, _duration, _loops, _owner);
+function curve_lerp(_curve, _channel, _variable_name, _start_value, _end_value, _duration, _loops = 1, _owner = id) {
+	var curve = new __curve_runner_lerp(_curve, _channel, _variable_name, _start_value, _end_value, _duration, _loops, _owner);
+	array_push(curves, curve);
+	return curve;
+}
+
+function curve_wave(_curve, _channel, _variable_name, _range, _duration, _loops = 1, _owner = id) {
+	var curve = new __curve_runner_wave(_curve, _channel, _variable_name, _range, _duration, _loops, _owner);
 	array_push(curves, curve);
 	return curve;
 }
@@ -34,4 +37,9 @@ function curve_is_finished(_curve) {
 		return true;
 	}
 	return false;
+}
+
+function curve_force_finish(_curve) {
+	_curve.curve_progess = 1;
+	_curve.loop_count = 0;
 }
