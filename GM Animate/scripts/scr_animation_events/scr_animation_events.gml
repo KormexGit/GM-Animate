@@ -6,7 +6,7 @@
 /// @param {Real|Array} _frames The frames to run the callback on. Can pass a number, or an array of numbers to add the event for multiple frames at once.
 /// @param {Function} _callback The function or method to run when the frame is reached.
 /// @param {Struct|Id.Instance} _callback_scope The scope the callback function should run in. Defaults to the calling instance.
-/// @param {Real} _track The track to add the event to.
+/// @param {Real} _track The track to add the event to. Pass `all` to add the event to every active track.
 function animation_event_add(_sprite, _frames, _callback, _callback_scope = self, _track = 0) {
 	__animation_error_checks
 	

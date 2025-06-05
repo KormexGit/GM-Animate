@@ -15,7 +15,6 @@ function animation_start(_sprite, _loop = true, _track = 0) {
 
 /// @desc Runs the animations for this object. Must be called in a step event for animations to work.
 function animation_run() {
-		
 	__animation_array_error();
 		
 	for(var i = 0, _len = array_length(animations); i < _len; i++;) { 
