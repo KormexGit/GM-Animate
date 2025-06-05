@@ -39,17 +39,17 @@ function animation_change(_sprite, _starting_image_index = 0, _loop = true, _tra
 
 	with animations[_track] {
 		if sprite_index != _sprite {
-			if loop == false and image_speed == 0 {
-				image_speed = 1;
-			}
 			sprite_index = _sprite;
 			sprite_name = sprite_get_name(sprite_index);
+			__animation_variable_setup();
 			if _starting_image_index != -1 {
 				image_index = _starting_image_index;
 			}
-			loop = _loop;
-			__animation_variable_setup();
 		}
+		if loop == false and image_speed == 0 {
+			image_speed = 1;
+		}
+		loop = _loop;
 	}
 	return animations[_track];
 }
