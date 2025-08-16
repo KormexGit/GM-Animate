@@ -40,7 +40,9 @@ A sample project is in the repo but is still WIP.
 ### Planned features for the future (at whatever point I get around to it)
 - More effects!
 - A curve runner: Changes a variable based on an animation curve. Would work with any variable, not just ones inside the GM animate system
-- Attachment point editor (this one may take a while)
+
+Features I'd like to add but may not ever get around to because they'd be quite complicated:
+- Attachment point editor
 - Functions to automatically keep animations attached to eachother at the chosen points/angles
 
 ## More resources
