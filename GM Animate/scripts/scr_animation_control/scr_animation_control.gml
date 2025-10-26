@@ -53,6 +53,39 @@ function animation_change(_sprite, _starting_image_index = 0, _loop = true, _tra
 	return animations[_track];
 }
 
+
+/// @desc Same as animation_change, but also changes the mask_index of the instance this is called on.
+/// WARNING: This function changes the calling instance's mask_index and image_index, so it will interfere with built in animation.
+/// Additionally, it will change the calling instance's image_xscale, image_yscale, and/or image_angle if _use_scale and/or _use_angle are set to true. 
+/// @param {asset.GMSprite} _sprite The sprite asset to animate.
+/// @param {Real} _starting_image_index The frame to start the new animation on. Pass -1 to not change image_index and keep the frame of the previous animation.
+/// @param {Bool} _loop Whether the animation should loop or not upon completion.
+/// @param {Bool} _use_scale Whether to match the instance's image_xscale and image_yscale to the animation's image_xscale and image_yscale. 
+/// @param {Bool} _use_angle Whether to match the instance's image_angle to the animation's image_angle. 
+/// @param {Real} _track The track to change the animation on.
+/// @return {Struct} Animation struct
+function animation_and_mask_change(_sprite, _starting_image_index = 0, _loop = true, _use_scale = false, _use_angle = false, _track = 0) {
+	__animation_error_checks
+
+	with animations[_track] {
+		if sprite_index != _sprite {
+			sprite_index = _sprite;
+			sprite_name = sprite_get_name(sprite_index);
+			__animation_variable_setup();
+			if _starting_image_index != -1 {
+				image_index = _starting_image_index;
+			}
+		}
+		if loop == false and image_speed == 0 {
+			image_speed = 1;
+		}
+		loop = _loop;
+	}
+	animation_set_instance_mask(_use_scale, _use_angle, _track);
+	
+	return animations[_track];
+}
+
 /// @desc Draw an animation. Must be called for an animation to appear. Should always be called in a draw related event.
 /// @param {Real} _x x coordinate to draw at. Defaults to the instance's x.
 /// @param {Real} _y y coordinate to draw at. Defaults to the instance's y.
