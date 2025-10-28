@@ -54,7 +54,7 @@ function animation_change(_sprite, _starting_image_index = 0, _loop = true, _tra
 }
 
 
-/// @desc Same as animation_change, but also changes the mask_index of the instance this is called on.
+/// @desc Same as animation_change, but also changes the mask of the instance.
 /// WARNING: This function changes the calling instance's mask_index and image_index, so it will interfere with built in animation.
 /// Additionally, it will change the calling instance's image_xscale, image_yscale, and/or image_angle if _use_scale and/or _use_angle are set to true. 
 /// @param {asset.GMSprite} _sprite The sprite asset to animate.
