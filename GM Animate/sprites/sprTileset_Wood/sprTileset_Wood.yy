@@ -1,5 +1,5 @@
 {
-  "$GMSprite":"",
+  "$GMSprite":"v2",
   "%Name":"sprTileset_Wood",
   "bboxMode":0,
   "bbox_bottom":2303,
@@ -12,7 +12,7 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"095894cd-da1c-4b5a-883f-77b2504ac72e","name":"095894cd-da1c-4b5a-883f-77b2504ac72e","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"095894cd-da1c-4b5a-883f-77b2504ac72e","name":"095894cd-da1c-4b5a-883f-77b2504ac72e","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":256,
   "gridY":256,

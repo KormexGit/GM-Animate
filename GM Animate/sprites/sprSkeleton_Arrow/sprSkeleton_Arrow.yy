@@ -1,5 +1,5 @@
 {
-  "$GMSprite":"",
+  "$GMSprite":"v2",
   "%Name":"sprSkeleton_Arrow",
   "bboxMode":0,
   "bbox_bottom":26,
@@ -12,7 +12,7 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"3d73c42b-bea0-402b-9462-242d71bc4d4f","name":"3d73c42b-bea0-402b-9462-242d71bc4d4f","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"3d73c42b-bea0-402b-9462-242d71bc4d4f","name":"3d73c42b-bea0-402b-9462-242d71bc4d4f","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,

@@ -1,5 +1,5 @@
 {
-  "$GMSprite":"",
+  "$GMSprite":"v2",
   "%Name":"sprTileset_Caves",
   "bboxMode":0,
   "bbox_bottom":2282,
@@ -12,7 +12,7 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"b6156b01-77e8-44f1-89c6-28c6d9cf20d7","name":"b6156b01-77e8-44f1-89c6-28c6d9cf20d7","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"b6156b01-77e8-44f1-89c6-28c6d9cf20d7","name":"b6156b01-77e8-44f1-89c6-28c6d9cf20d7","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":256,
   "gridY":256,

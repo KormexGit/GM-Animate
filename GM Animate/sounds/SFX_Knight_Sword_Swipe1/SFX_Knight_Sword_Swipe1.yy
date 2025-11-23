@@ -1,15 +1,17 @@
 {
-  "$GMSound":"",
+  "$GMSound":"v2",
   "%Name":"SFX_Knight_Sword_Swipe1",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
   },
   "bitDepth":1,
-  "bitRate":128,
+  "channelFormat":0,
   "compression":0,
+  "compressionQuality":4,
   "conversionMode":0,
   "duration":0.3885,
+  "exportDir":"",
   "name":"SFX_Knight_Sword_Swipe1",
   "parent":{
     "name":"Knight",
@@ -20,6 +22,5 @@
   "resourceVersion":"2.0",
   "sampleRate":44100,
   "soundFile":"SFX_Knight_Sword_Swipe1.wav",
-  "type":0,
   "volume":1.0,
 }

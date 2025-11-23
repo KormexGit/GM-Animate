@@ -1,5 +1,5 @@
 {
-  "$GMSprite":"",
+  "$GMSprite":"v2",
   "%Name":"sprTileset_Stone",
   "bboxMode":0,
   "bbox_bottom":2303,
@@ -12,7 +12,7 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"10b92b2c-b9b8-4ff3-a2c2-0e879196e108","name":"10b92b2c-b9b8-4ff3-a2c2-0e879196e108","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"10b92b2c-b9b8-4ff3-a2c2-0e879196e108","name":"10b92b2c-b9b8-4ff3-a2c2-0e879196e108","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":256,
   "gridY":256,

@@ -1,5 +1,5 @@
 {
-  "$GMSprite":"",
+  "$GMSprite":"v2",
   "%Name":"sprKnight_Jump_Fall_Sword",
   "bboxMode":0,
   "bbox_bottom":381,
@@ -12,10 +12,10 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"e38c30d5-ac4d-4409-8a75-d6e91dccc8f8","name":"e38c30d5-ac4d-4409-8a75-d6e91dccc8f8","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
-    {"$GMSpriteFrame":"","%Name":"b9bb9466-f010-4974-ad3d-18c52e92d972","name":"b9bb9466-f010-4974-ad3d-18c52e92d972","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
-    {"$GMSpriteFrame":"","%Name":"7acf2b92-56fc-4105-8b27-1aa0ff946452","name":"7acf2b92-56fc-4105-8b27-1aa0ff946452","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
-    {"$GMSpriteFrame":"","%Name":"c7f682be-dc42-4207-b6b5-709c7ebe704b","name":"c7f682be-dc42-4207-b6b5-709c7ebe704b","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"e38c30d5-ac4d-4409-8a75-d6e91dccc8f8","name":"e38c30d5-ac4d-4409-8a75-d6e91dccc8f8","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"b9bb9466-f010-4974-ad3d-18c52e92d972","name":"b9bb9466-f010-4974-ad3d-18c52e92d972","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"7acf2b92-56fc-4105-8b27-1aa0ff946452","name":"7acf2b92-56fc-4105-8b27-1aa0ff946452","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"c7f682be-dc42-4207-b6b5-709c7ebe704b","name":"c7f682be-dc42-4207-b6b5-709c7ebe704b","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
