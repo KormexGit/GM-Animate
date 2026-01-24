@@ -37,13 +37,5 @@ You can also find full documentation on the [Github wiki page](https://github.co
 A sample project is in the repo but is still WIP.
 
 
-### Planned features for the future (at whatever point I get around to it)
-- More effects!
-- A curve runner: Changes a variable based on an animation curve. Would work with any variable, not just ones inside the GM animate system
-
-Features I'd like to add but may not ever get around to because they'd be quite complicated:
-- Attachment point editor
-- Functions to automatically keep animations attached to eachother at the chosen points/angles
-
 ## More resources
 Need help with GM Animate? Looking for more libraries and tools for GameMaker? Come join us at the [GameMaker Kitchen discord server](https://discord.gg/8krYCqr)! You can find the thread for GM Animate in the `your_resources` forum.
