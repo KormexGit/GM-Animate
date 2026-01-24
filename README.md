@@ -2,6 +2,7 @@
 GM Animate is made to be beginner friendly, and uses a GameMaker-like function structure that makes it immediately familiar.
 
 LTS compatible! Works on any GM version 2022.0 or newer.
+Note: Once LTS 2026 comes out, support for LTS 2022 will drop.
 
 ## Features:
 - Doesn't interfere with GM's built in animation, so you can use both at once if desired
