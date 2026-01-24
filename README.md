@@ -9,6 +9,7 @@ Note: Once LTS 2026 comes out, support for LTS 2022 will drop.
 - Play multiple sprite animations on one object
 - Check if an animation has finished or is on a specified frame
 - Animation queue to automatically play animations one after another
+- Animation events to automatically run code whenever a sprite hits specified frames
 - Pause or unpause all animations in the game at once
 - Effects with animation curves! Use an included curve or make your own
   - Squash and strech, alters image_xscale and image_yscale to make a sprite "bounce". 
