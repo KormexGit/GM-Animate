@@ -12,7 +12,7 @@ Note: Once LTS 2026 comes out, support for LTS 2022 will drop.
 - Animation events to automatically run code whenever a sprite hits specified frames
 - Pause or unpause all animations in the game at once
 - Effects with animation curves! Use an included curve or make your own
-  - Squash and strech, alters image_xscale and image_yscale to make a sprite "bounce". 
+  - Squash and stretch, alters image_xscale and image_yscale to make a sprite "bounce". 
   - Sway, makes a sprite rotate back and forth.
   - Oscillate, makes a sprite move up and down (or any direction you choose!)
   - Shake, like a screen shake, but just for one sprite.
