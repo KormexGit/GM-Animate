@@ -18,7 +18,7 @@
   "out_tilevborder":2,
   "parent":{
     "name":"Tilesets",
-    "path":"folders/Sample Platformer/Tiles/Tilesets.yy",
+    "path":"folders/Sample Platformer (WIP)/Tiles/Tilesets.yy",
   },
   "resourceType":"GMTileSet",
   "resourceVersion":"2.0",

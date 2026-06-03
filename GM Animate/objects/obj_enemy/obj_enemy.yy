@@ -10,7 +10,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"Enemy",
-    "path":"folders/Sample Platformer/Enemy.yy",
+    "path":"folders/Sample Platformer (WIP)/Enemy.yy",
   },
   "parentObjectId":null,
   "persistent":false,

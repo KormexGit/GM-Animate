@@ -15,7 +15,7 @@
   "name":"SFX_Knight_Fall",
   "parent":{
     "name":"Knight",
-    "path":"folders/Sample Platformer/Sounds/SFX/Character/Knight.yy",
+    "path":"folders/Sample Platformer (WIP)/Sounds/SFX/Character/Knight.yy",
   },
   "preload":false,
   "resourceType":"GMSound",

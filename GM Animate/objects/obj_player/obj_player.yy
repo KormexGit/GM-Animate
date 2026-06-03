@@ -11,7 +11,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"Player",
-    "path":"folders/Sample Platformer/Player.yy",
+    "path":"folders/Sample Platformer (WIP)/Player.yy",
   },
   "parentObjectId":null,
   "persistent":false,

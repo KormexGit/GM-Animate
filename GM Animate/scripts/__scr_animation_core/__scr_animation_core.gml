@@ -116,9 +116,6 @@ function __animation(_sprite, _loop = true) constructor {
 					current_events[i].callback();
 					continue;
 				}
-				//if _frame == all {
-				//	current_events[i].callback();
-				//}
 			}
 		}
 		

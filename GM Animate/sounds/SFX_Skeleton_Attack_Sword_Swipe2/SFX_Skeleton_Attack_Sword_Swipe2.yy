@@ -15,7 +15,7 @@
   "name":"SFX_Skeleton_Attack_Sword_Swipe2",
   "parent":{
     "name":"Skeleton",
-    "path":"folders/Sample Platformer/Sounds/SFX/Character/Skeleton.yy",
+    "path":"folders/Sample Platformer (WIP)/Sounds/SFX/Character/Skeleton.yy",
   },
   "preload":false,
   "resourceType":"GMSound",

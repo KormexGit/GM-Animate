@@ -15,7 +15,7 @@
   "name":"sndPassive1",
   "parent":{
     "name":"Music",
-    "path":"folders/Sample Platformer/Sounds/Music.yy",
+    "path":"folders/Sample Platformer (WIP)/Sounds/Music.yy",
   },
   "preload":false,
   "resourceType":"GMSound",

@@ -15,7 +15,7 @@
   "name":"SFX_Pickup",
   "parent":{
     "name":"Environment",
-    "path":"folders/Sample Platformer/Sounds/SFX/Environment.yy",
+    "path":"folders/Sample Platformer (WIP)/Sounds/SFX/Environment.yy",
   },
   "preload":false,
   "resourceType":"GMSound",

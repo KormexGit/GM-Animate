@@ -15,7 +15,7 @@
   "name":"SFX_Skeleton_Walk4",
   "parent":{
     "name":"Skeleton",
-    "path":"folders/Sample Platformer/Sounds/SFX/Character/Skeleton.yy",
+    "path":"folders/Sample Platformer (WIP)/Sounds/SFX/Character/Skeleton.yy",
   },
   "preload":false,
   "resourceType":"GMSound",

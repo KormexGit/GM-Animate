@@ -15,7 +15,7 @@
   "name":"sndAmbient_Forest_Day2",
   "parent":{
     "name":"Ambient",
-    "path":"folders/Sample Platformer/Sounds/Ambient.yy",
+    "path":"folders/Sample Platformer (WIP)/Sounds/Ambient.yy",
   },
   "preload":false,
   "resourceType":"GMSound",

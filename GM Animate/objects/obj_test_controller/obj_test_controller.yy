@@ -10,8 +10,8 @@
   "name":"obj_test_controller",
   "overriddenProperties":[],
   "parent":{
-    "name":"Sample Platformer",
-    "path":"folders/Sample Platformer.yy",
+    "name":"Sample Platformer (WIP)",
+    "path":"folders/Sample Platformer (WIP).yy",
   },
   "parentObjectId":null,
   "persistent":false,

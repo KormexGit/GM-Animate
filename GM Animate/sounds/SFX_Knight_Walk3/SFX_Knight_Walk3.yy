@@ -15,7 +15,7 @@
   "name":"SFX_Knight_Walk3",
   "parent":{
     "name":"Knight",
-    "path":"folders/Sample Platformer/Sounds/SFX/Character/Knight.yy",
+    "path":"folders/Sample Platformer (WIP)/Sounds/SFX/Character/Knight.yy",
   },
   "preload":false,
   "resourceType":"GMSound",
