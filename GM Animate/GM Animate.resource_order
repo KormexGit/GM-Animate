@@ -1,5 +1,7 @@
 {
-  "FolderOrderSettings":[],
+  "FolderOrderSettings":[
+    {"name":"Config","order":1,"path":"folders/GM Animate/Config.yy",},
+  ],
   "ResourceOrderSettings":[
     {"name":"animation_curve_bounce_a_lot","order":4,"path":"animcurves/animation_curve_bounce_a_lot/animation_curve_bounce_a_lot.yy",},
     {"name":"animation_curve_bounce_once","order":3,"path":"animcurves/animation_curve_bounce_once/animation_curve_bounce_once.yy",},

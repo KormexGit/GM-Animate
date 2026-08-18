@@ -4,6 +4,7 @@
 #export animation_effect_blink, animation_effect_cancel, animation_effect_get_count
 #export animation_effect_hitstop, animation_effect_oscillate, animation_effect_pulse
 #export animation_effect_shake, animation_effect_squash_and_strech, animation_effect_sway
+//Prep for a future prefab version of the library
 #export animation_enter_frame, animation_event_add, animation_event_remove
 #export animation_event_remove_all, animation_exists, animation_finished, animation_get
 #export animation_get_looping, animation_get_pause, animation_get_sprite_height
@@ -13,6 +14,4 @@
 #export animation_queue_remove_sprite, animation_run, animation_set_instance_mask
 #export animation_set_looping, animation_set_pause, animation_set_variable, animation_start
 
-
-#macro __GM_ANIMATE_DO_ERROR_CHECKS true
 #macro __animation_error_checks if __GM_ANIMATE_DO_ERROR_CHECKS {__animation_array_error() __animation_track_error(_track)}

@@ -1,16 +1,18 @@
-function __animation_event(_frames, _callback, _track = 0) constructor {
+/// @desc Animation event constructor
+function __animation_event(_frames, _callback) constructor {
 	frames = _frames;
 	callback = _callback;
 }
 
+//The three functions below all exist just to avoid needing to copy paste their code multiple times in the event functions.
 function __animation_add_event(_sprite, _track, _event) {
-		var _event_struct = animations[_track].events;
-		var _sprite_name = sprite_get_name(_sprite);
-		if !variable_struct_exists(_event_struct, _sprite_name) {
-			_event_struct[$ _sprite_name] = [];
-		}
-		array_push(_event_struct[$ _sprite_name], _event);
+	var _event_struct = animations[_track].events;
+	var _sprite_name = sprite_get_name(_sprite);
+	if !variable_struct_exists(_event_struct, _sprite_name) {
+		_event_struct[$ _sprite_name] = [];
 	}
+	array_push(_event_struct[$ _sprite_name], _event);
+}
 	
 function __animation_add_event_to_sprite(_sprite, _track, _event) {
 	if is_array(_sprite) {
@@ -37,3 +39,4 @@ function __animation_remove_event(_event, _track) {
 		}
 	}
 }
+

@@ -7,7 +7,7 @@
 /// @param {asset.GMSprite} _sprite The sprite asset to animate.
 /// @param {Bool} _loop Whether the animation should loop or not upon completion.
 /// @param {Real} _track The track to play the animation on.
-/// @return {Struct} Animation struct
+/// @return {Struct} Animation struct.
 function animation_start(_sprite, _loop = true, _track = 0) {
 	animations[_track] = new __animation(_sprite, _loop);
 	return animations[_track];

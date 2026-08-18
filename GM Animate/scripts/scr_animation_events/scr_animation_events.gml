@@ -10,7 +10,7 @@
 function animation_event_add(_sprite, _frames, _callback, _callback_scope = self, _track = 0) {
 	__animation_error_checks
 	
-	var _event = new __animation_event(_frames, method(_callback_scope, _callback), _track);
+	var _event = new __animation_event(_frames, method(_callback_scope, _callback));
 	
 	if _track == all {
 		for(var i = 0, _len = array_length(animations); i < _len; i++) {
