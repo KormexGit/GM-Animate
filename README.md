@@ -1,7 +1,7 @@
 ## GM Animate - Easily manage sprite animations in GameMaker
 GM Animate is made to be beginner friendly, and uses a GameMaker-like function structure that makes it immediately familiar.
 
-1.0 and newer are intended for use with GameMaker LTS 2026. You can grab 0.4.0 or older if you're on LTS 2022.
+1.0 and newer support GameMaker LTS 2026. You can grab 0.4.0 instead if you're on LTS 2022.
 
 ## Features:
 - Doesn't interfere with GM's built in animation, so you can use both at once if desired
