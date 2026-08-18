@@ -1,10 +1,10 @@
 //feather ignore all
 
+//Prep for a future prefab version of the library
 #export animation_change, animation_delete, animation_draw, animation_draw_ext
 #export animation_effect_blink, animation_effect_cancel, animation_effect_get_count
 #export animation_effect_hitstop, animation_effect_oscillate, animation_effect_pulse
 #export animation_effect_shake, animation_effect_squash_and_strech, animation_effect_sway
-//Prep for a future prefab version of the library
 #export animation_enter_frame, animation_event_add, animation_event_remove
 #export animation_event_remove_all, animation_exists, animation_finished, animation_get
 #export animation_get_looping, animation_get_pause, animation_get_sprite_height

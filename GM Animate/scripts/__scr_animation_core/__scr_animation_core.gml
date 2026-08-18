@@ -28,6 +28,7 @@ function __animation(_sprite, _loop = true) constructor {
 	
 	//Sets variables that need to update when the sprite is changed via animation_change.
 	//This is why animation_change is needed instead of changing sprite_index directly.
+	//Setting sprite_index wouldn't update these variables, and the sprite wouldn't animate correctly.
 	static __animation_variable_setup = function() {
 		image_number = sprite_get_number(sprite_index);
 		sprite_speed = __animation_get_speed(sprite_index);
