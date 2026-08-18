@@ -1,7 +1,8 @@
-//curve_run();
+curve_run();
 
 if keyboard_check_pressed(vk_space) {
-	curve_start(animation_curve_wave, "x", "x", x, x + 100, 30, 1, struct);
+	curve_wave(animation_curve_wave, "x", "x", 30, 30, 30);
 
 }
-x = struct.x;
+x += 1
+

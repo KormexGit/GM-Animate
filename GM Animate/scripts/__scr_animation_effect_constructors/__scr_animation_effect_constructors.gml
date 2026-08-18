@@ -1,8 +1,12 @@
-///feather ignore all
-
+/// @desc  The base effect constructor. If you would like to make a custom effect,
+/// @desc make a child of this constructor. Give it a static step method and a name variable, same as the included effects.
+/// @desc Duration and track variables are also suggested, though not strictly required.
+/// @desc Then, go to scr_animation_effects and create a function for adding your custom effect to the effect array.
+/// @desc You can follow the format of the existing functions there.
 function __animation_effect() constructor {
 	owner = other.id;
-		
+	
+	//Find the effects array index that this effect is currently stored at.
 	static __animation_effect_get_index = function() {
 		var _effect_array = owner.animations[track].effects;
 		for (var i = 0, _len = array_length(_effect_array); i < _len; ++i) {
@@ -12,6 +16,8 @@ function __animation_effect() constructor {
 		}
 	}
 	
+	//Called on all the children of this constructor that make use of animation curves.
+	//Sets up the variables needed to use a curve.
 	static __animation_channel_setup = function(_reverse_xy) {
 		curve_progress = 0;
 		rate = 1/duration;
@@ -25,6 +31,7 @@ function __animation_effect() constructor {
 		}
 	}
 	
+	//Used by effects that use animation curves. Progresses through the curve and handles the curve finishing.
 	static __animation_progress_curve = function() {
 		curve_progress += rate;
 		
@@ -199,3 +206,5 @@ function __animation_effect_hitstop(_duration, _track = 0) : __animation_effect(
 		owner.animations[track].effect_pause = true;
 	}
 }
+
+
