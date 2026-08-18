@@ -4,7 +4,7 @@
 
 function __animation(_sprite, _loop = true) constructor {
 	static __animation_get_speed = function(_sprite = sprite_index) {
-		//TY Tabularelf for this function! I converted it from a ternary to an if/else cuz I can't read ternaries to save my life
+		//TY Tabularelf for the base of this function! I converted it from a ternary to an if/else cuz I can't read ternaries to save my life
 		var _sprite_speed;
 		if sprite_get_speed_type(_sprite) == spritespeed_framespergameframe {
 			_sprite_speed = sprite_get_speed(_sprite);
@@ -25,6 +25,7 @@ function __animation(_sprite, _loop = true) constructor {
 	static __animation_variable_setup = function() {
 		image_number = sprite_get_number(sprite_index);
 		sprite_speed = __animation_get_speed(sprite_index);
+		frame_timing_array = sprite_get_info(sprite_index).frame_info;
 	}
 	
 	sprite_index = _sprite;
@@ -40,6 +41,8 @@ function __animation(_sprite, _loop = true) constructor {
 	loop = _loop;
 	paused = false;
 	effect_pause = false;
+	
+	frame_timing_array = sprite_get_info(sprite_index).frame_info;
 	
 	finished = false;
 	new_frame = -1;
@@ -68,7 +71,12 @@ function __animation(_sprite, _loop = true) constructor {
 		}
 		if image_speed != 0 and effect_pause == false {
 			var _previous_frame = floor(image_index);
-			image_index += sprite_speed * image_speed;
+			var _stretched_frame_modifier = 1;
+			//support for stretched frames
+			if frame_timing_array != undefined {
+				_stretched_frame_modifier *= (1 / frame_timing_array[image_index].duration);
+			}
+			image_index += sprite_speed * _stretched_frame_modifier * image_speed;
 			if image_speed > 0 {
 				if image_index >= image_number {
 					finished = true;
