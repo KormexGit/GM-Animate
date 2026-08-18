@@ -1,3 +1,5 @@
+///feather ignore all
+
 /// @desc Animation event constructor
 function __animation_event(_frames, _callback) constructor {
 	frames = _frames;
